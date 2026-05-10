@@ -108,7 +108,7 @@ const Footer = () => {
         {/* --- Copyright Bar --- */}
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center text-gray-500 text-xs tracking-wide">
           <p className="order-2 md:order-1 mt-4 md:mt-0">
-            &copy; {new Date().getFullYear()} Sage, Inc. All rights reserved.
+            &copy; {new Date().getFullYear()} DigitalLesson, Inc. All rights reserved.
           </p>
           <div className="order-1 md:order-2 flex items-center space-x-2 text-gray-400">
             <Globe size={12} />
