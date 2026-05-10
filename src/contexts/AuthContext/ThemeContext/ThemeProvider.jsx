@@ -1,23 +1,53 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { ThemeContext } from "./ThemeContext";
+import DESIGN_SYSTEM from "../../../config/designSystem";
 
 const ThemeProvider = ({ children }) => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // Initialize dark mode preference from localStorage or system
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme-mode");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    setIsDarkMode(savedTheme ? savedTheme === "dark" : prefersDark);
+  }, []);
+
+  const toggleTheme = () => {
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
+    localStorage.setItem("theme-mode", newMode ? "dark" : "light");
+  };
+
+  const theme = isDarkMode ? DESIGN_SYSTEM.darkMode : DESIGN_SYSTEM.lightMode;
+
+  // Backward compatibility colors
   const COLORS = {
-    darkGreen: "#1A2F23",
-    sage: "#4F6F52",
-    mist: "#F3F5F0",
-    gold: "#D4C5A8",
-    white: "#FFFFFF",
-    dark: "#1A2F23",
-    primary: "#4F6F52",
-    light: "#F3F5F0",
-    accent: "#D4C5A8",
-    error: "#9F5F5F",
+    // New professional colors
+    primary: DESIGN_SYSTEM.colors.primary,
+    secondary: DESIGN_SYSTEM.colors.secondary,
+    accent: DESIGN_SYSTEM.colors.accent,
+    success: DESIGN_SYSTEM.colors.success,
+    warning: DESIGN_SYSTEM.colors.warning,
+    error: DESIGN_SYSTEM.colors.error,
+    
+    // Backward compatibility
+    darkGreen: "#2563EB",
+    sage: "#8B5CF6",
+    mist: theme.surface,
+    gold: "#EC4899",
+    white: DESIGN_SYSTEM.colors.white,
+    dark: DESIGN_SYSTEM.colors.gray[900],
+    light: theme.surface,
   };
 
   const themeInfo = {
     COLORS,
+    isDarkMode,
+    toggleTheme,
+    theme,
+    designSystem: DESIGN_SYSTEM,
   };
+
   return <ThemeContext value={themeInfo}>{children}</ThemeContext>;
 };
 
