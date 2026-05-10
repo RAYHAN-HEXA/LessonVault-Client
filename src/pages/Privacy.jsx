@@ -1,5 +1,5 @@
 import React from "react";
-import { Section, Container } from "../../components/UI/Section";
+import { Section, Container } from "../components/UI/Section";
 
 const PrivacyPolicy = () => {
   return (

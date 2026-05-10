@@ -74,7 +74,7 @@ const Hero = () => {
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#E8E6D9] rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
       </div>
 
-      <div className="max-w-[1440px] mx-auto px-6 py-12 lg:py-24 relative z-10 min-h-[650px] flex items-center">
+      <div className="max-w-[1440px] mx-auto px-6 py-12 lg:py-16 relative z-10 min-h-[65vh] flex items-center">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center w-full mt-12 lg:mt-0">
           {" "}
           {/* --- Left: Carousel Mobile--- */}

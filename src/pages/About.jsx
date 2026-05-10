@@ -1,7 +1,7 @@
 import React from "react";
-import { Section, SectionHeader, Container, Grid, Divider, Spacer } from "../../components/UI/Section";
-import { Card, CardBody } from "../../components/UI/Card";
-import { Button } from "../../components/UI/Button";
+import { Section, SectionHeader, Container, Grid, Divider, Spacer } from "../components/UI/Section";
+import { Card, CardBody } from "../components/UI/Card";
+import { Button } from "../components/UI/Button";
 import { Users, Zap, Target, Award, Lightbulb, Globe } from "lucide-react";
 import { Link } from "react-router";
 

@@ -140,7 +140,6 @@ const Navbar = () => {
   }, []);
   const links = (
     <>
-      {" "}
       <NavLink
         to="/"
         className={({ isActive }) =>
@@ -163,22 +162,32 @@ const Navbar = () => {
           } after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:transition-all after:duration-300`
         }
       >
-        Public Lessons
+        Explore
       </NavLink>
-      {user && (
-        <NavLink
-          to="/dashboard/add-lessons"
-          className={({ isActive }) =>
-            `text-sm font-medium text-[#2C3E2E]/80 hover:text-[#4F6F52] relative pb-1 transition-colors ${
-              isActive
-                ? "after:w-full after:bg-[#4F6F52] text-[#4F6F52]"
-                : "after:w-0 after:bg-transparent"
-            } after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:transition-all after:duration-300`
-          }
-        >
-          Add Lessons
-        </NavLink>
-      )}
+      <NavLink
+        to="/blog"
+        className={({ isActive }) =>
+          `text-sm font-medium text-[#2C3E2E]/80 hover:text-[#4F6F52] relative pb-1 transition-colors ${
+            isActive
+              ? "after:w-full after:bg-[#4F6F52] text-[#4F6F52]"
+              : "after:w-0 after:bg-transparent"
+          } after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:transition-all after:duration-300`
+        }
+      >
+        Blog
+      </NavLink>
+      <NavLink
+        to="/about"
+        className={({ isActive }) =>
+          `text-sm font-medium text-[#2C3E2E]/80 hover:text-[#4F6F52] relative pb-1 transition-colors ${
+            isActive
+              ? "after:w-full after:bg-[#4F6F52] text-[#4F6F52]"
+              : "after:w-0 after:bg-transparent"
+          } after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:transition-all after:duration-300`
+        }
+      >
+        About
+      </NavLink>
       <NavLink
         to="/contact"
         className={({ isActive }) =>
@@ -191,6 +200,46 @@ const Navbar = () => {
       >
         Contact
       </NavLink>
+      {user && (
+        <>
+          <NavLink
+            to="/dashboard/add-lessons"
+            className={({ isActive }) =>
+              `text-sm font-medium text-[#2C3E2E]/80 hover:text-[#4F6F52] relative pb-1 transition-colors ${
+                isActive
+                  ? "after:w-full after:bg-[#4F6F52] text-[#4F6F52]"
+                  : "after:w-0 after:bg-transparent"
+              } after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:transition-all after:duration-300`
+            }
+          >
+            Add Lessons
+          </NavLink>
+          <NavLink
+            to="/dashboard/my-lessons"
+            className={({ isActive }) =>
+              `text-sm font-medium text-[#2C3E2E]/80 hover:text-[#4F6F52] relative pb-1 transition-colors ${
+                isActive
+                  ? "after:w-full after:bg-[#4F6F52] text-[#4F6F52]"
+                  : "after:w-0 after:bg-transparent"
+              } after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:transition-all after:duration-300`
+            }
+          >
+            My Lessons
+          </NavLink>
+          <NavLink
+            to="/dashboard/favorites"
+            className={({ isActive }) =>
+              `text-sm font-medium text-[#2C3E2E]/80 hover:text-[#4F6F52] relative pb-1 transition-colors ${
+                isActive
+                  ? "after:w-full after:bg-[#4F6F52] text-[#4F6F52]"
+                  : "after:w-0 after:bg-transparent"
+              } after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:transition-all after:duration-300`
+            }
+          >
+            Favorites
+          </NavLink>
+        </>
+      )}
     </>
   );
   return (

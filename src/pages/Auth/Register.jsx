@@ -228,9 +228,16 @@ const Register = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full cursor-pointer bg-[#8FA895] hover:bg-[#7D9483] text-white font-medium py-3.5 rounded-full transition-all duration-200 shadow-md hover:shadow-lg transform active:scale-[0.99]"
+            className="w-full cursor-pointer bg-[#8FA895] hover:bg-[#7D9483] text-white font-medium py-3.5 rounded-full transition-all duration-200 shadow-md hover:shadow-lg transform active:scale-[0.99] disabled:opacity-70 flex items-center justify-center gap-2"
           >
-            {loading ? "Creating User..." : " Sign up"}
+            {loading ? (
+              <>
+                <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
+                Creating account...
+              </>
+            ) : (
+              "Sign up"
+            )}
           </button>
         </form>
         {/* Google Login */}

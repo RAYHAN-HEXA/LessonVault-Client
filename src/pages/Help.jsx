@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Section, SectionHeader, Container, Grid } from "../../components/UI/Section";
-import { Card, CardBody } from "../../components/UI/Card";
-import { Button } from "../../components/UI/Button";
+import { Section, SectionHeader, Container, Grid } from "../components/UI/Section";
+import { Card, CardBody } from "../components/UI/Card";
+import { Button } from "../components/UI/Button";
 import { ChevronDown, Mail, MessageSquare, Phone, Search } from "lucide-react";
 import { Link } from "react-router";
 

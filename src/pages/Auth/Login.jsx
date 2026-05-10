@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Feather, Mail, Lock, EyeOff, ArrowRight, Eye } from "lucide-react";
+import { Feather, Mail, Lock, EyeOff, ArrowRight, Eye, Loader2 } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router";
 import Logo from "../../components/Shared/Logo";
 import SocialLogin from "../../components/Shared/SocialLogin";
@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
 
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const { loginUser } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -18,6 +19,7 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   const handleLogin = (data) => {
+    setIsLoading(true);
     loginUser(data.email, data.password)
       .then(() => {
         toast.success("Sign in successful");
@@ -25,6 +27,24 @@ const Login = () => {
       })
       .catch((err) => {
         toast.error(err.message);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
+  const handleDemoLogin = () => {
+    setIsLoading(true);
+    loginUser("demo@user.com", "Demo123!")
+      .then(() => {
+        toast.success("Demo login successful!");
+        navigate(location?.state || "/");
+      })
+      .catch((err) => {
+        toast.error("Demo account not available. Please register.");
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
   return (
@@ -133,9 +153,28 @@ const Login = () => {
           {/* Sign In Button */}
           <button
             type="submit"
-            className="w-full bg-[#8FA895] hover:bg-[#7D9483] text-white font-medium py-3.5 rounded-full transition-all duration-200 shadow-md hover:shadow-lg transform active:scale-[0.99] cursor-pointer"
+            disabled={isLoading}
+            className="w-full bg-[#8FA895] hover:bg-[#7D9483] text-white font-medium py-3.5 rounded-full transition-all duration-200 shadow-md hover:shadow-lg transform active:scale-[0.99] cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
-            Sign In
+            {isLoading ? (
+              <>
+                <Loader2 className="w-5 h-5 animate-spin" />
+                Signing in...
+              </>
+            ) : (
+              "Sign In"
+            )}
+          </button>
+
+          {/* Demo Login Button */}
+          <button
+            type="button"
+            onClick={handleDemoLogin}
+            disabled={isLoading}
+            className="w-full bg-transparent border-2 border-[#8FA895] hover:bg-[#8FA895]/10 text-[#8FA895] font-medium py-3 rounded-full transition-all duration-200 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          >
+            <Feather className="w-4 h-4" />
+            Try Demo Account
           </button>
         </form>
         <SocialLogin />

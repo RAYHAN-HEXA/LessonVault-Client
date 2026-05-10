@@ -4,6 +4,7 @@ import { Search, Filter, BookOpen } from "lucide-react";
 import { MdOutlineCancel } from "react-icons/md";
 import Loader from "../components/Shared/Loader";
 import LessonCard from "../components/Shared/LessonCard";
+import SkeletonCard from "../components/Shared/SkeletonCard";
 import useAxios from "../hooks/useAxios";
 import useAuth from "../hooks/useAuth";
 import useTheme from "../hooks/useTheme";
@@ -201,12 +202,7 @@ const PublicLessons = () => {
 
         {/* LESSON GRID */}
         {loading ? (
-          <div className="flex flex-col items-center justify-center py-20">
-            <Loader />
-            <p className="mt-4 text-gray-400 font-serif italic">
-              Retrieving archives...
-            </p>
-          </div>
+          <SkeletonCard cardCount={6} />
         ) : lessons.length > 0 ? (
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-20"

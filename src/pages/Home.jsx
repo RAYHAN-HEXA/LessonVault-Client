@@ -4,15 +4,27 @@ import LearningFromLifeSection from "../components/Home/LearningFromLifeSection"
 import Featured from "../components/Home/Featured";
 import TopContributors from "../components/Home/TopContributors";
 import MostSaved from "../components/Home/MostSaved";
+import StatsSection from "../components/Home/StatsSection";
+import CategoriesSection from "../components/Home/CategoriesSection";
+import TestimonialsSection from "../components/Home/TestimonialsSection";
+import NewsletterSection from "../components/Home/NewsletterSection";
+import FAQSection from "../components/Home/FAQSection";
+import CTASection from "../components/Home/CTASection";
 
 const Home = () => {
   return (
     <div>
       <Hero />
+      <StatsSection />
       <Featured />
       <LearningFromLifeSection />
+      <CategoriesSection />
       <TopContributors />
       <MostSaved />
+      <TestimonialsSection />
+      <FAQSection />
+      <NewsletterSection />
+      <CTASection />
     </div>
   );
 };
