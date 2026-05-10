@@ -27,6 +27,8 @@ import Error404 from "../components/Shared/Error404";
 import About from "../pages/About";
 import Help from "../pages/Help";
 import Blog from "../pages/Blog";
+import Privacy from "../pages/Privacy";
+import Terms from "../pages/Terms";
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +47,8 @@ export const router = createBrowserRouter([
       { path: "about", element: <About /> },
       { path: "help", element: <Help /> },
       { path: "blog", element: <Blog /> },
+      { path: "privacy", element: <Privacy /> },
+      { path: "terms", element: <Terms /> },
 
       {
         path: "/lesson-details/:id",
