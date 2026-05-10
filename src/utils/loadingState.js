@@ -1,0 +1,1 @@
+// Loading state management utility
