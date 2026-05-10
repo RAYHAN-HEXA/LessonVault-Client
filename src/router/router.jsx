@@ -24,6 +24,9 @@ import AdminProfile from "../pages/ProtectedPages/Dashboard/Admin/AdminProfile";
 import ManageUsers from "../pages/ProtectedPages/Dashboard/Admin/ManageUsers";
 import AdminRoute from "../routes/AdminRoute/AdminRoute";
 import Error404 from "../components/Shared/Error404";
+import About from "../pages/About";
+import Help from "../pages/Help";
+import Blog from "../pages/Blog";
 
 export const router = createBrowserRouter([
   {
@@ -39,6 +42,9 @@ export const router = createBrowserRouter([
         element: <PublicLessons />,
       },
       { path: "contact", element: <Contact /> },
+      { path: "about", element: <About /> },
+      { path: "help", element: <Help /> },
+      { path: "blog", element: <Blog /> },
 
       {
         path: "/lesson-details/:id",
