@@ -12,7 +12,6 @@ import {
   Lock,
 } from "lucide-react";
 import { NavLink, Link } from "react-router";
-import Logo from "./Logo";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
@@ -253,8 +252,7 @@ const Navbar = () => {
       <div className="max-w-[1440px] mx-auto px-6 lg:px-0">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Logo />
-            <span className="text-xl font-bold bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent hidden sm:block">
+            <span className="text-xl font-bold text-white hidden sm:block">
               LessonVault
             </span>
           </div>
