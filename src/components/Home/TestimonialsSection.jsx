@@ -1,4 +1,4 @@
-import { Quote } from "lucide-react";
+import { Quote, Star } from "lucide-react";
 
 const testimonials = [
   {
@@ -7,7 +7,7 @@ const testimonials = [
     role: "Marketing Manager",
     image: "https://i.pravatar.cc/150?img=1",
     content:
-      "DigitalLesson has transformed how I reflect on my career journey. The wisdom shared here has helped me make better decisions.",
+      "LessonVault has transformed how I reflect on my career journey. The wisdom shared here has helped me make better decisions.",
     rating: 5,
   },
   {
@@ -41,13 +41,22 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="py-16 bg-white dark:bg-slate-800">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            What Our Community Says
+    <section className="py-20 relative overflow-hidden bg-slate-950">
+      {/* Background effects */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-violet-600/10 rounded-full blur-[120px]"></div>
+        <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-fuchsia-600/10 rounded-full blur-[100px]"></div>
+      </div>
+
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            What Our{" "}
+            <span className="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent">
+              Community Says
+            </span>
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-slate-400 max-w-2xl mx-auto text-lg">
             Join thousands of learners who have found wisdom and inspiration on
             their personal growth journey.
           </p>
@@ -57,39 +66,42 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="bg-gray-50 dark:bg-slate-700/50 rounded-2xl p-6 relative border border-gray-100 dark:border-slate-600"
+              className="group relative bg-slate-900/50 backdrop-blur-xl rounded-3xl p-6 border border-white/10 hover:border-white/20 transition-all duration-500 hover:-translate-y-2 overflow-hidden"
             >
-              <Quote className="w-8 h-8 text-blue-500 mb-4 opacity-50" />
+              {/* Gradient background on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 to-fuchsia-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-              <p className="text-gray-600 dark:text-gray-300 text-sm mb-6 italic">
+              <Quote className="relative w-10 h-10 text-violet-400/50 mb-4" />
+
+              <p className="relative text-slate-300 text-sm mb-6 italic leading-relaxed">
                 "{testimonial.content}"
               </p>
 
-              <div className="flex items-center gap-3">
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-10 h-10 rounded-full object-cover"
-                />
+              <div className="relative flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-violet-500/30">
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white text-sm">
+                  <h4 className="font-semibold text-white text-sm">
                     {testimonial.name}
                   </h4>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">
+                  <p className="text-xs text-slate-500">
                     {testimonial.role}
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-1 mt-4">
+              <div className="relative flex gap-1">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <svg
+                  <Star
                     key={i}
-                    className="w-4 h-4 text-yellow-400 fill-current"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
+                    className="w-4 h-4 text-amber-400 fill-amber-400"
+                    size={16}
+                  />
                 ))}
               </div>
             </div>

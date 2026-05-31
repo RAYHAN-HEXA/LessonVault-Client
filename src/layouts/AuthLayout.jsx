@@ -33,7 +33,7 @@ const AuthLayout = () => {
               Unlock Your <br /> Inner Archive.
             </h2>
             <p className="text-gray-300 text-lg max-w-md font-light leading-relaxed">
-              Sage helps you curate a lifetime of knowledge. Your wisdom,
+              LessonVault helps you curate a lifetime of knowledge. Your wisdom,
               organized and shared.
             </p>
 

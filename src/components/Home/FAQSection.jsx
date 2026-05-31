@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { ChevronDown, HelpCircle } from "lucide-react";
+import { ChevronDown, HelpCircle, Plus } from "lucide-react";
 
 const faqs = [
   {
-    question: "What is DigitalLesson?",
+    question: "What is LessonVault?",
     answer:
-      "DigitalLesson is a platform for capturing, sharing, and discovering life's most valuable lessons. It's a community-driven vault where people preserve their wisdom and learn from others' experiences.",
+      "LessonVault is a platform for capturing, sharing, and discovering life's most valuable lessons. It's a community-driven vault where people preserve their wisdom and learn from others' experiences.",
   },
   {
-    question: "Is DigitalLesson free to use?",
+    question: "Is LessonVault free to use?",
     answer:
       "Yes, the basic features are completely free. We also offer a premium membership with additional features like unlimited storage, advanced analytics, and ad-free experience.",
   },
@@ -38,16 +38,25 @@ const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <section className="py-16 bg-gray-50 dark:bg-slate-900">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-900/30 mb-4">
-            <HelpCircle className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+    <section className="py-20 relative overflow-hidden bg-slate-950">
+      {/* Background effects */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-violet-600/10 rounded-full blur-[120px]"></div>
+        <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-fuchsia-600/10 rounded-full blur-[100px]"></div>
+      </div>
+
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-violet-500/30 mb-6">
+            <HelpCircle className="w-8 h-8 text-violet-400" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Frequently Asked Questions
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            Frequently Asked{" "}
+            <span className="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent">
+              Questions
+            </span>
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-slate-400 max-w-2xl mx-auto text-lg">
             Got questions? We've got answers. If you can't find what you're
             looking for, feel free to contact our support team.
           </p>
@@ -57,28 +66,34 @@ const FAQSection = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-white dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 overflow-hidden"
+              className="bg-slate-900/50 backdrop-blur-xl rounded-2xl border border-white/10 overflow-hidden hover:border-white/20 transition-all duration-300"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-6 py-5 flex items-center justify-between text-left"
+                className="w-full px-6 py-5 flex items-center justify-between text-left group"
               >
-                <span className="font-semibold text-gray-900 dark:text-white pr-4">
+                <span className="font-semibold text-white pr-4 group-hover:text-violet-300 transition-colors">
                   {faq.question}
                 </span>
-                <ChevronDown
-                  className={`w-5 h-5 text-gray-500 transition-transform duration-200 flex-shrink-0 ${
-                    openIndex === index ? "rotate-180" : ""
-                  }`}
-                />
+                <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 ${
+                  openIndex === index
+                    ? "bg-gradient-to-br from-violet-500 to-fuchsia-500"
+                    : "bg-white/10 group-hover:bg-white/20"
+                }`}>
+                  {openIndex === index ? (
+                    <ChevronDown className="w-4 h-4 text-white" />
+                  ) : (
+                    <Plus className="w-4 h-4 text-slate-400" />
+                  )}
+                </div>
               </button>
 
               <div
                 className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? "max-h-40" : "max-h-0"
+                  openIndex === index ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
                 }`}
               >
-                <p className="px-6 pb-5 text-gray-600 dark:text-gray-300">
+                <p className="px-6 pb-5 text-slate-400 leading-relaxed">
                   {faq.answer}
                 </p>
               </div>

@@ -58,27 +58,27 @@ const UserDropdown = ({ user, handleLogout }) => {
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute right-0 mt-3 w-64 bg-white rounded-xl shadow-xl border border-[#D4DEC9]/50 py-2 transform transition-all duration-200 origin-top-right z-50">
+        <div className="absolute right-0 mt-3 w-64 bg-slate-900/95 backdrop-blur-xl rounded-xl shadow-2xl border border-white/10 py-2 transform transition-all duration-200 origin-top-right z-50">
           {/* Header with User Info */}
-          <div className="px-4 py-3 border-b border-dashed border-[#D4DEC9]/50">
-            <p className="text-sm font-bold text-[#2C3E2E] truncate">
+          <div className="px-4 py-3 border-b border-white/10">
+            <p className="text-sm font-bold text-white truncate">
               {user?.displayName}
             </p>
-            <p className="text-xs text-gray-500 truncate">{user?.email}</p>
+            <p className="text-xs text-slate-400 truncate">{user?.email}</p>
           </div>
 
           {/* Menu Items */}
           <div className="py-2 z-50">
             <Link
               to={role === "admin" ? "/dashboard/admin-home" : "/dashboard"}
-              className="flex items-center px-4 py-2 text-sm text-[#2C3E2E]/80 hover:bg-[#F3F5F0] hover:text-[#4F6F52] transition-colors"
+              className="flex items-center px-4 py-2 text-sm text-slate-300 hover:bg-white/10 hover:text-white transition-colors"
             >
               <LayoutDashboard size={16} className="mr-3" />
               Dashboard
             </Link>
             <Link
               to="/dashboard/profile"
-              className="flex items-center px-4 py-2 text-sm text-[#2C3E2E]/80 hover:bg-[#F3F5F0] hover:text-[#4F6F52] transition-colors"
+              className="flex items-center px-4 py-2 text-sm text-slate-300 hover:bg-white/10 hover:text-white transition-colors"
             >
               <UserIcon size={16} className="mr-3" />
               Profile
@@ -86,10 +86,10 @@ const UserDropdown = ({ user, handleLogout }) => {
           </div>
 
           {/* Footer with Logout */}
-          <div className="border-t border-dashed border-[#D4DEC9]/50 pt-2 mt-1 px-2">
+          <div className="border-t border-white/10 pt-2 mt-1 px-2">
             <button
               onClick={handleLogout}
-              className="flex w-full items-center px-2 py-2 text-sm text-red-600 hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
+              className="flex w-full items-center px-2 py-2 text-sm text-red-400 hover:bg-red-500/20 rounded-lg transition-colors cursor-pointer"
             >
               <LogOut size={16} className="mr-3 " />
               Sign Out
@@ -143,9 +143,9 @@ const Navbar = () => {
       <NavLink
         to="/"
         className={({ isActive }) =>
-          `text-sm font-medium text-[#2C3E2E]/80 hover:text-[#4F6F52] relative pb-1 transition-colors ${
+          `text-sm font-medium text-slate-300 hover:text-white relative pb-1 transition-colors ${
             isActive
-              ? "after:w-full after:bg-[#4F6F52] text-[#4F6F52]"
+              ? "after:w-full after:bg-gradient-to-r after:from-violet-500 after:to-fuchsia-500 text-white"
               : "after:w-0 after:bg-transparent"
           } after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:transition-all after:duration-300`
         }
@@ -155,9 +155,9 @@ const Navbar = () => {
       <NavLink
         to="/public-lessons"
         className={({ isActive }) =>
-          `text-sm font-medium text-[#2C3E2E]/80 hover:text-[#4F6F52] relative pb-1 transition-colors ${
+          `text-sm font-medium text-slate-300 hover:text-white relative pb-1 transition-colors ${
             isActive
-              ? "after:w-full after:bg-[#4F6F52] text-[#4F6F52]"
+              ? "after:w-full after:bg-gradient-to-r after:from-violet-500 after:to-fuchsia-500 text-white"
               : "after:w-0 after:bg-transparent"
           } after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:transition-all after:duration-300`
         }
@@ -167,9 +167,9 @@ const Navbar = () => {
       <NavLink
         to="/blog"
         className={({ isActive }) =>
-          `text-sm font-medium text-[#2C3E2E]/80 hover:text-[#4F6F52] relative pb-1 transition-colors ${
+          `text-sm font-medium text-slate-300 hover:text-white relative pb-1 transition-colors ${
             isActive
-              ? "after:w-full after:bg-[#4F6F52] text-[#4F6F52]"
+              ? "after:w-full after:bg-gradient-to-r after:from-violet-500 after:to-fuchsia-500 text-white"
               : "after:w-0 after:bg-transparent"
           } after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:transition-all after:duration-300`
         }
@@ -179,9 +179,9 @@ const Navbar = () => {
       <NavLink
         to="/about"
         className={({ isActive }) =>
-          `text-sm font-medium text-[#2C3E2E]/80 hover:text-[#4F6F52] relative pb-1 transition-colors ${
+          `text-sm font-medium text-slate-300 hover:text-white relative pb-1 transition-colors ${
             isActive
-              ? "after:w-full after:bg-[#4F6F52] text-[#4F6F52]"
+              ? "after:w-full after:bg-gradient-to-r after:from-violet-500 after:to-fuchsia-500 text-white"
               : "after:w-0 after:bg-transparent"
           } after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:transition-all after:duration-300`
         }
@@ -191,9 +191,9 @@ const Navbar = () => {
       <NavLink
         to="/contact"
         className={({ isActive }) =>
-          `text-sm font-medium text-[#2C3E2E]/80 hover:text-[#4F6F52] relative pb-1 transition-colors ${
+          `text-sm font-medium text-slate-300 hover:text-white relative pb-1 transition-colors ${
             isActive
-              ? "after:w-full after:bg-[#4F6F52] text-[#4F6F52]"
+              ? "after:w-full after:bg-gradient-to-r after:from-violet-500 after:to-fuchsia-500 text-white"
               : "after:w-0 after:bg-transparent"
           } after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:transition-all after:duration-300`
         }
@@ -205,9 +205,9 @@ const Navbar = () => {
           <NavLink
             to="/dashboard/add-lessons"
             className={({ isActive }) =>
-              `text-sm font-medium text-[#2C3E2E]/80 hover:text-[#4F6F52] relative pb-1 transition-colors ${
+              `text-sm font-medium text-slate-300 hover:text-white relative pb-1 transition-colors ${
                 isActive
-                  ? "after:w-full after:bg-[#4F6F52] text-[#4F6F52]"
+                  ? "after:w-full after:bg-gradient-to-r after:from-violet-500 after:to-fuchsia-500 text-white"
                   : "after:w-0 after:bg-transparent"
               } after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:transition-all after:duration-300`
             }
@@ -217,9 +217,9 @@ const Navbar = () => {
           <NavLink
             to="/dashboard/my-lessons"
             className={({ isActive }) =>
-              `text-sm font-medium text-[#2C3E2E]/80 hover:text-[#4F6F52] relative pb-1 transition-colors ${
+              `text-sm font-medium text-slate-300 hover:text-white relative pb-1 transition-colors ${
                 isActive
-                  ? "after:w-full after:bg-[#4F6F52] text-[#4F6F52]"
+                  ? "after:w-full after:bg-gradient-to-r after:from-violet-500 after:to-fuchsia-500 text-white"
                   : "after:w-0 after:bg-transparent"
               } after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:transition-all after:duration-300`
             }
@@ -229,9 +229,9 @@ const Navbar = () => {
           <NavLink
             to="/dashboard/favorites"
             className={({ isActive }) =>
-              `text-sm font-medium text-[#2C3E2E]/80 hover:text-[#4F6F52] relative pb-1 transition-colors ${
+              `text-sm font-medium text-slate-300 hover:text-white relative pb-1 transition-colors ${
                 isActive
-                  ? "after:w-full after:bg-[#4F6F52] text-[#4F6F52]"
+                  ? "after:w-full after:bg-gradient-to-r after:from-violet-500 after:to-fuchsia-500 text-white"
                   : "after:w-0 after:bg-transparent"
               } after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:transition-all after:duration-300`
             }
@@ -246,13 +246,18 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
         isScrolled
-          ? "bg-white/90 backdrop-blur-md shadow-sm py-3 border-b border-[#D4DEC9]/30"
+          ? "bg-slate-950/90 backdrop-blur-xl shadow-lg py-3 border-b border-white/10"
           : "bg-transparent py-5"
       }`}
     >
       <div className="max-w-[1440px] mx-auto px-6 lg:px-0">
         <div className="flex items-center justify-between">
-          <Logo />
+          <div className="flex items-center gap-2">
+            <Logo />
+            <span className="text-xl font-bold bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent hidden sm:block">
+              LessonVault
+            </span>
+          </div>
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center space-x-8">{links}</div>
@@ -287,13 +292,13 @@ const Navbar = () => {
               <>
                 <Link
                   to="/auth/login"
-                  className="btn bg-[#f3f5f0]  hover:bg-[#4F6F52] hover:text-white text-[#2C3E2E] border border-[#2C3E2E] btn-sm px-5 rounded-full hover:shadow-lg transition-all flex items-center gap-2"
+                  className="btn bg-white/5 hover:bg-white/10 text-white border border-white/20 btn-sm px-5 rounded-full hover:shadow-lg transition-all flex items-center gap-2 backdrop-blur-sm"
                 >
                   Sign In
                 </Link>
                 <Link
                   to="/auth/register"
-                  className="btn bg-[#2C3E2E] hover:bg-[#4F6F52] text-white border-none btn-sm px-5 rounded-full shadow-md hover:shadow-lg transition-all flex items-center gap-2"
+                  className="btn bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:from-violet-600 hover:to-fuchsia-600 text-white border-none btn-sm px-5 rounded-full shadow-lg hover:shadow-violet-500/25 transition-all flex items-center gap-2"
                 >
                   <PenTool className="w-4 h-4" />
                   Sign Up
@@ -330,13 +335,13 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`absolute top-full left-0 w-full bg-white border-b border-[#D4DEC9]/50 shadow-xl md:hidden overflow-hidden transition-all duration-300 ${
+        className={`absolute top-full left-0 w-full bg-slate-950/95 backdrop-blur-xl border-b border-white/10 shadow-2xl md:hidden overflow-hidden transition-all duration-300 ${
           isMobileMenuOpen ? "h-[550px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="px-6 py-3 space-y-4">
           {isPremium ? (
-            <div className="flex items-center w-24 gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-br from-[#D4C5A8] via-[#FDFBF7] to-[#C3B08D] border border-white/40">
+            <div className="flex items-center w-fit gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-br from-[#D4C5A8] via-[#FDFBF7] to-[#C3B08D] border border-white/40">
               <Gem size={12} className="text-[#1A2F23]" />
               <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#1A2F23]">
                 Premium
@@ -345,9 +350,10 @@ const Navbar = () => {
           ) : (
             <Link
               to="/payment"
-              className="flex items-center w-24 gap-1.5 px-3 py-1.5 rounded-full bg-green-800 border text-white border-white/40"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-600 border text-white border-white/40"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
-              <Lock />
+              <Lock size={12} />
               <span className="text-[10px] font-extrabold uppercase tracking-wider text-center">
                 Upgrade
               </span>
@@ -356,14 +362,14 @@ const Navbar = () => {
           <NavLink
             to="/"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="block text-lg font-medium py-2 border-b border-dashed border-[#D4DEC9]/50 text-[#2C3E2E]"
+            className="block text-lg font-medium py-2 border-b border-white/10 text-white"
           >
             Home
           </NavLink>
           <NavLink
             to="/public-lessons"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="block text-lg font-medium py-2 border-b border-dashed border-[#D4DEC9]/50 text-[#2C3E2E]"
+            className="block text-lg font-medium py-2 border-b border-white/10 text-white"
           >
             Public Lessons
           </NavLink>
@@ -371,7 +377,7 @@ const Navbar = () => {
             <NavLink
               to="/dashboard/add-lessons"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block text-lg font-medium py-2 border-b border-dashed border-[#D4DEC9]/50 text-[#2C3E2E]"
+              className="block text-lg font-medium py-2 border-b border-white/10 text-white"
             >
               Add Lessons
             </NavLink>
@@ -379,7 +385,7 @@ const Navbar = () => {
           <NavLink
             to="/contact"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="block text-lg font-medium py-2 border-b border-dashed border-[#D4DEC9]/50 text-[#2C3E2E]"
+            className="block text-lg font-medium py-2 border-b border-white/10 text-white"
           >
             Contact
           </NavLink>
@@ -388,29 +394,30 @@ const Navbar = () => {
             {user ? (
               // Mobile State for Logged In User
               <>
-                <div className="flex items-center gap-3 p-3 bg-[#F7F7F2] rounded-lg">
+                <div className="flex items-center gap-3 p-3 bg-white/5 rounded-lg border border-white/10">
                   <img
                     src={user?.photoURL}
                     alt=""
                     className="w-10 h-10 rounded-full object-cover"
                   />
                   <div>
-                    <p className="font-bold text-[#2C3E2E] text-sm">
+                    <p className="font-bold text-white text-sm">
                       {user?.displayName}{" "}
                     </p>
 
-                    <p className="text-xs text-gray-500">{user?.email}</p>
+                    <p className="text-xs text-slate-400">{user?.email}</p>
                   </div>
                 </div>
                 <Link
                   to="/dashboard"
-                  className="btn btn-outline border-[#D4DEC9] text-[#2C3E2E] w-full rounded-full flex gap-2"
+                  className="btn btn-outline border-white/20 text-white hover:bg-white/10 w-full rounded-full flex gap-2 backdrop-blur-sm"
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <LayoutDashboard size={16} /> Dashboard
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="btn bg-red-50 text-red-600 hover:bg-red-100 border-none w-full rounded-full flex items-center justify-center gap-2"
+                  className="btn bg-red-500/20 text-red-400 hover:bg-red-500/30 border border-red-500/30 w-full rounded-full flex items-center justify-center gap-2"
                 >
                   <LogOut className="w-4 h-4" /> Sign Out
                 </button>
@@ -418,16 +425,17 @@ const Navbar = () => {
             ) : (
               // Mobile State for Guest
               <>
-                <UserDropdown user={user} handleLogout={handleLogout} />
                 <Link
                   to="/auth/login"
-                  className="btn btn-outline border-[#D4DEC9] text-[#2C3E2E] hover:bg-[#F3F5F0] hover:border-[#4F6F52] w-full rounded-full"
+                  className="btn btn-outline border-white/20 text-white hover:bg-white/10 w-full rounded-full backdrop-blur-sm"
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Sign In
                 </Link>
                 <Link
                   to="/auth/register"
-                  className="btn bg-[#4F6F52] hover:bg-[#3A523C] text-white border-none w-full rounded-full shadow-md flex items-center justify-center gap-2"
+                  className="btn bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:from-violet-600 hover:to-fuchsia-600 text-white border-none w-full rounded-full shadow-md flex items-center justify-center gap-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <PenTool className="w-4 h-4" /> Sign up
                 </Link>

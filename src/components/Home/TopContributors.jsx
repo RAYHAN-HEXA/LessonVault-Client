@@ -2,14 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Crown, Star, Feather, Trophy, Medal, Gem } from "lucide-react";
 import useAxios from "../../hooks/useAxios";
 import useAuth from "../../hooks/useAuth";
-import useTheme from "../../hooks/useTheme";
 
 const TopContributors = () => {
   const [contributors, setContributors] = useState([]);
   const [loading, setLoading] = useState(true);
   const axiosInstance = useAxios();
   const { user } = useAuth();
-  const COLORS = useTheme();
 
   useEffect(() => {
     const fetchContributors = async () => {
@@ -26,74 +24,76 @@ const TopContributors = () => {
     fetchContributors();
   }, [axiosInstance]);
 
-
   const getRankStyles = (index) => {
     // RANK 1: THE CHAMPION
     if (index === 0)
       return {
         cardClasses:
-          "bg-white border-2 border-[#D4C5A8] shadow-2xl shadow-[#D4C5A8]/30 md:scale-110 z-20",
-        headerBg: "bg-[#1A2F23]", // Dark Forest Header
-        headerText: "text-[#D4C5A8]", // Gold Text
-        avatarBorder: "border-[4px] border-[#D4C5A8]",
+          "bg-slate-900/80 backdrop-blur-xl border-2 border-amber-500/50 shadow-2xl shadow-amber-500/20 md:scale-110 z-20",
+        headerBg: "bg-gradient-to-br from-amber-500/20 to-yellow-500/20",
+        headerText: "text-amber-400",
+        avatarBorder: "border-[4px] border-amber-500",
         icon: (
           <Crown
             size={32}
-            fill="#D4C5A8"
-            className="text-[#D4C5A8] animate-pulse"
+            className="text-amber-400 fill-amber-400/20 animate-pulse"
           />
         ),
-        rankBadge: "bg-[#D4C5A8] text-[#1A2F23] border-[#1A2F23]",
-        footerBg: "bg-[#F3F5F0]",
+        rankBadge: "bg-gradient-to-br from-amber-400 to-yellow-500 text-slate-900 border-amber-400",
+        footerBg: "bg-amber-500/10",
+        glowColor: "bg-amber-500",
       };
 
     // RANK 2: SILVER
     if (index === 1)
       return {
-        cardClasses: "bg-white/90 border border-gray-200 shadow-xl z-10",
-        headerBg: "bg-[#1A2F23]",
-        headerText: "text-[#1A2F23]",
-        avatarBorder: "border-[3px] border-gray-300",
-        icon: <Medal size={28} className="text-gray-400" />,
-        rankBadge: "bg-gray-200 text-gray-600 border-white",
-        footerBg: "bg-white",
+        cardClasses: "bg-slate-900/50 backdrop-blur-xl border border-slate-400/50 shadow-xl z-10",
+        headerBg: "bg-gradient-to-br from-slate-400/20 to-gray-400/20",
+        headerText: "text-slate-300",
+        avatarBorder: "border-[3px] border-slate-400",
+        icon: <Medal size={28} className="text-slate-300" />,
+        rankBadge: "bg-gradient-to-br from-slate-300 to-gray-400 text-slate-900 border-slate-300",
+        footerBg: "bg-slate-400/10",
+        glowColor: "bg-slate-400",
       };
 
     // RANK 3: BRONZE
     if (index === 2)
       return {
-        cardClasses: "bg-white/90 border border-gray-200 shadow-xl z-10",
-        headerBg: "bg-[#1A2F23]",
-        headerText: "text-[#1A2F23]",
-        avatarBorder: "border-[3px] border-amber-700/50",
-        icon: <Medal size={28} className="text-amber-700" />,
-        rankBadge: "bg-amber-100 text-amber-800 border-white",
-        footerBg: "bg-white",
+        cardClasses: "bg-slate-900/50 backdrop-blur-xl border border-orange-700/50 shadow-xl z-10",
+        headerBg: "bg-gradient-to-br from-orange-600/20 to-orange-800/20",
+        headerText: "text-orange-400",
+        avatarBorder: "border-[3px] border-orange-500",
+        icon: <Medal size={28} className="text-orange-400" />,
+        rankBadge: "bg-gradient-to-br from-orange-400 to-orange-600 text-slate-900 border-orange-400",
+        footerBg: "bg-orange-500/10",
+        glowColor: "bg-orange-500",
       };
 
     // OTHERS
     return {
       cardClasses:
-        "bg-white/60 border border-transparent hover:border-[#4F6F52]/30 hover:bg-white transition-all shadow-md hover:shadow-lg",
-      headerBg: "bg-[#1A2F23]",
-      headerText: "text-[#4F6F52]",
-      avatarBorder: "border-[2px] border-[#4F6F52]/20",
-      icon: <Star size={24} className="text-[#4F6F52]/60" />,
-      rankBadge: "bg-white text-gray-400 border-gray-100",
-      footerBg: "bg-transparent",
+        "bg-slate-900/50 backdrop-blur-xl border border-white/10 hover:border-violet-500/30 hover:bg-slate-900/80 transition-all shadow-lg hover:shadow-violet-500/10",
+      headerBg: "bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20",
+      headerText: "text-violet-400",
+      avatarBorder: "border-[2px] border-violet-500/30",
+      icon: <Star size={24} className="text-violet-400/60" />,
+      rankBadge: "bg-violet-500/20 text-violet-300 border-violet-500/30",
+      footerBg: "bg-violet-500/10",
+      glowColor: "bg-violet-500",
     };
   };
 
   if (loading) {
     return (
-      <div
-        className="w-full py-32 flex justify-center items-center"
-        style={{ backgroundColor: COLORS.light }}
-      >
-        <div className="flex flex-col items-center gap-4 animate-pulse opacity-50">
-          <Feather size={48} className="text-[#4F6F52]" />
-          <p className="font-serif text-[#1A2F23] tracking-widest uppercase text-sm">
-            Summoning Sages...
+      <div className="w-full py-32 flex justify-center items-center bg-slate-950">
+        <div className="flex flex-col items-center gap-4">
+          <div className="relative">
+            <div className="absolute inset-0 bg-slate-500/20 rounded-full blur-2xl animate-pulse"></div>
+            <Feather size={48} className="text-slate-400 animate-pulse relative" />
+          </div>
+          <p className="font-serif text-white tracking-widest uppercase text-sm">
+            Loading contributors...
           </p>
         </div>
       </div>
@@ -101,18 +101,25 @@ const TopContributors = () => {
   }
 
   return (
-    <section className="w-full py-24 px-4 md:px-8 relative font-sans overflow-hidden">
+    <section className="w-full py-24 px-4 md:px-8 relative font-sans overflow-hidden bg-slate-950">
+      {/* Background effects */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-slate-600/10 rounded-full blur-[120px]"></div>
+      </div>
+
       <div className="max-w-[1440px] mx-auto relative z-10">
         {/* --- SECTION HEADER --- */}
         <div className="text-center mb-20 space-y-4">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white border border-[#D4C5A8] text-xs font-bold uppercase tracking-widest text-[#1A2F23] shadow-sm">
-            <Trophy size={14} className="text-[#D4C5A8] fill-current" />
-            <span>The Inner Circle</span>
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-500/10 border border-slate-500/30">
+            <Trophy size={14} className="text-slate-300 fill-current" />
+            <span className="text-xs font-bold uppercase tracking-widest text-slate-300">
+              The Inner Circle
+            </span>
           </div>
-          <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#1A2F23]">
-            Sages of the Week
+          <h2 className="text-4xl md:text-6xl font-serif font-bold text-white">
+            Top Contributors
           </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto text-lg font-light">
+          <p className="text-slate-400 max-w-2xl mx-auto text-lg font-light">
             Honoring the architects of wisdom who have contributed the most to
             our collective consciousness.
           </p>
@@ -135,7 +142,7 @@ const TopContributors = () => {
 
                 {/* 2. Premium Badge */}
                 {contributor.isPremium === "true" && (
-                  <div className="absolute top-4 right-4 z-30 animate-fade-in tooltip-container cursor-help">
+                  <div className="absolute top-4 right-4 z-30">
                     <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-br from-[#D4C5A8] via-[#FDFBF7] to-[#C3B08D] shadow-lg border border-white/40">
                       <Gem size={12} className="text-[#1A2F23]" />
                       <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#1A2F23]">
@@ -161,7 +168,7 @@ const TopContributors = () => {
 
                   {/* The Image */}
                   <div
-                    className={`w-28 h-28 rounded-full p-1 bg-white shadow-2xl ${styles.avatarBorder}`}
+                    className={`w-28 h-28 rounded-full p-1 bg-slate-900 shadow-2xl ${styles.avatarBorder}`}
                   >
                     <img
                       src={contributor.authorImage}
@@ -170,52 +177,44 @@ const TopContributors = () => {
                     />
                   </div>
 
-                  {/* Golden Glow for #1 */}
+                  {/* Glow for #1 */}
                   {index === 0 && (
-                    <div className="absolute inset-0 bg-[#D4C5A8] rounded-full blur-2xl opacity-40 -z-10 animate-pulse"></div>
+                    <div className={`absolute inset-0 ${styles.glowColor} rounded-full blur-2xl opacity-40 -z-10 animate-pulse`}></div>
                   )}
                 </div>
 
                 {/* 5. Content Body */}
                 <div className="w-full px-6 pb-8 flex flex-col items-center flex-grow z-10">
-                  <h3
-                    className={`text-xl font-serif font-bold mb-1 line-clamp-1 ${
-                      index === 0 ? "text-[#1A2F23]" : "text-[#1A2F23]"
-                    }`}
-                  >
+                  <h3 className="text-xl font-serif font-bold mb-1 line-clamp-1 text-white">
                     {contributor.email === user?.email
                       ? "You"
                       : contributor.name}
                   </h3>
-                  <p className="text-sm text-gray-400 font-medium tracking-wide mb-6 font-mono bg-gray-50 px-2 py-1 rounded-md max-w-full truncate">
+                  <p className="text-sm text-slate-500 font-medium tracking-wide mb-6 font-mono bg-slate-800/50 px-3 py-1.5 rounded-full max-w-full truncate border border-white/10">
                     {contributor.email}
                   </p>
 
                   {/* Stats Divider */}
-                  <div className="w-12 h-[1px] bg-gray-200 mb-6"></div>
+                  <div className="w-12 h-[1px] bg-white/10 mb-6"></div>
 
                   {/* Wisdom Count */}
                   <div
-                    className={`w-full py-4 rounded-2xl flex items-center justify-center gap-3 ${styles.footerBg}`}
+                    className={`w-full py-4 rounded-2xl flex items-center justify-center gap-3 ${styles.footerBg} border border-white/10`}
                   >
                     <div
                       className={`p-2 rounded-full ${
                         index === 0
-                          ? "bg-[#D4C5A8] text-[#1A2F23]"
-                          : "bg-[#1A2F23] text-white"
+                          ? "bg-gradient-to-br from-amber-400 to-yellow-500 text-slate-900"
+                          : "bg-gradient-to-br from-violet-500 to-fuchsia-500 text-white"
                       }`}
                     >
                       <Feather size={16} />
                     </div>
                     <div className="text-left">
-                      <span
-                        className={`block font-bold text-lg leading-none ${
-                          index === 0 ? "text-[#1A2F23]" : "text-[#1A2F23]"
-                        }`}
-                      >
+                      <span className="block font-bold text-lg leading-none text-white">
                         {contributor.count}
                       </span>
-                      <span className="text-[10px] uppercase font-bold text-gray-400 tracking-wider">
+                      <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">
                         Lessons Shared
                       </span>
                     </div>
@@ -226,22 +225,6 @@ const TopContributors = () => {
           })}
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(-5px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-fade-in {
-          animation: fade-in 0.6s ease-out forwards;
-        }
-      `}</style>
     </section>
   );
 };

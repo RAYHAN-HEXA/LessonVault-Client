@@ -2,14 +2,23 @@ import React, { useState, useEffect } from "react";
 import { ThemeContext } from "./ThemeContext";
 import DESIGN_SYSTEM from "../../../config/designSystem";
 
+// Helper to get initial theme
+const getInitialTheme = () => {
+  if (typeof window === "undefined") return false;
+  const savedTheme = localStorage.getItem("theme-mode");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  return savedTheme ? savedTheme === "dark" : prefersDark;
+};
+
 const ThemeProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(getInitialTheme);
 
   // Initialize dark mode preference from localStorage or system
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme-mode");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    setIsDarkMode(savedTheme ? savedTheme === "dark" : prefersDark);
+    const initialMode = savedTheme ? savedTheme === "dark" : prefersDark;
+    setIsDarkMode(initialMode);
   }, []);
 
   const toggleTheme = () => {

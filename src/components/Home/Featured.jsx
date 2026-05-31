@@ -2,62 +2,52 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import useAxios from "../../hooks/useAxios";
 import LessonCard from "../Shared/LessonCard";
-import useAuth from "../../hooks/useAuth";
-import Loader from "../Shared/Loader";
 import useTheme from "../../hooks/useTheme";
 import usePremium from "../../hooks/usePremium";
+import Loader from "../Shared/Loader";
+import { Sparkles, Flame } from "lucide-react";
 
 const Featured = () => {
   const { COLORS } = useTheme();
-  const { user } = useAuth();
   const isPremium = usePremium();
   const [lessons, setLessons] = useState([]);
-  const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const axiosInstance = useAxios();
+
   useEffect(() => {
-    if (!user?.email) return;
-    axiosInstance.get(`/users?email=${user.email}`).then((res) => {
-      setCurrentUser(res.data[0]);
-    });
-  }, [axiosInstance, user]);
-  useEffect(() => {
-    setLoading(true);
     axiosInstance.get("/lessons?isFeatured=true").then((res) => {
-      setLoading(false);
       setLessons(res.data.result);
+      setLoading(false);
+    }).catch(() => {
+      setLoading(false);
     });
   }, [axiosInstance]);
+
   return (
     <div>
       <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-        <span
-          className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest"
-          style={{ backgroundColor: COLORS.sage, color: COLORS.mist }}
-        >
-          Best Lessons
-        </span>
-
-        <h2
-          className="text-4xl sm:text-5xl font-bold leading-tight"
-          style={{ color: COLORS.darkGreen }}
-        >
-          Featured Life
-          <span className="ml-3 italic" style={{ color: COLORS.sage }}>
-            Lessons.
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-500/10 border border-slate-500/30">
+          <Sparkles size={16} className="text-slate-300" />
+          <span className="text-sm font-semibold uppercase tracking-wider text-slate-300">
+            Best Lessons
           </span>
+        </div>
+
+        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white">
+          Featured Life Lessons
         </h2>
 
-        <p className="text-lg text-gray-500 max-w-xl mx-auto">
-          A curated treasury of exceptional wisdom
+        <p className="text-lg text-slate-400 max-w-xl mx-auto">
+          A curated treasury of exceptional wisdom from our community
         </p>
       </div>
+
       <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-0">
         {/* LESSON GRID */}
         {loading ? (
           <div className="flex flex-col items-center justify-center py-20">
             <Loader />
-            <p className="mt-4 text-gray-400 font-serif italic">
+            <p className="mt-4 text-slate-400 font-serif italic">
               Retrieving archives...
             </p>
           </div>
@@ -89,11 +79,14 @@ const Featured = () => {
             ))}
           </motion.div>
         ) : (
-          <div className="text-center py-20 opacity-60">
-            <h3 className="text-2xl font-serif text-gray-400 mb-2">
+          <div className="text-center py-20">
+            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-slate-500/10 mb-6">
+              <Flame size={36} className="text-slate-400" />
+            </div>
+            <h3 className="text-2xl font-serif text-white mb-2">
               The pages are blank.
             </h3>
-            <p className="text-gray-400">Be the first to share your wisdom.</p>
+            <p className="text-slate-400">Be the first to share your wisdom.</p>
           </div>
         )}
       </div>

@@ -71,11 +71,8 @@ const Login = () => {
 
         {/* Header */}
         <div className="text-center space-y-2">
-          <h1 className="text-4xl font-serif font-bold tracking-tight">
-            Welcome Back,
-            <span className="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent">
-              {" "}Sage
-            </span>
+          <h1 className="text-4xl font-serif font-bold tracking-tight text-white">
+            Welcome Back
           </h1>
           <p className="text-slate-400 text-sm">
             Sign in to access your personal wisdom journal.
@@ -99,7 +96,7 @@ const Login = () => {
               <input
                 type="email"
                 {...register("email", { required: true })}
-                placeholder="your.wisdom@sage.co"
+                placeholder="your@email.com"
                 className="w-full pl-10 pr-4 py-3 bg-slate-900/50 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50 transition-all text-sm placeholder-slate-500 text-white"
               />
             </div>
