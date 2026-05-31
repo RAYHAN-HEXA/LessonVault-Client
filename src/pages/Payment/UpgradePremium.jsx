@@ -54,8 +54,16 @@ const UpgradePremium = () => {
   const { user } = useAuth();
 
   const handlePayment = () => {
+    // Format phone number with Bangladesh country code if needed
+    let phone = user?.phoneNumber || "";
+    if (phone && !phone.startsWith("+")) {
+      phone = "+880" + phone.replace(/^0/, "");
+    }
+
     const paymentInfo = {
       email: user.email,
+      name: user?.displayName || "",
+      phone: phone || "+8801978730955", // Default test phone for Bangladesh
     };
     axiosInstance.post("/payment-checkout-session", paymentInfo).then((res) => {
       console.log(res.data);
@@ -228,6 +236,42 @@ const UpgradePremium = () => {
               <p className="text-white/60 text-sm font-medium relative z-10 mt-1">
                 Join 1,000+ members
               </p>
+            </div>
+          </div>
+        </div>
+
+        {/* TEST CARD INFO SECTION */}
+        <div className="max-w-3xl mx-auto mb-16 animate-fade-in-up" style={{ animationDelay: "0.15s" }}>
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
+            <div className="flex items-start gap-4">
+              <div className="p-2 bg-amber-100 rounded-lg">
+                <Shield size={20} className="text-amber-600" />
+              </div>
+              <div className="flex-1">
+                <h4 className="font-bold text-amber-800 mb-2">Stripe Test Card Information</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-amber-700">
+                  <div>
+                    <span className="font-medium">Card Number:</span>
+                    <span className="ml-2 font-mono bg-amber-100 px-2 py-0.5 rounded">4242 4242 4242 4242</span>
+                  </div>
+                  <div>
+                    <span className="font-medium">Expiry:</span>
+                    <span className="ml-2 font-mono bg-amber-100 px-2 py-0.5 rounded">Any future date (12/29)</span>
+                  </div>
+                  <div>
+                    <span className="font-medium">CVC:</span>
+                    <span className="ml-2 font-mono bg-amber-100 px-2 py-0.5 rounded">Any 3 digits (123)</span>
+                  </div>
+                  <div>
+                    <span className="font-medium">Phone (BD):</span>
+                    <span className="ml-2 font-mono bg-amber-100 px-2 py-0.5 rounded">+8801978730955</span>
+                  </div>
+                  <div className="md:col-span-2">
+                    <span className="font-medium">Country:</span>
+                    <span className="ml-2">Bangladesh</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
