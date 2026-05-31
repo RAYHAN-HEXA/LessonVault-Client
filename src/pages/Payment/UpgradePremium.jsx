@@ -11,6 +11,7 @@ import {
   BookOpen,
   Feather,
   Layout,
+  Copy,
 } from "lucide-react";
 import useAxios from "../../hooks/useAxios";
 import useAuth from "../../hooks/useAuth";
@@ -18,6 +19,7 @@ import useTheme from "../../hooks/useTheme";
 
 const UpgradePremium = () => {
   const { COLORS } = useTheme();
+  const [copied, setCopied] = React.useState(false);
 
   const benefits = [
     {
@@ -60,6 +62,20 @@ const UpgradePremium = () => {
     axiosInstance.post("/payment-checkout-session", paymentInfo).then((res) => {
       console.log(res.data);
       window.location.href = res.data.url;
+    });
+  };
+
+  const handleCopyTestCard = () => {
+    const testCardInfo = `Stripe Test Card Details:
+Card Number: 4242 4242 4242 4242
+Expiry: 12/29
+CVC: 123
+Country: Bangladesh
+Phone: +8801978730955`;
+
+    navigator.clipboard.writeText(testCardInfo).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
     });
   };
 
@@ -165,6 +181,24 @@ const UpgradePremium = () => {
                     size={20}
                     className="group-hover/btn:translate-x-1 transition-transform"
                   />
+                </button>
+
+                {/* Demo: Copy Test Card Button */}
+                <button
+                  onClick={handleCopyTestCard}
+                  className="w-full sm:w-auto px-10 py-3 bg-transparent border-2 border-[#1A2F23]/20 hover:bg-[#1A2F23]/5 text-[#1A2F23]/70 hover:text-[#1A2F23] rounded-xl font-medium text-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  {copied ? (
+                    <>
+                      <Check size={16} className="text-green-600" />
+                      <span>Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy size={16} />
+                      <span>Demo: Copy Test Card</span>
+                    </>
+                  )}
                 </button>
               </div>
               <p className="text-xs text-gray-400 mt-4 text-center sm:text-left flex items-center gap-1 justify-center sm:justify-start">
