@@ -265,12 +265,6 @@ const Hero = () => {
                   Join <span className="text-cyan-400 font-bold">10K+</span> learners sharing wisdom
                 </div>
               </div>
-
-              {/* Feature Badge */}
-              <div className="absolute bottom-6 left-6 flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 border border-emerald-500/30 rounded-full backdrop-blur-xl">
-                <Zap className="w-4 h-4 text-emerald-400" />
-                <span className="text-emerald-400 text-sm font-medium">AI-Powered Insights</span>
-              </div>
             </div>
 
             {/* Navigation Buttons (Floating) */}
