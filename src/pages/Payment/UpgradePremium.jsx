@@ -11,13 +11,18 @@ import {
   BookOpen,
   Feather,
   Layout,
+  Loader2,
 } from "lucide-react";
 import useAxios from "../../hooks/useAxios";
 import useAuth from "../../hooks/useAuth";
 import useTheme from "../../hooks/useTheme";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { useNavigate } from "react-router";
 
 const UpgradePremium = () => {
   const { COLORS } = useTheme();
+  const navigate = useNavigate();
+  const [isDemoLoading, setIsDemoLoading] = React.useState(false);
 
   const benefits = [
     {
@@ -51,6 +56,7 @@ const UpgradePremium = () => {
   ];
 
   const axiosInstance = useAxios();
+  const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
 
   const handlePayment = () => {
@@ -61,6 +67,34 @@ const UpgradePremium = () => {
       console.log(res.data);
       window.location.href = res.data.url;
     });
+  };
+
+  const handleDemoPayment = () => {
+    setIsDemoLoading(true);
+    // Get current user from DB first
+    axiosInstance
+      .get(`/users?email=${user.email}`)
+      .then((res) => {
+        const currUser = res.data?.[0];
+        if (currUser?._id) {
+          // Update user to premium directly
+          return axiosSecure.patch(`/users/${currUser._id}`, {
+            isPremium: true,
+          });
+        }
+      })
+      .then(() => {
+        // Notify the app about premium update
+        window.dispatchEvent(new Event("premium-updated"));
+        // Redirect to success page with a demo session_id
+        navigate("/payment/success?session_id=demo_payment");
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+      .finally(() => {
+        setIsDemoLoading(false);
+      });
   };
 
   const renderCell = (value, isPremium) => {
@@ -165,6 +199,25 @@ const UpgradePremium = () => {
                     size={20}
                     className="group-hover/btn:translate-x-1 transition-transform"
                   />
+                </button>
+
+                {/* Demo Payment Button */}
+                <button
+                  onClick={handleDemoPayment}
+                  disabled={isDemoLoading}
+                  className="w-full sm:w-auto px-10 py-3 bg-transparent border-2 border-[#1A2F23]/30 hover:bg-[#1A2F23]/5 text-[#1A2F23] rounded-xl font-medium text-sm transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                  {isDemoLoading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      Processing...
+                    </>
+                  ) : (
+                    <>
+                      <Feather className="w-4 h-4" />
+                      Demo: Skip Payment
+                    </>
+                  )}
                 </button>
               </div>
               <p className="text-xs text-gray-400 mt-4 text-center sm:text-left flex items-center gap-1 justify-center sm:justify-start">
