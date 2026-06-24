@@ -5,21 +5,17 @@ import Loader from "../components/Shared/Loader";
 import LessonCard from "../components/Shared/LessonCard";
 import SkeletonCard from "../components/Shared/SkeletonCard";
 import useAxios from "../hooks/useAxios";
-import useAuth from "../hooks/useAuth";
 import usePremium from "../hooks/usePremium";
 
 const PublicLessons = () => {
   const [lessons, setLessons] = useState([]);
-  const [totalLessons, setTotalLessons] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
-  const [currentUser, setCurrentUser] = useState(null);
   const [sort, setSort] = useState("");
   const [filter, setFilter] = useState("");
   const [search, setSearch] = useState("");
   const [searchText, setSearchText] = useState("");
   const [category, setCategory] = useState("");
-  const { user } = useAuth();
   const axiosInstance = useAxios();
   const [loading, setLoading] = useState(true);
   const isPremium = usePremium();
@@ -51,38 +47,34 @@ const PublicLessons = () => {
   };
 
   useEffect(() => {
-    setLoading(true);
-    axiosInstance
-      .get(
-        `/lessons?isPrivate=false&limit=${limit}&skip=${
-          currentPage * limit
-        }&sort=${sort}&filter=${filter}&tone=${filter}&category=${encodeURIComponent(
-          category
-        )}&search=${search}&status=approved`
-      )
-      .then((res) => {
+    const fetchLessons = async () => {
+      try {
+        const res = await axiosInstance.get(
+          `/lessons?isPrivate=false&limit=${limit}&skip=${
+            currentPage * limit
+          }&sort=${sort}&filter=${filter}&tone=${filter}&category=${encodeURIComponent(
+            category
+          )}&search=${search}&status=approved`
+        );
         setLessons(res.data.result);
-        setTotalLessons(res.data.total);
-        setLoading(false);
         const page = Math.ceil(res.data.total / limit);
         setTotalPages(page);
-      })
-      .catch(() => setLoading(false));
-  }, [axiosInstance, currentPage, sort, filter, category, search]);
+      } catch (error) {
+        console.error("Error fetching lessons:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  useEffect(() => {
-    if (!user?.email) return;
-    axiosInstance.get(`/users?email=${user.email}`).then((res) => {
-      setCurrentUser(res.data[0]);
-    });
-  }, [axiosInstance, user]);
+    fetchLessons();
+  }, [currentPage, limit, sort, filter, category, search, axiosInstance]);
 
   return (
-    <div className="min-h-screen w-full relative py-12 bg-slate-950">
+    <div className="min-h-screen w-full relative py-12 bg-[#F8FAF6]">
       {/* Background effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-violet-600/10 rounded-full blur-[120px]"></div>
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-fuchsia-600/10 rounded-full blur-[100px]"></div>
+        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#2F8F3A]/10 rounded-full blur-[120px]"></div>
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#6E9277]/10 rounded-full blur-[100px]"></div>
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
       </div>
 
@@ -94,16 +86,16 @@ const PublicLessons = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-violet-500/30 mb-4">
-            <BookOpen size={28} className="text-violet-400" />
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-[#2F8F3A]/20 to-[#6E9277]/20 border border-[#2F8F3A]/30 mb-4">
+            <BookOpen size={28} className="text-[#2F8F3A]" />
           </div>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold tracking-tight text-white">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold tracking-tight text-[#1F2937]">
             The Collective{" "}
-            <span className="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#2F8F3A] via-[#6E9277] to-[#1F4D2B] bg-clip-text text-transparent">
               Wisdom
             </span>
           </h1>
-          <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-400 font-light">
+          <p className="max-w-2xl mx-auto text-lg md:text-xl text-[#6B7280] font-light">
             A curated library of life lessons, hard-earned truths, and moments
             of clarity shared by the community.
           </p>
@@ -116,20 +108,20 @@ const PublicLessons = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.6 }}
         >
-          <div className="flex flex-col xl:flex-row items-center gap-3 bg-slate-900/50 backdrop-blur-xl border border-white/10 rounded-2xl p-2">
+          <div className="flex flex-col xl:flex-row items-center gap-3 bg-[#EEF6EF]/50 backdrop-blur-xl border border-[#2F8F3A]/10 rounded-2xl p-2">
             {/* SEARCH INPUT */}
             <form
               onSubmit={(e) => handleSearch(e)}
-              className="bg-slate-900/50 rounded-xl flex-1 flex items-center px-4 py-2 w-full"
+              className="bg-[#EEF6EF]/50 rounded-xl flex-1 flex items-center px-4 py-2 w-full"
             >
-              <Search size={20} className="text-slate-500 mr-3" />
+              <Search size={20} className="text-[#6B7280] mr-3" />
               <input
                 type="text"
                 name="search"
                 value={searchText}
                 onChange={(e) => setSearchText(e.target.value)}
                 placeholder="Search for wisdom..."
-                className="flex-1 bg-transparent border-none outline-none text-white placeholder:text-slate-500 font-medium"
+                className="flex-1 bg-transparent border-none outline-none text-[#1F2937] placeholder:text-[#6B7280] font-medium"
               />
             </form>
 
@@ -138,7 +130,7 @@ const PublicLessons = () => {
               <select
                 value={category}
                 onChange={(e) => handleCategory(e)}
-                className="bg-slate-900/50 border border-white/10 rounded-xl px-4 py-2.5 text-slate-300 cursor-pointer hover:border-violet-500/30 transition-all focus:outline-none"
+                className="bg-[#EEF6EF]/50 border border-[#2F8F3A]/10 rounded-xl px-4 py-2.5 text-[#1F2937] cursor-pointer hover:border-[#2F8F3A]/30 transition-all focus:outline-none"
               >
                 <option value="">All Categories</option>
                 <option value="Personal Growth">Personal Growth</option>
@@ -151,7 +143,7 @@ const PublicLessons = () => {
               <select
                 value={filter}
                 onChange={(e) => handleFilter(e)}
-                className="bg-slate-900/50 border border-white/10 rounded-xl px-4 py-2.5 text-slate-300 cursor-pointer hover:border-violet-500/30 transition-all focus:outline-none"
+                className="bg-[#EEF6EF]/50 border border-[#2F8F3A]/10 rounded-xl px-4 py-2.5 text-[#1F2937] cursor-pointer hover:border-[#2F8F3A]/30 transition-all focus:outline-none"
               >
                 <option value="">All Tones</option>
                 <option value="Motivational">Motivational</option>
@@ -163,7 +155,7 @@ const PublicLessons = () => {
               <select
                 value={sort}
                 onChange={(e) => handleSort(e)}
-                className="bg-slate-900/50 border border-white/10 rounded-xl px-4 py-2.5 text-slate-300 cursor-pointer hover:border-violet-500/30 transition-all focus:outline-none"
+                className="bg-[#EEF6EF]/50 border border-[#2F8F3A]/10 rounded-xl px-4 py-2.5 text-[#1F2937] cursor-pointer hover:border-[#2F8F3A]/30 transition-all focus:outline-none"
               >
                 <option value="postedAt">Newest</option>
                 <option value="favorites">Most Saved</option>
@@ -177,7 +169,7 @@ const PublicLessons = () => {
             {(filter || sort || search || searchText || category) && (
               <button
                 onClick={handleClear}
-                className="flex items-center gap-2 px-6 py-2.5 rounded-xl font-medium text-white bg-slate-900/50 border border-white/10 hover:border-red-500/50 hover:bg-red-500/10 transition-all"
+                className="flex items-center gap-2 px-6 py-2.5 rounded-xl font-medium text-[#1F2937] bg-[#EEF6EF]/50 border border-[#2F8F3A]/10 hover:border-red-500/50 hover:bg-red-500/10 transition-all"
               >
                 <X size={18} />
                 Clear Filters
@@ -218,13 +210,13 @@ const PublicLessons = () => {
           </motion.div>
         ) : (
           <div className="text-center py-20">
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 mb-6">
-              <BookOpen size={36} className="text-violet-400" />
+            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-[#2F8F3A]/20 to-[#6E9277]/20 mb-6">
+              <BookOpen size={36} className="text-[#2F8F3A]" />
             </div>
-            <h3 className="text-2xl font-serif text-white mb-2">
+            <h3 className="text-2xl font-serif text-[#1F2937] mb-2">
               The pages are blank.
             </h3>
-            <p className="text-slate-400">Be the first to share your wisdom.</p>
+            <p className="text-[#6B7280]">Be the first to share your wisdom.</p>
           </div>
         )}
       </div>
@@ -234,7 +226,7 @@ const PublicLessons = () => {
         {currentPage > 0 && (
           <button
             onClick={() => setCurrentPage(currentPage - 1)}
-            className="px-6 py-2.5 rounded-xl font-medium text-white bg-slate-900/50 border border-white/10 hover:border-violet-500/50 hover:bg-violet-500/10 transition-all"
+            className="px-6 py-2.5 rounded-xl font-medium text-[#1F2937] bg-[#EEF6EF]/50 border border-[#2F8F3A]/10 hover:border-[#2F8F3A]/50 hover:bg-[#2F8F3A]/10 transition-all"
           >
             Previous
           </button>
@@ -245,8 +237,8 @@ const PublicLessons = () => {
             onClick={() => setCurrentPage(i)}
             className={`px-4 py-2.5 rounded-xl font-medium transition-all ${
               i === currentPage
-                ? "bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white shadow-lg shadow-violet-500/25"
-                : "bg-slate-900/50 border border-white/10 text-slate-400 hover:border-violet-500/50 hover:bg-violet-500/10"
+                ? "bg-gradient-to-r from-[#2F8F3A] to-[#6E9277] text-white shadow-lg shadow-[#2F8F3A]/25"
+                : "bg-[#EEF6EF]/50 border border-[#2F8F3A]/10 text-[#6B7280] hover:border-[#2F8F3A]/50 hover:bg-[#2F8F3A]/10"
             }`}
           >
             {i + 1}
@@ -255,7 +247,7 @@ const PublicLessons = () => {
         {currentPage < totalPages - 1 && (
           <button
             onClick={() => setCurrentPage(currentPage + 1)}
-            className="px-6 py-2.5 rounded-xl font-medium text-white bg-slate-900/50 border border-white/10 hover:border-violet-500/50 hover:bg-violet-500/10 transition-all"
+            className="px-6 py-2.5 rounded-xl font-medium text-[#1F2937] bg-[#EEF6EF]/50 border border-[#2F8F3A]/10 hover:border-[#2F8F3A]/50 hover:bg-[#2F8F3A]/10 transition-all"
           >
             Next
           </button>

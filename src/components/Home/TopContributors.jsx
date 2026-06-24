@@ -29,70 +29,70 @@ const TopContributors = () => {
     if (index === 0)
       return {
         cardClasses:
-          "bg-slate-900/80 backdrop-blur-xl border-2 border-amber-500/50 shadow-2xl shadow-amber-500/20 md:scale-110 z-20",
-        headerBg: "bg-gradient-to-br from-amber-500/20 to-yellow-500/20",
-        headerText: "text-amber-400",
-        avatarBorder: "border-[4px] border-amber-500",
+          "bg-white/80 backdrop-blur-xl border-2 border-[#D9A441]/50 shadow-2xl shadow-[#D9A441]/20 md:scale-110 z-20",
+        headerBg: "bg-gradient-to-br from-[#D9A441]/20 to-[#C49431]/20",
+        headerText: "text-[#D9A441]",
+        avatarBorder: "border-[4px] border-[#D9A441]",
         icon: (
           <Crown
             size={32}
-            className="text-amber-400 fill-amber-400/20 animate-pulse"
+            className="text-[#D9A441] fill-[#D9A441]/20 animate-pulse"
           />
         ),
-        rankBadge: "bg-gradient-to-br from-amber-400 to-yellow-500 text-slate-900 border-amber-400",
-        footerBg: "bg-amber-500/10",
-        glowColor: "bg-amber-500",
+        rankBadge: "bg-gradient-to-br from-[#D9A441] to-[#C49431] text-white border-[#D9A441]",
+        footerBg: "bg-[#D9A441]/10",
+        glowColor: "bg-[#D9A441]",
       };
 
     // RANK 2: SILVER
     if (index === 1)
       return {
-        cardClasses: "bg-slate-900/50 backdrop-blur-xl border border-slate-400/50 shadow-xl z-10",
-        headerBg: "bg-gradient-to-br from-slate-400/20 to-gray-400/20",
-        headerText: "text-slate-300",
-        avatarBorder: "border-[3px] border-slate-400",
-        icon: <Medal size={28} className="text-slate-300" />,
-        rankBadge: "bg-gradient-to-br from-slate-300 to-gray-400 text-slate-900 border-slate-300",
-        footerBg: "bg-slate-400/10",
-        glowColor: "bg-slate-400",
+        cardClasses: "bg-white/50 backdrop-blur-xl border border-[#9CA3AF]/50 shadow-xl z-10",
+        headerBg: "bg-gradient-to-br from-[#9CA3AF]/20 to-[#6B7280]/20",
+        headerText: "text-[#6B7280]",
+        avatarBorder: "border-[3px] border-[#9CA3AF]",
+        icon: <Medal size={28} className="text-[#6B7280]" />,
+        rankBadge: "bg-gradient-to-br from-[#9CA3AF] to-[#6B7280] text-white border-[#9CA3AF]",
+        footerBg: "bg-[#9CA3AF]/10",
+        glowColor: "bg-[#9CA3AF]",
       };
 
     // RANK 3: BRONZE
     if (index === 2)
       return {
-        cardClasses: "bg-slate-900/50 backdrop-blur-xl border border-orange-700/50 shadow-xl z-10",
-        headerBg: "bg-gradient-to-br from-orange-600/20 to-orange-800/20",
-        headerText: "text-orange-400",
-        avatarBorder: "border-[3px] border-orange-500",
-        icon: <Medal size={28} className="text-orange-400" />,
-        rankBadge: "bg-gradient-to-br from-orange-400 to-orange-600 text-slate-900 border-orange-400",
-        footerBg: "bg-orange-500/10",
-        glowColor: "bg-orange-500",
+        cardClasses: "bg-white/50 backdrop-blur-xl border border-[#D9A441]/50 shadow-xl z-10",
+        headerBg: "bg-gradient-to-br from-[#D9A441]/20 to-[#C49431]/20",
+        headerText: "text-[#D9A441]",
+        avatarBorder: "border-[3px] border-[#D9A441]",
+        icon: <Medal size={28} className="text-[#D9A441]" />,
+        rankBadge: "bg-gradient-to-br from-[#D9A441] to-[#C49431] text-white border-[#D9A441]",
+        footerBg: "bg-[#D9A441]/10",
+        glowColor: "bg-[#D9A441]",
       };
 
     // OTHERS
     return {
       cardClasses:
-        "bg-slate-900/50 backdrop-blur-xl border border-white/10 hover:border-violet-500/30 hover:bg-slate-900/80 transition-all shadow-lg hover:shadow-violet-500/10",
-      headerBg: "bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20",
-      headerText: "text-violet-400",
-      avatarBorder: "border-[2px] border-violet-500/30",
-      icon: <Star size={24} className="text-violet-400/60" />,
-      rankBadge: "bg-violet-500/20 text-violet-300 border-violet-500/30",
-      footerBg: "bg-violet-500/10",
-      glowColor: "bg-violet-500",
+        "bg-white/50 backdrop-blur-xl border border-[#E5ECE2] hover:border-[#2F8F3A]/30 hover:bg-white/80 transition-all shadow-lg hover:shadow-[#2F8F3A]/10",
+      headerBg: "bg-gradient-to-br from-[#2F8F3A]/20 to-[#1F4D2B]/20",
+      headerText: "text-[#2F8F3A]",
+      avatarBorder: "border-[2px] border-[#2F8F3A]/30",
+      icon: <Star size={24} className="text-[#2F8F3A]/60" />,
+      rankBadge: "bg-[#2F8F3A]/20 text-[#1F4D2B] border-[#2F8F3A]/30",
+      footerBg: "bg-[#2F8F3A]/10",
+      glowColor: "bg-[#2F8F3A]",
     };
   };
 
   if (loading) {
     return (
-      <div className="w-full py-32 flex justify-center items-center bg-slate-950">
+      <div className="w-full py-32 flex justify-center items-center bg-[#F8FAF6]">
         <div className="flex flex-col items-center gap-4">
           <div className="relative">
-            <div className="absolute inset-0 bg-slate-500/20 rounded-full blur-2xl animate-pulse"></div>
-            <Feather size={48} className="text-slate-400 animate-pulse relative" />
+            <div className="absolute inset-0 bg-[#2F8F3A]/20 rounded-full blur-2xl animate-pulse"></div>
+            <Feather size={48} className="text-[#2F8F3A] animate-pulse relative" />
           </div>
-          <p className="font-serif text-white tracking-widest uppercase text-sm">
+          <p className="font-serif text-[#1F2937] tracking-widest uppercase text-sm">
             Loading contributors...
           </p>
         </div>
@@ -101,25 +101,25 @@ const TopContributors = () => {
   }
 
   return (
-    <section className="w-full py-24 px-4 md:px-8 relative font-sans overflow-hidden bg-slate-950">
+    <section className="w-full py-24 px-4 md:px-8 relative font-sans overflow-hidden bg-[#F8FAF6]">
       {/* Background effects */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-slate-600/10 rounded-full blur-[120px]"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#6E9277]/10 rounded-full blur-[120px]"></div>
       </div>
 
       <div className="max-w-[1440px] mx-auto relative z-10">
         {/* --- SECTION HEADER --- */}
         <div className="text-center mb-20 space-y-4">
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-500/10 border border-slate-500/30">
-            <Trophy size={14} className="text-slate-300 fill-current" />
-            <span className="text-xs font-bold uppercase tracking-widest text-slate-300">
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#2F8F3A]/10 border border-[#2F8F3A]/30">
+            <Trophy size={14} className="text-[#2F8F3A] fill-current" />
+            <span className="text-xs font-bold uppercase tracking-widest text-[#2F8F3A]">
               The Inner Circle
             </span>
           </div>
-          <h2 className="text-4xl md:text-6xl font-serif font-bold text-white">
+          <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#1F2937]">
             Top Contributors
           </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto text-lg font-light">
+          <p className="text-[#6B7280] max-w-2xl mx-auto text-lg font-light">
             Honoring the architects of wisdom who have contributed the most to
             our collective consciousness.
           </p>
@@ -143,9 +143,9 @@ const TopContributors = () => {
                 {/* 2. Premium Badge */}
                 {contributor.isPremium === "true" && (
                   <div className="absolute top-4 right-4 z-30">
-                    <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-br from-[#D4C5A8] via-[#FDFBF7] to-[#C3B08D] shadow-lg border border-white/40">
-                      <Gem size={12} className="text-[#1A2F23]" />
-                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#1A2F23]">
+                    <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-br from-[#D9A441] via-[#F8FAF6] to-[#C49431] shadow-lg border border-white/40">
+                      <Gem size={12} className="text-[#1F4D2B]" />
+                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#1F4D2B]">
                         Premium
                       </span>
                     </div>
@@ -168,7 +168,7 @@ const TopContributors = () => {
 
                   {/* The Image */}
                   <div
-                    className={`w-28 h-28 rounded-full p-1 bg-slate-900 shadow-2xl ${styles.avatarBorder}`}
+                    className={`w-28 h-28 rounded-full p-1 bg-white shadow-2xl ${styles.avatarBorder}`}
                   >
                     <img
                       src={contributor.authorImage}
@@ -185,36 +185,36 @@ const TopContributors = () => {
 
                 {/* 5. Content Body */}
                 <div className="w-full px-6 pb-8 flex flex-col items-center flex-grow z-10">
-                  <h3 className="text-xl font-serif font-bold mb-1 line-clamp-1 text-white">
+                  <h3 className="text-xl font-serif font-bold mb-1 line-clamp-1 text-[#1F2937]">
                     {contributor.email === user?.email
                       ? "You"
                       : contributor.name}
                   </h3>
-                  <p className="text-sm text-slate-500 font-medium tracking-wide mb-6 font-mono bg-slate-800/50 px-3 py-1.5 rounded-full max-w-full truncate border border-white/10">
+                  <p className="text-sm text-[#6B7280] font-medium tracking-wide mb-6 font-mono bg-[#F8FAF6] px-3 py-1.5 rounded-full max-w-full truncate border border-[#E5ECE2]">
                     {contributor.email}
                   </p>
 
                   {/* Stats Divider */}
-                  <div className="w-12 h-[1px] bg-white/10 mb-6"></div>
+                  <div className="w-12 h-[1px] bg-[#E5ECE2] mb-6"></div>
 
                   {/* Wisdom Count */}
                   <div
-                    className={`w-full py-4 rounded-2xl flex items-center justify-center gap-3 ${styles.footerBg} border border-white/10`}
+                    className={`w-full py-4 rounded-2xl flex items-center justify-center gap-3 ${styles.footerBg} border border-[#E5ECE2]`}
                   >
                     <div
                       className={`p-2 rounded-full ${
                         index === 0
-                          ? "bg-gradient-to-br from-amber-400 to-yellow-500 text-slate-900"
-                          : "bg-gradient-to-br from-violet-500 to-fuchsia-500 text-white"
+                          ? "bg-gradient-to-br from-[#D9A441] to-[#C49431] text-white"
+                          : "bg-gradient-to-br from-[#2F8F3A] to-[#1F4D2B] text-white"
                       }`}
                     >
                       <Feather size={16} />
                     </div>
                     <div className="text-left">
-                      <span className="block font-bold text-lg leading-none text-white">
+                      <span className="block font-bold text-lg leading-none text-[#1F2937]">
                         {contributor.count}
                       </span>
-                      <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">
+                      <span className="text-[10px] uppercase font-bold text-[#6B7280] tracking-wider">
                         Lessons Shared
                       </span>
                     </div>

@@ -9,7 +9,6 @@ import {
   Check,
   UploadCloud,
 } from "lucide-react";
-import useAxios from "../../hooks/useAxios";
 import { useForm } from "react-hook-form";
 import usePremium from "../../hooks/usePremium";
 import { Link } from "react-router";
@@ -117,10 +116,10 @@ const AddLessons = () => {
       <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundColor: COLORS.light,
+          backgroundColor: "#F8FAF6",
           backgroundImage: `
-            radial-gradient(circle at 10% 20%, ${COLORS.accent}30 0%, transparent 20%),
-            radial-gradient(circle at 90% 80%, ${COLORS.primary}20 0%, transparent 25%)
+            radial-gradient(circle at 10% 20%, #6E9277 0%, transparent 20%),
+            radial-gradient(circle at 90% 80%, #2F8F3A 0%, transparent 25%)
           `,
         }}
       />
@@ -128,24 +127,24 @@ const AddLessons = () => {
       <div className="absolute inset-0 opacity-20 pointer-events-none z-0 mix-blend-multiply bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')]"></div>
 
       {/* --- MAIN CARD --- */}
-      <div className="relative z-10 w-full max-w-5xl bg-white/80 backdrop-blur-xl rounded-[2.5rem] shadow-2xl border border-white/50 overflow-hidden animate-slide-up">
-        <div className="h-2 bg-gradient-to-r from-[#1A2F23] via-[#4F6F52] to-[#1A2F23]" />
+      <div className="relative z-10 w-full max-w-5xl bg-white/80 backdrop-blur-xl rounded-[2.5rem] shadow-2xl border border-[#E5ECE2] overflow-hidden animate-slide-up">
+        <div className="h-2 bg-gradient-to-r from-[#2F8F3A] via-[#2F8F3A] to-[#1F4D2B]" />
 
         <div className="grid grid-cols-1 lg:grid-cols-12">
           {/* LEFT SIDE */}
-          <div className="lg:col-span-4 bg-[#1A2F23] text-[#F3F5F0] p-10 flex flex-col justify-between relative overflow-hidden">
+          <div className="lg:col-span-4 bg-[#1F4D2B] text-white p-10 flex flex-col justify-between relative overflow-hidden">
             {/* decorative background */}
-            <div className="absolute -top-20 -left-20 w-64 h-64 bg-[#4F6F52] rounded-full blur-3xl opacity-30"></div>
+            <div className="absolute -top-20 -left-20 w-64 h-64 bg-[#2F8F3A] rounded-full blur-3xl opacity-30"></div>
 
             <div className="relative z-10">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/10 text-xs font-medium uppercase text-[#D4C5A8] mb-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/10 text-xs font-medium uppercase text-[#D9A441] mb-6">
                 <Feather size={12} />
                 Knowledge Vault
               </div>
 
               <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
                 Share Your <br />
-                <span className="text-[#D4C5A8] italic">Wisdom</span>
+                <span className="text-[#D9A441] italic">Wisdom</span>
               </h1>
 
               <p className="text-white/60 text-sm">
@@ -157,8 +156,8 @@ const AddLessons = () => {
             <div className="relative z-10 mt-12 space-y-6">
               <div className="flex items-center gap-4 text-sm text-white/40">
                 <div
-                  className={`h-8 w-8 rounded-full border border-[#D4C5A8] flex items-center justify-center ${
-                    title ? "bg-[#D4C5A8] text-[#1A2F23]" : "text-[#D4C5A8]"
+                  className={`h-8 w-8 rounded-full border border-[#D9A441] flex items-center justify-center ${
+                    title ? "bg-[#D9A441] text-[#1F4D2B]" : "text-[#D9A441]"
                   }`}
                 >
                   1
@@ -167,10 +166,10 @@ const AddLessons = () => {
                 <div className="h-[1px] flex-1 bg-white/10" />
 
                 <div
-                  className={`h-8 w-8 rounded-full border border-[#D4C5A8] flex items-center justify-center ${
+                  className={`h-8 w-8 rounded-full border border-[#D9A441] flex items-center justify-center ${
                     description
-                      ? "bg-[#D4C5A8] text-[#1A2F23]"
-                      : "text-[#D4C5A8]"
+                      ? "bg-[#D9A441] text-[#1F4D2B]"
+                      : "text-[#D9A441]"
                   }`}
                 >
                   2
@@ -179,10 +178,10 @@ const AddLessons = () => {
                 <div className="h-[1px] flex-1 bg-white/10" />
 
                 <div
-                  className={`h-8 w-8 rounded-full border border-[#D4C5A8] flex items-center justify-center ${
+                  className={`h-8 w-8 rounded-full border border-[#D9A441] flex items-center justify-center ${
                     isSubmitted
-                      ? "bg-[#D4C5A8] text-[#1A2F23]"
-                      : "text-[#D4C5A8]"
+                      ? "bg-[#D9A441] text-[#1F4D2B]"
+                      : "text-[#D9A441]"
                   }`}
                 >
                   3
@@ -199,15 +198,15 @@ const AddLessons = () => {
                 {" "}
                 <Lottie animationData={doneAnimation} size={16} />
                 <div className="h-full flex flex-col items-center justify-center text-center space-y-6 animate-fade-in">
-                  <div className="w-20 h-20 bg-[#4F6F52] rounded-full flex items-center justify-center text-white shadow-xl mb-2">
+                  <div className="w-20 h-20 bg-[#2F8F3A] rounded-full flex items-center justify-center text-white shadow-xl mb-2">
                     <Check size={40} strokeWidth={3} />
                   </div>
 
-                  <h2 className="text-3xl font-bold text-[#1A2F23]">
+                  <h2 className="text-3xl font-bold text-[#1F2937]">
                     Wisdom Recorded
                   </h2>
-                  <p className="text-gray-500 max-w-sm">
-                    Your insight has been added to the Book of Wisdom.
+                  <p className="text-[#6B7280] max-w-sm">
+                    Your insight has been added to Lessonly.
                   </p>
                 </div>
               </>
@@ -216,38 +215,38 @@ const AddLessons = () => {
                 {/* Title */}
                 <div className="space-y-6">
                   <div>
-                    <label className="block text-xs font-bold text-[#4F6F52] uppercase mb-2 ml-1">
+                    <label className="block text-xs font-bold text-[#2F8F3A] uppercase mb-2 ml-1">
                       The Headline
                     </label>
                     <input
                       {...register("title", { required: true })}
                       type="text"
                       placeholder="e.g. The Quiet Power of Patience"
-                      className="w-full bg-[#F3F5F0] border-2 border-transparent focus:bg-white focus:border-[#D4C5A8] rounded-2xl px-5 py-4 text-lg outline-none transition-all shadow-inner"
+                      className="w-full bg-[#F8FAF6] border-2 border-transparent focus:bg-white focus:border-[#2F8F3A] rounded-2xl px-5 py-4 text-lg outline-none transition-all shadow-inner"
                     />
                   </div>
 
                   {/* Description */}
                   <div>
-                    <label className="block text-xs font-bold text-[#4F6F52] uppercase mb-2 ml-1">
+                    <label className="block text-xs font-bold text-[#2F8F3A] uppercase mb-2 ml-1">
                       The Lesson
                     </label>
                     <textarea
                       {...register("description", { required: true })}
                       rows="4"
                       placeholder="What did experience teach you?"
-                      className="w-full bg-[#F3F5F0] border-2 border-transparent focus:bg-white focus:border-[#D4C5A8] rounded-2xl px-5 py-4 text-base outline-none transition-all shadow-inner resize-none"
+                      className="w-full bg-[#F8FAF6] border-2 border-transparent focus:bg-white focus:border-[#2F8F3A] rounded-2xl px-5 py-4 text-base outline-none transition-all shadow-inner resize-none"
                     />
                   </div>
                 </div>
 
-                <div className="w-full h-[1px] bg-gray-100" />
+                <div className="w-full h-[1px] bg-[#E5ECE2]" />
 
                 {/* CATEGORY + TONE */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {/* Category */}
                   <div>
-                    <label className="block text-xs font-bold text-[#4F6F52] uppercase mb-3 ml-1">
+                    <label className="block text-xs font-bold text-[#1F4D2B] uppercase mb-3 ml-1">
                       Category
                     </label>
                     <div className="flex flex-wrap gap-2">
@@ -258,8 +257,8 @@ const AddLessons = () => {
                           onClick={() => setValue("category", cat)}
                           className={`px-4 py-2 rounded-xl text-sm border ${
                             watch("category") === cat
-                              ? "bg-[#1A2F23] text-[#D4C5A8] border-[#1A2F23]"
-                              : "bg-white text-gray-500 border-gray-200 hover:border-[#4F6F52] cursor-pointer"
+                              ? "bg-[#1F4D2B] text-[#D9A441] border-[#1F4D2B]"
+                              : "bg-white text-[#6B7280] border-[#E5ECE2] hover:border-[#2F8F3A] cursor-pointer"
                           }`}
                         >
                           {cat}
@@ -277,7 +276,7 @@ const AddLessons = () => {
 
                   {/* Tone */}
                   <div>
-                    <label className="block text-xs font-bold text-[#4F6F52] uppercase mb-3 ml-1">
+                    <label className="block text-xs font-bold text-[#1F4D2B] uppercase mb-3 ml-1">
                       Emotional Tone
                     </label>
                     <div className="grid grid-cols-2 gap-2">
@@ -288,8 +287,8 @@ const AddLessons = () => {
                           onClick={() => setValue("tone", t.label)}
                           className={`px-3 py-2 rounded-xl text-sm border flex items-center gap-2 justify-center cursor-pointer ${
                             watch("tone") === t.label
-                              ? "bg-[#1A2F23] border-[#D4C5A8] text-[#D4C5A8] "
-                              : "bg-white border-gray-200 text-gray-500 hover:bg-gray-50"
+                              ? "bg-[#1F4D2B] border-[#1F4D2B] text-[#D9A441] "
+                              : "bg-white border-[#E5ECE2] text-[#6B7280] hover:bg-[#F8FAF6]"
                           }`}
                         >
                           {t.emoji} {t.label}
@@ -307,7 +306,7 @@ const AddLessons = () => {
 
                 {/* Image Upload */}
                 <div>
-                  <label className="block text-xs font-bold text-[#4F6F52] uppercase mb-3 ml-1">
+                  <label className="block text-xs font-bold text-[#1F4D2B] uppercase mb-3 ml-1">
                     Visual Context (Optional)
                   </label>
 
@@ -326,8 +325,8 @@ const AddLessons = () => {
                       }}
                       className={`relative w-full h-32 rounded-2xl border-2 border-dashed flex flex-col items-center justify-center cursor-pointer ${
                         isDragging
-                          ? "border-[#4F6F52] bg-[#4F6F52]/5"
-                          : "border-gray-200 hover:border-[#D4C5A8] hover:bg-gray-50"
+                          ? "border-[#2F8F3A] bg-[#2F8F3A]/5"
+                          : "border-[#E5ECE2] hover:border-[#2F8F3A] hover:bg-[#F8FAF6]"
                       }`}
                     >
                       <input
@@ -337,7 +336,7 @@ const AddLessons = () => {
                         onChange={(e) => handleImageChange(e.target.files[0])}
                         className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                       />
-                      <div className="text-gray-400 flex flex-col items-center gap-2">
+                      <div className="text-[#8A8F98] flex flex-col items-center gap-2">
                         <UploadCloud size={24} />
                         <span className="text-sm">Drop image or click</span>
                       </div>
@@ -364,24 +363,8 @@ const AddLessons = () => {
                 </div>
 
                 {/* Visibility */}
-                {/* <div>
-                  <label className="block text-xs font-bold text-[#4F6F52] uppercase mb-3 ml-1">
-                    Visibility
-                  </label>
-                  <label className="flex items-center gap-3 bg-white border border-gray-200 rounded-xl px-4 py-3 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      {...register("isPrivate")}
-                      className="w-5 h-5 accent-[#4F6F52]"
-                    />
-                    <span className="text-sm text-gray-700">
-                      Private — Only you can see{" "}
-                    </span>
-                  </label>
-                </div> */}
-                {/* Visibility */}
                 <div>
-                  <label className="block text-xs font-bold text-[#4F6F52] uppercase mb-3 ml-1">
+                  <label className="block text-xs font-bold text-[#1F4D2B] uppercase mb-3 ml-1">
                     Visibility
                   </label>
 
@@ -392,7 +375,7 @@ const AddLessons = () => {
                       const value = e.target.value;
                       setValue("isPrivate", value === "private");
                     }}
-                    className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-700 focus:border-[#4F6F52] outline-none cursor-pointer"
+                    className="w-full bg-white border border-[#E5ECE2] rounded-xl px-4 py-3 text-sm text-[#1F2937] focus:border-[#2F8F3A] outline-none cursor-pointer"
                   >
                     <option value="public">Public — Visible to everyone</option>
                     <option value="private">Private — Only you can see</option>
@@ -401,7 +384,7 @@ const AddLessons = () => {
 
                 {/* Access Level */}
                 <div>
-                  <label className="block text-xs font-bold text-[#4F6F52] uppercase mb-3 ml-1">
+                  <label className="block text-xs font-bold text-[#1F4D2B] uppercase mb-3 ml-1">
                     Access Level
                   </label>
 
@@ -412,7 +395,7 @@ const AddLessons = () => {
                       const value = e.target.value;
                       setValue("isPremiumAccess", value === "premium");
                     }}
-                    className={`w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-700 focus:border-[#4F6F52] outline-none cursor-pointer`}
+                    className={`w-full bg-white border border-[#E5ECE2] rounded-xl px-4 py-3 text-sm text-[#1F2937] focus:border-[#2F8F3A] outline-none cursor-pointer`}
                     disabled={!isPremium}
                   >
                     <option value="free">Free — Visible to all users</option>
@@ -420,7 +403,7 @@ const AddLessons = () => {
                   </select>
 
                   {!isPremium && (
-                    <p className="mt-1 text-xs text-blue-500">
+                    <p className="mt-1 text-xs text-[#2F8F3A]">
                       <Link to="/payment" className="underline">
                         Become a Premium Member to access this
                       </Link>
@@ -432,7 +415,7 @@ const AddLessons = () => {
                 <div className="pt-4">
                   <button
                     type="submit"
-                    className="group relative w-full rounded-2xl bg-[#1A2F23] py-4 text-white shadow-xl transition-all hover:-translate-y-1"
+                    className="group relative w-full rounded-2xl bg-gradient-to-r from-[#2F8F3A] to-[#1F4D2B] py-4 text-white shadow-xl transition-all hover:from-[#1F4D2B] hover:to-[#2F8F3A] hover:-translate-y-1"
                   >
                     <div className="relative z-10 flex justify-center gap-2 text-lg cursor-pointer items-center">
                       Publish <Send size={18} />

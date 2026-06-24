@@ -35,22 +35,22 @@ const About = () => {
   ];
 
   const team = [
-    { name: "Sarah Johnson", role: "Founder & CEO", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" },
-    { name: "Michael Chen", role: "CTO", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" },
-    { name: "Emma Wilson", role: "Head of Community", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop" },
-    { name: "David Martinez", role: "Product Lead", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop" },
+    { name: "Rafiq Hassan", role: "Founder & CEO", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face" },
+    { name: "Nadia Karim", role: "CTO", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop&crop=face" },
+    { name: "Tanvir Ahmed", role: "Head of Community", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" },
+    { name: "Sara Begum", role: "Product Lead", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face" },
   ];
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900 pt-24">
+    <div className="min-h-screen bg-white pt-24">
       {/* Hero */}
       <Section bgVariant="primary" padding="xl">
         <Container>
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
               About DigitalLesson
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
+            <p className="text-xl text-gray-600 mb-8">
               A community-driven platform dedicated to preserving and sharing life's greatest lessons with the world.
             </p>
             <div className="flex gap-4 justify-center">
@@ -70,11 +70,11 @@ const About = () => {
               return (
                 <Card key={stat.label} className="text-center">
                   <CardBody>
-                    <Icon className="w-12 h-12 text-blue-600 dark:text-blue-400 mx-auto mb-4" />
-                    <p className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                    <Icon className="w-12 h-12 text-[#2F8F3A] mx-auto mb-4" />
+                    <p className="text-3xl font-bold text-gray-900 mb-2">
                       {stat.value}
                     </p>
-                    <p className="text-gray-600 dark:text-gray-400">{stat.label}</p>
+                    <p className="text-gray-600">{stat.label}</p>
                   </CardBody>
                 </Card>
               );
@@ -99,11 +99,11 @@ const About = () => {
               return (
                 <Card key={value.title} hoverable>
                   <CardBody>
-                    <Icon className="w-12 h-12 text-purple-600 dark:text-purple-400 mb-4" />
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                    <Icon className="w-12 h-12 text-[#6E9277] mb-4" />
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
                       {value.title}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-400">
+                    <p className="text-gray-600">
                       {value.description}
                     </p>
                   </CardBody>
@@ -135,10 +135,10 @@ const About = () => {
                   />
                 </div>
                 <CardBody>
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+                  <h3 className="text-lg font-bold text-gray-900">
                     {member.name}
                   </h3>
-                  <p className="text-blue-600 dark:text-blue-400 text-sm font-medium">
+                  <p className="text-[#2F8F3A] text-sm font-medium">
                     {member.role}
                   </p>
                 </CardBody>
@@ -154,10 +154,10 @@ const About = () => {
       <Section bgVariant="primary" padding="xl">
         <Container>
           <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Ready to Share Your Story?
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
+            <p className="text-lg text-gray-600 mb-8">
               Join thousands of educators and learners who are transforming lives through shared wisdom.
             </p>
             <Link to="/auth/register">

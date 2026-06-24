@@ -1,7 +1,8 @@
 import React from "react";
 
 /**
- * Professional Input Component
+ * LessonVault Input Component
+ * Clean Modern SaaS Style with Green theme
  */
 export const Input = React.forwardRef(
   (
@@ -20,23 +21,23 @@ export const Input = React.forwardRef(
   ) => {
     const variants = {
       default:
-        "border border-gray-300 dark:border-slate-600 focus:border-blue-500 dark:focus:border-blue-400 bg-white dark:bg-slate-800 text-gray-900 dark:text-white",
+        "border border-[#E5ECE2] focus:border-[#2F8F3A] bg-white text-[#1F2937]",
       filled:
-        "bg-gray-100 dark:bg-slate-700 border-0 focus:bg-gray-50 dark:focus:bg-slate-600 text-gray-900 dark:text-white",
+        "bg-[#F8FAF6] border-0 focus:bg-white text-[#1F2937]",
     };
 
     return (
       <div className={fullWidth ? "w-full" : ""}>
         {label && (
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label className="block text-sm font-medium text-[#1F2937] mb-2">
             {label}
-            {props.required && <span className="text-red-600">*</span>}
+            {props.required && <span className="text-[#D9534F]">*</span>}
           </label>
         )}
 
         <div className="relative">
           {Icon && (
-            <Icon className="absolute left-3 top-3 text-gray-400 dark:text-gray-500" size={18} />
+            <Icon className="absolute left-3 top-3 text-[#6B7280]" size={18} />
           )}
 
           <input
@@ -45,19 +46,19 @@ export const Input = React.forwardRef(
             disabled={disabled}
             className={`
               w-full px-4 py-2.5 rounded-lg text-sm
-              transition-all duration-300
-              focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50
+              transition-all duration-200
+              focus:outline-none focus:ring-2 focus:ring-[#2F8F3A] focus:ring-opacity-20
               disabled:opacity-50 disabled:cursor-not-allowed
               ${Icon ? "pl-10" : ""}
               ${variants[variant]}
-              ${error ? "border-red-500 dark:border-red-400" : ""}
+              ${error ? "border-[#D9534F]" : ""}
             `}
             {...props}
           />
         </div>
 
-        {error && <p className="text-red-600 dark:text-red-400 text-xs mt-1">{error}</p>}
-        {hint && <p className="text-gray-500 dark:text-gray-400 text-xs mt-1">{hint}</p>}
+        {error && <p className="text-[#D9534F] text-xs mt-1">{error}</p>}
+        {hint && <p className="text-[#6B7280] text-xs mt-1">{hint}</p>}
       </div>
     );
   }
@@ -66,7 +67,7 @@ export const Input = React.forwardRef(
 Input.displayName = "Input";
 
 /**
- * Professional Textarea Component
+ * LessonVault Textarea Component
  */
 export const Textarea = React.forwardRef(
   (
@@ -84,9 +85,9 @@ export const Textarea = React.forwardRef(
     return (
       <div className={fullWidth ? "w-full" : ""}>
         {label && (
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label className="block text-sm font-medium text-[#1F2937] mb-2">
             {label}
-            {props.required && <span className="text-red-600">*</span>}
+            {props.required && <span className="text-[#D9534F]">*</span>}
           </label>
         )}
 
@@ -96,21 +97,21 @@ export const Textarea = React.forwardRef(
           rows={rows}
           className={`
             w-full px-4 py-2.5 rounded-lg text-sm
-            border border-gray-300 dark:border-slate-600
-            bg-white dark:bg-slate-800
-            text-gray-900 dark:text-white
-            transition-all duration-300
-            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50
-            focus:border-transparent
+            border border-[#E5ECE2]
+            bg-white
+            text-[#1F2937]
+            transition-all duration-200
+            focus:outline-none focus:ring-2 focus:ring-[#2F8F3A] focus:ring-opacity-20
+            focus:border-[#2F8F3A]
             disabled:opacity-50 disabled:cursor-not-allowed
             resize-none
-            ${error ? "border-red-500 dark:border-red-400" : ""}
+            ${error ? "border-[#D9534F]" : ""}
           `}
           {...props}
         />
 
-        {error && <p className="text-red-600 dark:text-red-400 text-xs mt-1">{error}</p>}
-        {hint && <p className="text-gray-500 dark:text-gray-400 text-xs mt-1">{hint}</p>}
+        {error && <p className="text-[#D9534F] text-xs mt-1">{error}</p>}
+        {hint && <p className="text-[#6B7280] text-xs mt-1">{hint}</p>}
       </div>
     );
   }
@@ -119,7 +120,7 @@ export const Textarea = React.forwardRef(
 Textarea.displayName = "Textarea";
 
 /**
- * Professional Select Component
+ * LessonVault Select Component
  */
 export const Select = React.forwardRef(
   (
@@ -137,9 +138,9 @@ export const Select = React.forwardRef(
     return (
       <div className={fullWidth ? "w-full" : ""}>
         {label && (
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label className="block text-sm font-medium text-[#1F2937] mb-2">
             {label}
-            {props.required && <span className="text-red-600">*</span>}
+            {props.required && <span className="text-[#D9534F]">*</span>}
           </label>
         )}
 
@@ -148,13 +149,14 @@ export const Select = React.forwardRef(
           disabled={disabled}
           className={`
             w-full px-4 py-2.5 rounded-lg text-sm
-            border border-gray-300 dark:border-slate-600
-            bg-white dark:bg-slate-800
-            text-gray-900 dark:text-white
-            transition-all duration-300
-            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50
+            border border-[#E5ECE2]
+            bg-white
+            text-[#1F2937]
+            transition-all duration-200
+            focus:outline-none focus:ring-2 focus:ring-[#2F8F3A] focus:ring-opacity-20
+            focus:border-[#2F8F3A]
             disabled:opacity-50 disabled:cursor-not-allowed
-            ${error ? "border-red-500 dark:border-red-400" : ""}
+            ${error ? "border-[#D9534F]" : ""}
           `}
           {...props}
         >
@@ -165,8 +167,8 @@ export const Select = React.forwardRef(
           ))}
         </select>
 
-        {error && <p className="text-red-600 dark:text-red-400 text-xs mt-1">{error}</p>}
-        {hint && <p className="text-gray-500 dark:text-gray-400 text-xs mt-1">{hint}</p>}
+        {error && <p className="text-[#D9534F] text-xs mt-1">{error}</p>}
+        {hint && <p className="text-[#6B7280] text-xs mt-1">{hint}</p>}
       </div>
     );
   }
@@ -175,15 +177,16 @@ export const Select = React.forwardRef(
 Select.displayName = "Select";
 
 /**
- * Badge Component
+ * LessonVault Badge Component
  */
 export const Badge = ({ children, variant = "default", size = "md" }) => {
   const variants = {
-    default: "bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200",
-    success: "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200",
-    warning: "bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200",
-    error: "bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200",
-    purple: "bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200",
+    default: "bg-[#2F8F3A]/10 text-[#1F4D2B] border border-[#2F8F3A]/20",
+    success: "bg-[#2F8F3A]/10 text-[#1F4D2B] border border-[#2F8F3A]/20",
+    warning: "bg-[#D9A441]/10 text-[#1F4D2B] border border-[#D9A441]/20",
+    error: "bg-[#D9534F]/10 text-[#D9534F] border border-[#D9534F]/20",
+    premium: "bg-[#D9A441]/10 text-[#1F4D2B] border border-[#D9A441]/20",
+    light: "bg-[#6E9277] text-[#1F4D2B]",
   };
 
   const sizes = {
@@ -206,7 +209,7 @@ export const Badge = ({ children, variant = "default", size = "md" }) => {
 };
 
 /**
- * Alert Component
+ * LessonVault Alert Component
  */
 export const Alert = ({ children, variant = "info", closeable = false, onClose }) => {
   const [isVisible, setIsVisible] = React.useState(true);
@@ -214,13 +217,13 @@ export const Alert = ({ children, variant = "info", closeable = false, onClose }
   if (!isVisible) return null;
 
   const variants = {
-    info: "bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 text-blue-800 dark:text-blue-200",
+    info: "bg-[#2F8F3A]/10 border border-[#2F8F3A]/20 text-[#1F2937]",
     success:
-      "bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 text-green-800 dark:text-green-200",
+      "bg-[#2F8F3A]/10 border border-[#2F8F3A]/20 text-[#1F2937]",
     warning:
-      "bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 text-yellow-800 dark:text-yellow-200",
+      "bg-[#D9A441]/10 border border-[#D9A441]/20 text-[#1F2937]",
     error:
-      "bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-800 dark:text-red-200",
+      "bg-[#D9534F]/10 border border-[#D9534F]/20 text-[#D9534F]",
   };
 
   const handleClose = () => {
@@ -234,7 +237,7 @@ export const Alert = ({ children, variant = "info", closeable = false, onClose }
       {closeable && (
         <button
           onClick={handleClose}
-          className="ml-4 text-2xl font-bold opacity-70 hover:opacity-100 transition-opacity"
+          className="ml-4 text-xl font-medium opacity-70 hover:opacity-100 transition-opacity"
         >
           ×
         </button>

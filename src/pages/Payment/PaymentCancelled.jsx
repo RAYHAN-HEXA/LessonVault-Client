@@ -6,12 +6,12 @@ import useAuth from "../../hooks/useAuth";
 
 const PaymentCancelled = () => {
   const COLORS = {
-    dark: "#1A2F23",
-    primary: "#4F6F52",
-    light: "#F3F5F0",
-    accent: "#D4C5A8",
+    dark: "#1F4D2B",
+    primary: "#6E9277",
+    light: "#EEF6EF",
+    accent: "#C9D8C5",
     white: "#FFFFFF",
-    error: "#9F5F5F",
+    error: "#D9534F",
   };
   const axiosInstance = useAxios();
   const { user } = useAuth();
@@ -71,13 +71,13 @@ const PaymentCancelled = () => {
           Payment Cancelled
         </h1>
 
-        <p className="text-gray-500 text-lg leading-relaxed mb-10">
+        <p className="text-[#6B7280] text-lg leading-relaxed mb-10">
           The transaction process was interrupted. No charges have been made to
           your account.
         </p>
 
         {/* Details Box */}
-        <div className="bg-[#F9FAF8] border border-gray-100 rounded-2xl p-5 mb-10 flex items-start gap-4 text-left">
+        <div className="bg-[#F8FAF6] border border-[#E5ECE2] rounded-2xl p-5 mb-10 flex items-start gap-4 text-left">
           <ShieldAlert
             size={24}
             className="flex-shrink-0 mt-1"
@@ -90,7 +90,7 @@ const PaymentCancelled = () => {
             >
               Secure Status
             </h3>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-[#6B7280]">
               Your payment data remains secure. If you encountered an error, you
               may try again.
             </p>
@@ -110,7 +110,7 @@ const PaymentCancelled = () => {
 
           <Link to="/">
             <button
-              className="w-full py-4 rounded-xl font-medium transition-colors hover:bg-gray-50 flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full py-4 rounded-xl font-medium transition-colors hover:bg-[#F8FAF6] flex items-center justify-center gap-2 cursor-pointer"
               style={{ color: COLORS.primary }}
             >
               <ArrowLeft size={20} />

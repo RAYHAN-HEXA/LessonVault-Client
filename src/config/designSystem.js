@@ -1,67 +1,69 @@
 /**
- * Professional Design System for DigitalLesson
- * Global UI Design Rules:
- * - 3 Primary Colors + Neutral
- * - Consistent spacing, typography, and components
- * - Light & Dark mode support with proper contrast
+ * LessonVault Design System
+ * Digital Life Lessons Platform - Clean Modern SaaS Style
+ * White background with soft green / sage green theme
  */
 
 export const DESIGN_SYSTEM = {
-  // Primary Colors (3 colors maximum)
+  // Primary Colors - Green Palette
   colors: {
-    primary: "#2563EB", // Professional Blue - Main CTA and accents
-    secondary: "#8B5CF6", // Purple - Secondary actions and highlights
-    accent: "#EC4899", // Pink - Tertiary accents and alerts
+    primary: "#2F8F3A",      // Primary Green
+    primaryHover: "#23722D",  // Primary Hover (darker green)
+    primaryLight: "#6E9277",  // Soft Sage Green
+    secondary: "#D9A441",     // Warning/Gold for premium highlights
+    accent: "#C9D8C5",        // Light Green Accent
+    darkGreen: "#1F4D2B",     // Dark Forest Green
 
     // Semantic colors
-    success: "#10B981",
-    warning: "#F59E0B",
-    error: "#EF4444",
-    info: "#3B82F6",
+    success: "#2F8F3A",       // Success (green)
+    warning: "#D9A441",       // Warning (gold)
+    error: "#D9534F",         // Error (red)
+    info: "#6E9277",          // Info (sage green)
 
     // Neutral colors
     white: "#FFFFFF",
     black: "#000000",
     gray: {
-      50: "#F9FAFB",
-      100: "#F3F4F6",
-      200: "#E5E7EB",
-      300: "#D1D5DB",
-      400: "#9CA3AF",
-      500: "#6B7280",
-      600: "#4B5563",
-      700: "#374151",
-      800: "#1F2937",
-      900: "#111827",
+      50: "#F8FAF6",          // Section Background (soft green tint)
+      100: "#EEF6EF",         // Soft Green Background
+      200: "#E5ECE2",         // Border Color
+      300: "#DDE8DA",         // Soft Border
+      400: "#C9D8C5",         // Light Green Accent
+      500: "#6B7280",         // Secondary Text
+      600: "#8A8F98",         // Muted Text
+      700: "#1F2937",         // Main Text
+      800: "#1F4D2B",         // Dark Forest Green
+      900: "#111111",         // Near Black
     },
   },
 
-  // Light Mode Theme
+  // Light Mode Theme (Default - Clean White + Green)
   lightMode: {
-    background: "#FFFFFF",
-    surface: "#F9FAFB",
-    surfaceAlt: "#F3F4F6",
-    text: "#111827",
-    textSecondary: "#6B7280",
-    border: "#E5E7EB",
-    shadow: "0 1px 3px 0 rgba(0, 0, 0, 0.1)",
+    background: "#FFFFFF",     // Main Background
+    surface: "#FFFFFF",         // Card Background
+    surfaceAlt: "#F8FAF6",     // Section Background
+    text: "#1F2937",           // Main Text
+    textSecondary: "#6B7280",  // Secondary Text
+    border: "#E5ECE2",         // Border Color
+    shadow: "0 1px 3px rgba(31, 77, 43, 0.06), 0 1px 2px rgba(31, 77, 43, 0.03)",
   },
 
-  // Dark Mode Theme
+  // Dark Mode Theme (Optional - green dark mode)
   darkMode: {
-    background: "#0F172A",
-    surface: "#1E293B",
-    surfaceAlt: "#334155",
-    text: "#F1F5F9",
-    textSecondary: "#CBD5E1",
-    border: "#475569",
+    background: "#1F2937",
+    surface: "#1F4D2B",
+    surfaceAlt: "#2F8F3A",
+    text: "#FFFFFF",
+    textSecondary: "#C9D8C5",
+    border: "#23722D",
     shadow: "0 1px 3px 0 rgba(0, 0, 0, 0.3)",
   },
 
   // Typography
   typography: {
     fontFamily: {
-      sans: "'Inter', 'Segoe UI', 'Roboto', sans-serif",
+      sans: "'Inter', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif",
+      serif: "'PT Serif', 'Georgia', serif",
       mono: "'Fira Code', 'Courier New', monospace",
     },
     fontSize: {
@@ -115,17 +117,18 @@ export const DESIGN_SYSTEM = {
     base: "0.5rem",
     md: "0.75rem",
     lg: "1rem",
-    xl: "1.5rem",
+    xl: "1.25rem",
+    "2xl": "1.5rem",
     full: "9999px",
   },
 
-  // Shadows
+  // Shadows (soft green-tinted)
   shadow: {
-    sm: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
-    base: "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
-    md: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-    lg: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
-    xl: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+    sm: "0 1px 2px rgba(31, 77, 43, 0.04)",
+    base: "0 1px 3px rgba(31, 77, 43, 0.06), 0 1px 2px rgba(31, 77, 43, 0.03)",
+    md: "0 4px 6px rgba(31, 77, 43, 0.06), 0 2px 4px rgba(31, 77, 43, 0.03)",
+    lg: "0 10px 15px rgba(31, 77, 43, 0.06), 0 4px 6px rgba(31, 77, 43, 0.03)",
+    xl: "0 20px 25px rgba(31, 77, 43, 0.06), 0 10px 10px rgba(31, 77, 43, 0.03)",
   },
 
   // Transitions
@@ -162,7 +165,7 @@ export const DESIGN_SYSTEM = {
     card: {
       borderRadius: "1rem",
       padding: "1.5rem",
-      shadow: "0 1px 3px 0 rgba(0, 0, 0, 0.1)",
+      shadow: "0 1px 3px rgba(31, 77, 43, 0.06), 0 1px 2px rgba(31, 77, 43, 0.03)",
     },
     input: {
       height: "2.75rem",

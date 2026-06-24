@@ -100,7 +100,7 @@ const PaymentSuccess = () => {
           Payment Successful
         </h2>
 
-        <p className="text-gray-500 text-lg leading-relaxed mb-10">
+        <p className="text-[#6B7280] text-lg leading-relaxed mb-10">
           Thank you for investing in your journey. Your premium access is now
           active.
         </p>
@@ -125,7 +125,7 @@ const PaymentSuccess = () => {
             >
               Premium Membership Active
             </h3>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-[#6B7280]">
               Unlimited access to locked lessons and exclusive content.
             </p>
           </div>
@@ -145,7 +145,7 @@ const PaymentSuccess = () => {
 
           <Link to="/dashboard">
             <button
-              className="w-full py-4 rounded-xl font-medium transition-colors hover:bg-gray-50 flex items-center justify-center gap-2"
+              className="w-full py-4 rounded-xl font-medium transition-colors hover:bg-[#F8FAF6] flex items-center justify-center gap-2"
               style={{ color: COLORS.primary }}
             >
               <Home size={20} />

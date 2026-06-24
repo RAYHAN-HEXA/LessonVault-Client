@@ -43,13 +43,13 @@ const UserDropdown = ({ user, handleLogout }) => {
           <img
             src={user?.photoURL}
             alt={user?.displayName}
-            className="w-9 h-9 rounded-full object-cover border-2 border-[#D4DEC9] group-hover:border-[#4F6F52] transition-colors"
+            className="w-9 h-9 rounded-full object-cover border-2 border-[#E5ECE2] group-hover:border-[#2F8F3A] transition-colors"
           />
-          <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 border-2 border-white rounded-full"></div>
+          <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-[#2F8F3A] border-2 border-white rounded-full"></div>
         </div>
         <ChevronDown
           size={16}
-          className={`text-[#2C3E2E] transition-transform duration-200 ${
+          className={`text-[#1F2937] transition-transform duration-200 ${
             isOpen ? "rotate-180" : ""
           }`}
         />
@@ -57,27 +57,27 @@ const UserDropdown = ({ user, handleLogout }) => {
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute right-0 mt-3 w-64 bg-slate-900/95 backdrop-blur-xl rounded-xl shadow-2xl border border-white/10 py-2 transform transition-all duration-200 origin-top-right z-50">
+        <div className="absolute right-0 mt-3 w-64 bg-white/95 backdrop-blur-xl rounded-xl shadow-2xl border border-[#E5ECE2] py-2 transform transition-all duration-200 origin-top-right z-50">
           {/* Header with User Info */}
-          <div className="px-4 py-3 border-b border-white/10">
-            <p className="text-sm font-bold text-white truncate">
+          <div className="px-4 py-3 border-b border-[#E5ECE2]">
+            <p className="text-sm font-bold text-[#1F2937] truncate">
               {user?.displayName}
             </p>
-            <p className="text-xs text-slate-400 truncate">{user?.email}</p>
+            <p className="text-xs text-[#6B7280] truncate">{user?.email}</p>
           </div>
 
           {/* Menu Items */}
           <div className="py-2 z-50">
             <Link
               to={role === "admin" ? "/dashboard/admin-home" : "/dashboard"}
-              className="flex items-center px-4 py-2 text-sm text-slate-300 hover:bg-white/10 hover:text-white transition-colors"
+              className="flex items-center px-4 py-2 text-sm text-[#1F2937] hover:bg-[#F8FAF6] hover:text-[#2F8F3A] transition-colors"
             >
               <LayoutDashboard size={16} className="mr-3" />
               Dashboard
             </Link>
             <Link
               to="/dashboard/profile"
-              className="flex items-center px-4 py-2 text-sm text-slate-300 hover:bg-white/10 hover:text-white transition-colors"
+              className="flex items-center px-4 py-2 text-sm text-[#1F2937] hover:bg-[#F8FAF6] hover:text-[#2F8F3A] transition-colors"
             >
               <UserIcon size={16} className="mr-3" />
               Profile
@@ -85,10 +85,10 @@ const UserDropdown = ({ user, handleLogout }) => {
           </div>
 
           {/* Footer with Logout */}
-          <div className="border-t border-white/10 pt-2 mt-1 px-2">
+          <div className="border-t border-[#E5ECE2] pt-2 mt-1 px-2">
             <button
               onClick={handleLogout}
-              className="flex w-full items-center px-2 py-2 text-sm text-red-400 hover:bg-red-500/20 rounded-lg transition-colors cursor-pointer"
+              className="flex w-full items-center px-2 py-2 text-sm text-[#D9534F] hover:bg-[#D9534F]/10 rounded-lg transition-colors cursor-pointer"
             >
               <LogOut size={16} className="mr-3 " />
               Sign Out
@@ -112,7 +112,7 @@ const Navbar = () => {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#1a2f23",
+      confirmButtonColor: "#1F4D2B",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, sign out!",
     }).then((result) => {
@@ -123,7 +123,7 @@ const Navbar = () => {
               title: "Signed Out!",
               text: "Your have been signed out.",
               icon: "success",
-              confirmButtonColor: "#1a2f23",
+              confirmButtonColor: "#1F4D2B",
             });
           })
           .catch((err) => {
@@ -142,9 +142,9 @@ const Navbar = () => {
       <NavLink
         to="/"
         className={({ isActive }) =>
-          `text-sm font-medium text-slate-300 hover:text-white relative pb-1 transition-colors ${
+          `text-sm font-medium text-[#6B7280] hover:text-[#2F8F3A] relative pb-1 transition-colors ${
             isActive
-              ? "after:w-full after:bg-gradient-to-r after:from-violet-500 after:to-fuchsia-500 text-white"
+              ? "after:w-full after:bg-[#2F8F3A] text-[#2F8F3A]"
               : "after:w-0 after:bg-transparent"
           } after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:transition-all after:duration-300`
         }
@@ -154,9 +154,9 @@ const Navbar = () => {
       <NavLink
         to="/public-lessons"
         className={({ isActive }) =>
-          `text-sm font-medium text-slate-300 hover:text-white relative pb-1 transition-colors ${
+          `text-sm font-medium text-[#6B7280] hover:text-[#2F8F3A] relative pb-1 transition-colors ${
             isActive
-              ? "after:w-full after:bg-gradient-to-r after:from-violet-500 after:to-fuchsia-500 text-white"
+              ? "after:w-full after:bg-[#2F8F3A] text-[#2F8F3A]"
               : "after:w-0 after:bg-transparent"
           } after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:transition-all after:duration-300`
         }
@@ -166,9 +166,9 @@ const Navbar = () => {
       <NavLink
         to="/blog"
         className={({ isActive }) =>
-          `text-sm font-medium text-slate-300 hover:text-white relative pb-1 transition-colors ${
+          `text-sm font-medium text-[#6B7280] hover:text-[#2F8F3A] relative pb-1 transition-colors ${
             isActive
-              ? "after:w-full after:bg-gradient-to-r after:from-violet-500 after:to-fuchsia-500 text-white"
+              ? "after:w-full after:bg-[#2F8F3A] text-[#2F8F3A]"
               : "after:w-0 after:bg-transparent"
           } after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:transition-all after:duration-300`
         }
@@ -178,9 +178,9 @@ const Navbar = () => {
       <NavLink
         to="/about"
         className={({ isActive }) =>
-          `text-sm font-medium text-slate-300 hover:text-white relative pb-1 transition-colors ${
+          `text-sm font-medium text-[#6B7280] hover:text-[#2F8F3A] relative pb-1 transition-colors ${
             isActive
-              ? "after:w-full after:bg-gradient-to-r after:from-violet-500 after:to-fuchsia-500 text-white"
+              ? "after:w-full after:bg-[#2F8F3A] text-[#2F8F3A]"
               : "after:w-0 after:bg-transparent"
           } after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:transition-all after:duration-300`
         }
@@ -190,9 +190,9 @@ const Navbar = () => {
       <NavLink
         to="/contact"
         className={({ isActive }) =>
-          `text-sm font-medium text-slate-300 hover:text-white relative pb-1 transition-colors ${
+          `text-sm font-medium text-[#6B7280] hover:text-[#2F8F3A] relative pb-1 transition-colors ${
             isActive
-              ? "after:w-full after:bg-gradient-to-r after:from-violet-500 after:to-fuchsia-500 text-white"
+              ? "after:w-full after:bg-[#2F8F3A] text-[#2F8F3A]"
               : "after:w-0 after:bg-transparent"
           } after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:transition-all after:duration-300`
         }
@@ -204,9 +204,9 @@ const Navbar = () => {
           <NavLink
             to="/dashboard/add-lessons"
             className={({ isActive }) =>
-              `text-sm font-medium text-slate-300 hover:text-white relative pb-1 transition-colors ${
+              `text-sm font-medium text-[#6B7280] hover:text-[#2F8F3A] relative pb-1 transition-colors ${
                 isActive
-                  ? "after:w-full after:bg-gradient-to-r after:from-violet-500 after:to-fuchsia-500 text-white"
+                  ? "after:w-full after:bg-[#2F8F3A] text-[#2F8F3A]"
                   : "after:w-0 after:bg-transparent"
               } after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:transition-all after:duration-300`
             }
@@ -216,9 +216,9 @@ const Navbar = () => {
           <NavLink
             to="/dashboard/my-lessons"
             className={({ isActive }) =>
-              `text-sm font-medium text-slate-300 hover:text-white relative pb-1 transition-colors ${
+              `text-sm font-medium text-[#6B7280] hover:text-[#2F8F3A] relative pb-1 transition-colors ${
                 isActive
-                  ? "after:w-full after:bg-gradient-to-r after:from-violet-500 after:to-fuchsia-500 text-white"
+                  ? "after:w-full after:bg-[#2F8F3A] text-[#2F8F3A]"
                   : "after:w-0 after:bg-transparent"
               } after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:transition-all after:duration-300`
             }
@@ -228,9 +228,9 @@ const Navbar = () => {
           <NavLink
             to="/dashboard/favorites"
             className={({ isActive }) =>
-              `text-sm font-medium text-slate-300 hover:text-white relative pb-1 transition-colors ${
+              `text-sm font-medium text-[#6B7280] hover:text-[#2F8F3A] relative pb-1 transition-colors ${
                 isActive
-                  ? "after:w-full after:bg-gradient-to-r after:from-violet-500 after:to-fuchsia-500 text-white"
+                  ? "after:w-full after:bg-[#2F8F3A] text-[#2F8F3A]"
                   : "after:w-0 after:bg-transparent"
               } after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:transition-all after:duration-300`
             }
@@ -245,15 +245,15 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
         isScrolled
-          ? "bg-slate-950/90 backdrop-blur-xl shadow-lg py-3 border-b border-white/10"
+          ? "bg-white/95 backdrop-blur-xl shadow-md py-3 border-b border-[#E5ECE2]"
           : "bg-transparent py-5"
       }`}
     >
       <div className="max-w-[1440px] mx-auto px-6 lg:px-0">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="text-xl font-bold text-white hidden sm:block">
-              LessonVault
+            <span className="text-xl font-semibold text-[#1F2937] hidden sm:block">
+              Lessonly
             </span>
           </div>
 
@@ -262,21 +262,21 @@ const Navbar = () => {
 
           {/* Desktop Auth Section */}
           <div className="hidden md:flex items-center gap-4">
-            <div className="h-6 w-px bg-[#D4DEC9]"></div>
+            <div className="h-6 w-px bg-[#E5ECE2]"></div>
 
             {user ? (
               <>
                 {isPremium ? (
-                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-br from-[#D4C5A8] via-[#FDFBF7] to-[#C3B08D] shadow-lg border border-white/40">
-                    <Gem size={12} className="text-[#1A2F23]" />
-                    <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#1A2F23]">
+                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-br from-[#D9A441] via-[#F8FAF6] to-[#C49431] shadow-sm border border-[#E5ECE2]">
+                    <Gem size={12} className="text-[#1F4D2B]" />
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#1F4D2B]">
                       Premium
                     </span>
                   </div>
                 ) : (
                   <Link
                     to="/payment"
-                    className="flex items-center  w-24 gap-1.5 px-3 py-1.5 rounded-full bg-green-800 font-sans border text-white border-white/40"
+                    className="flex items-center  w-24 gap-1.5 px-3 py-1.5 rounded-full bg-[#2F8F3A] font-sans border text-white border-white/40"
                   >
                     <Lock />
                     <span className="text-[10px] font-bold uppercase tracking-wider text-center">
@@ -290,13 +290,13 @@ const Navbar = () => {
               <>
                 <Link
                   to="/auth/login"
-                  className="btn bg-white/5 hover:bg-white/10 text-white border border-white/20 btn-sm px-5 rounded-full hover:shadow-lg transition-all flex items-center gap-2 backdrop-blur-sm"
+                  className="btn bg-white hover:bg-[#F8FAF6] text-[#1F2937] border border-[#E5ECE2] btn-sm px-5 rounded-full hover:shadow-lg transition-all flex items-center gap-2"
                 >
                   Sign In
                 </Link>
                 <Link
                   to="/auth/register"
-                  className="btn bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:from-violet-600 hover:to-fuchsia-600 text-white border-none btn-sm px-5 rounded-full shadow-lg hover:shadow-violet-500/25 transition-all flex items-center gap-2"
+                  className="btn bg-[#2F8F3A] hover:bg-[#23722D] text-white border-none btn-sm px-5 rounded-full shadow-sm hover:shadow-md transition-all flex items-center gap-2"
                 >
                   <PenTool className="w-4 h-4" />
                   Sign Up
@@ -309,7 +309,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center gap-4">
             {/* Show mini avatar on mobile if logged in*/}
             {user && (
-              <div className="w-8 h-8 rounded-full overflow-hidden border border-[#D4DEC9]">
+              <div className="w-8 h-8 rounded-full overflow-hidden border border-[#E5ECE2]">
                 <img
                   src={user.photoURL}
                   alt="Me"
@@ -319,7 +319,7 @@ const Navbar = () => {
             )}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-[#2C3E2E] hover:text-[#4F6F52] transition-colors focus:outline-none"
+              className="text-[#1F2937] hover:text-[#2F8F3A] transition-colors focus:outline-none"
             >
               {isMobileMenuOpen ? (
                 <X className="w-6 h-6" />
@@ -333,22 +333,22 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`absolute top-full left-0 w-full bg-slate-950/95 backdrop-blur-xl border-b border-white/10 shadow-2xl md:hidden overflow-hidden transition-all duration-300 ${
+        className={`absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-b border-[#E5ECE2] shadow-lg md:hidden overflow-hidden transition-all duration-300 ${
           isMobileMenuOpen ? "h-[550px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="px-6 py-3 space-y-4">
           {isPremium ? (
-            <div className="flex items-center w-fit gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-br from-[#D4C5A8] via-[#FDFBF7] to-[#C3B08D] border border-white/40">
-              <Gem size={12} className="text-[#1A2F23]" />
-              <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#1A2F23]">
+            <div className="flex items-center w-fit gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-br from-[#D9A441] via-[#F8FAF6] to-[#C49431] border border-[#E5ECE2]">
+              <Gem size={12} className="text-[#1F4D2B]" />
+              <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#1F4D2B]">
                 Premium
               </span>
             </div>
           ) : (
             <Link
               to="/payment"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-600 border text-white border-white/40"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#2F8F3A] border border-[#2F8F3A] text-white"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               <Lock size={12} />
@@ -360,14 +360,14 @@ const Navbar = () => {
           <NavLink
             to="/"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="block text-lg font-medium py-2 border-b border-white/10 text-white"
+            className="block text-lg font-medium py-2 border-b border-[#E5ECE2] text-[#1F2937] hover:text-[#2F8F3A]"
           >
             Home
           </NavLink>
           <NavLink
             to="/public-lessons"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="block text-lg font-medium py-2 border-b border-white/10 text-white"
+            className="block text-lg font-medium py-2 border-b border-[#E5ECE2] text-[#1F2937] hover:text-[#2F8F3A]"
           >
             Public Lessons
           </NavLink>
@@ -375,7 +375,7 @@ const Navbar = () => {
             <NavLink
               to="/dashboard/add-lessons"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block text-lg font-medium py-2 border-b border-white/10 text-white"
+              className="block text-lg font-medium py-2 border-b border-[#E5ECE2] text-[#1F2937] hover:text-[#2F8F3A]"
             >
               Add Lessons
             </NavLink>
@@ -383,7 +383,7 @@ const Navbar = () => {
           <NavLink
             to="/contact"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="block text-lg font-medium py-2 border-b border-white/10 text-white"
+            className="block text-lg font-medium py-2 border-b border-[#E5ECE2] text-[#1F2937] hover:text-[#2F8F3A]"
           >
             Contact
           </NavLink>
@@ -392,30 +392,30 @@ const Navbar = () => {
             {user ? (
               // Mobile State for Logged In User
               <>
-                <div className="flex items-center gap-3 p-3 bg-white/5 rounded-lg border border-white/10">
+                <div className="flex items-center gap-3 p-3 bg-[#EEF6EF] rounded-lg border border-[#E5ECE2]">
                   <img
                     src={user?.photoURL}
                     alt=""
                     className="w-10 h-10 rounded-full object-cover"
                   />
                   <div>
-                    <p className="font-bold text-white text-sm">
+                    <p className="font-bold text-[#1F2937] text-sm">
                       {user?.displayName}{" "}
                     </p>
 
-                    <p className="text-xs text-slate-400">{user?.email}</p>
+                    <p className="text-xs text-[#6B7280]">{user?.email}</p>
                   </div>
                 </div>
                 <Link
                   to="/dashboard"
-                  className="btn btn-outline border-white/20 text-white hover:bg-white/10 w-full rounded-full flex gap-2 backdrop-blur-sm"
+                  className="btn btn-outline border-[#E5ECE2] text-[#1F2937] hover:bg-[#EEF6EF] w-full rounded-full flex gap-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <LayoutDashboard size={16} /> Dashboard
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="btn bg-red-500/20 text-red-400 hover:bg-red-500/30 border border-red-500/30 w-full rounded-full flex items-center justify-center gap-2"
+                  className="btn bg-[#D9534F]/10 text-[#D9534F] hover:bg-[#D9534F]/20 border border-[#D9534F]/30 w-full rounded-full flex items-center justify-center gap-2"
                 >
                   <LogOut className="w-4 h-4" /> Sign Out
                 </button>
@@ -425,14 +425,14 @@ const Navbar = () => {
               <>
                 <Link
                   to="/auth/login"
-                  className="btn btn-outline border-white/20 text-white hover:bg-white/10 w-full rounded-full backdrop-blur-sm"
+                  className="btn btn-outline border-[#E5ECE2] text-[#1F2937] hover:bg-[#EEF6EF] w-full rounded-full"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Sign In
                 </Link>
                 <Link
                   to="/auth/register"
-                  className="btn bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:from-violet-600 hover:to-fuchsia-600 text-white border-none w-full rounded-full shadow-md flex items-center justify-center gap-2"
+                  className="btn bg-[#2F8F3A] hover:bg-[#23722D] text-white border-none w-full rounded-full shadow-md flex items-center justify-center gap-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <PenTool className="w-4 h-4" /> Sign up

@@ -48,7 +48,7 @@ const MyFavorites = () => {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#1a2f23",
+      confirmButtonColor: "#2F8F3A",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
@@ -67,7 +67,7 @@ const MyFavorites = () => {
           title: "Deleted!",
           text: "Your file has been deleted.",
           icon: "success",
-          confirmButtonColor: "#1a2f23",
+          confirmButtonColor: "#2F8F3A",
         });
       }
     });
@@ -86,16 +86,16 @@ const MyFavorites = () => {
       {/* HEADER */}
       <div className="mb-10 animate-fade-in-up">
         <div className="flex items-center gap-3 mb-2">
-          <div className="p-2 bg-[#D4C5A8]/20 rounded-xl text-[#8C7A5B]">
+          <div className="p-2 bg-[#C9D8C5]/20 rounded-xl text-[#6E9277]">
             <Heart size={24} fill="currentColor" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-serif font-bold text-[#1A2F23]">
+          <h1 className="text-3xl md:text-4xl font-serif font-bold text-[#1F4D2B]">
             Saved Collection
           </h1>
         </div>
-        <p className="text-gray-500 max-w-2xl">
+        <p className="text-[#6B7280] max-w-2xl">
           Your personal index of wisdom. You have bookmarked{" "}
-          <span className="font-bold text-[#1A2F23]">{favorites.length}</span>{" "}
+          <span className="font-bold text-[#1F4D2B]">{favorites.length}</span>{" "}
           entries.
         </p>
       </div>
@@ -141,7 +141,7 @@ const MyFavorites = () => {
             {[1, 2, 3, 4, 5].map((n) => (
               <div
                 key={n}
-                className="h-16 w-full bg-gray-50 rounded-xl animate-pulse"
+                className="h-16 w-full bg-[#F8FAF6] rounded-xl animate-pulse"
               ></div>
             ))}
           </div>
@@ -149,33 +149,33 @@ const MyFavorites = () => {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse min-w-[800px]">
               <thead>
-                <tr className="border-b border-gray-100 bg-[#F9FAF8]">
-                  <th className="p-6 pl-10 text-xs font-bold text-gray-400 uppercase tracking-widest w-5/12">
+                <tr className="border-b border-[#E5ECE2] bg-[#F8FAF6]">
+                  <th className="p-6 pl-10 text-xs font-bold text-[#8A8F98] uppercase tracking-widest w-5/12">
                     Wisdom Context
                   </th>
-                  <th className="p-6 text-xs font-bold text-gray-400 uppercase tracking-widest w-3/12">
+                  <th className="p-6 text-xs font-bold text-[#8A8F98] uppercase tracking-widest w-3/12">
                     Author
                   </th>
-                  <th className="p-6 text-xs font-bold text-gray-400 uppercase tracking-widest w-2/12">
+                  <th className="p-6 text-xs font-bold text-[#8A8F98] uppercase tracking-widest w-2/12">
                     Saved Date
                   </th>
-                  <th className="p-6 pr-10 text-xs font-bold text-gray-400 uppercase tracking-widest w-2/12 text-right">
+                  <th className="p-6 pr-10 text-xs font-bold text-[#8A8F98] uppercase tracking-widest w-2/12 text-right">
                     Actions
                   </th>
                 </tr>
               </thead>
 
-              <tbody className="divide-y divide-gray-50">
+              <tbody className="divide-y divide-[#EEF6EF]">
                 {filteredFavorites.map((fav) => (
                   <tr
                     key={fav._id}
-                    className="group hover:bg-[#F3F5F0]/50 transition-colors"
+                    className="group hover:bg-[#EEF6EF]/50 transition-colors"
                   >
                     {/* CONTEXT */}
                     <td className="p-6 pl-10">
                       <div className="flex items-center gap-4">
                         {/* Thumbnail */}
-                        <div className="h-16 w-24 rounded-xl overflow-hidden bg-gray-100 flex-shrink-0 border border-gray-200">
+                        <div className="h-16 w-24 rounded-xl overflow-hidden bg-[#EEF6EF] flex-shrink-0 border border-[#E5ECE2]">
                           {fav.postImage ? (
                             <img
                               src={fav.postImage}
@@ -183,7 +183,7 @@ const MyFavorites = () => {
                               className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500"
                             />
                           ) : (
-                            <div className="h-full w-full flex items-center justify-center text-gray-300">
+                            <div className="h-full w-full flex items-center justify-center text-[#C9D8C5]">
                               <ImageIcon size={20} />
                             </div>
                           )}
@@ -191,10 +191,10 @@ const MyFavorites = () => {
 
                         {/* Text */}
                         <div>
-                          <span className="block text-xs font-bold text-[#D4C5A8] uppercase tracking-wide mb-1">
+                          <span className="block text-xs font-bold text-[#C9D8C5] uppercase tracking-wide mb-1">
                             Lesson
                           </span>
-                          <h3 className="font-serif font-bold text-[#1A2F23] text-lg line-clamp-1">
+                          <h3 className="font-serif font-bold text-[#1F4D2B] text-lg line-clamp-1">
                             {fav.postTitle}
                           </h3>
                         </div>
@@ -210,10 +210,10 @@ const MyFavorites = () => {
                           className="w-10 h-10 rounded-full border-2 border-white shadow-sm object-cover"
                         />
                         <div>
-                          <p className="font-bold text-[#1A2F23] text-sm">
+                          <p className="font-bold text-[#1F4D2B] text-sm">
                             {fav.posterName}
                           </p>
-                          <p className="text-xs text-gray-400 font-mono truncate max-w-[150px]">
+                          <p className="text-xs text-[#8A8F98] font-mono truncate max-w-[150px]">
                             {fav.posterEmail}
                           </p>
                         </div>
@@ -222,8 +222,8 @@ const MyFavorites = () => {
 
                     {/* DATE */}
                     <td className="p-6">
-                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-white border border-gray-100 shadow-sm text-gray-500 text-sm font-medium">
-                        <Calendar size={14} className="text-[#D4C5A8]" />
+                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-white border border-[#E5ECE2] shadow-sm text-[#6B7280] text-sm font-medium">
+                        <Calendar size={14} className="text-[#C9D8C5]" />
                         {new Date(fav.favoriteAt).toLocaleDateString("en-US", {
                           month: "short",
                           day: "numeric",
@@ -237,14 +237,14 @@ const MyFavorites = () => {
                       <div className="flex items-center justify-end gap-3">
                         <Link
                           to={`/lesson-details/${fav.postId}`}
-                          className="p-2.5 rounded-full bg-[#1A2F23] text-white hover:bg-[#4F6F52] transition-colors shadow-md"
+                          className="p-2.5 rounded-full bg-[#1F4D2B] text-white hover:bg-[#6E9277] transition-colors shadow-md"
                           title="Read Lesson"
                         >
                           <ArrowRight size={16} />
                         </Link>
                         <button
                           onClick={() => handleRemove(fav._id)}
-                          className="p-2.5 rounded-full bg-white border border-gray-200 text-gray-400 hover:text-red-500 hover:border-red-200 hover:bg-red-50 transition-colors shadow-sm"
+                          className="p-2.5 rounded-full bg-white border border-[#E5ECE2] text-[#8A8F98] hover:text-red-500 hover:border-red-200 hover:bg-red-50 transition-colors shadow-sm"
                           title="Remove Favorite"
                         >
                           <Trash2 size={16} />
@@ -258,19 +258,19 @@ const MyFavorites = () => {
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center py-24 text-center">
-            <div className="w-20 h-20 rounded-full bg-[#F3F5F0] flex items-center justify-center mb-6 text-[#1A2F23]/30">
+            <div className="w-20 h-20 rounded-full bg-[#EEF6EF] flex items-center justify-center mb-6 text-[#1F4D2B]/30">
               <Heart size={32} />
             </div>
-            <h3 className="text-2xl font-serif font-bold text-[#1A2F23] mb-2">
+            <h3 className="text-2xl font-serif font-bold text-[#1F4D2B] mb-2">
               The pages are blank
             </h3>
-            <p className="text-gray-500 max-w-sm mb-8">
+            <p className="text-[#6B7280] max-w-sm mb-8">
               Your collection is currently empty. Explore the library to find
               wisdom worth keeping.
             </p>
             <Link
               to="/"
-              className="px-8 py-3 bg-[#1A2F23] text-white rounded-xl font-bold hover:bg-[#4F6F52] transition-colors shadow-lg hover:shadow-xl"
+              className="px-8 py-3 bg-[#1F4D2B] text-white rounded-xl font-bold hover:bg-[#6E9277] transition-colors shadow-lg hover:shadow-xl"
             >
               Browse Library
             </Link>

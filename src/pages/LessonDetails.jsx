@@ -58,7 +58,7 @@ const LessonDetails = () => {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#1a2f23",
+      confirmButtonColor: "#2F8F3A",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, report it!",
     }).then((result) => {
@@ -89,7 +89,7 @@ const LessonDetails = () => {
           title: "Reported!",
           text: "You reported this lesson.",
           icon: "success",
-          confirmButtonColor: "#1a2f23",
+          confirmButtonColor: "#2F8F3A",
         });
       }
     });
@@ -124,7 +124,7 @@ const LessonDetails = () => {
 
   //remove like
   const handleLikeDelete = () => {
-    axiosSecure.delete(`/likes/${likeId}`).then((res) => {
+    axiosSecure.delete(`/likes/${likeId}`).then(() => {
       setIsLiked(false);
       axiosInstance.get(`/lessons/${lesson._id}`).then((res) => {
         setLikes(res.data.likes);
@@ -201,7 +201,6 @@ const LessonDetails = () => {
       })
       .catch(() => setLoading(false));
   }, [id, lesson, axiosInstance, user]);
-
   useEffect(() => {
     if (!sort) return;
 
@@ -296,8 +295,8 @@ const LessonDetails = () => {
 
   return (
     <div
-      className="min-h-screen w-full py-20 relative  selection:bg-[#D4C5A8] selection:text-[#1A2F23]"
-      style={{ backgroundColor: COLORS.light }}
+      className="min-h-screen w-full py-20 relative selection:bg-[#2F8F3A] selection:text-white"
+      style={{ backgroundColor: "#FFFFFF" }}
     >
       {/* BACKGROUND TEXTURE */}
       <div className="absolute inset-0 z-0 opacity-40 bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')] pointer-events-none"></div>
@@ -306,9 +305,9 @@ const LessonDetails = () => {
       <nav className="relative z-20 max-w-[1440px] mx-auto px-4 py-6 flex items-center justify-between">
         <Link
           to="/public-lessons"
-          className="flex items-center gap-2 text-gray-500 hover:text-[#1A2F23] transition-colors group"
+          className="flex items-center gap-2 text-[#6B7280] hover:text-[#1F4D2B] transition-colors group"
         >
-          <div className="p-2 rounded-full bg-white group-hover:bg-[#D4C5A8] transition-colors">
+          <div className="p-2 rounded-full bg-white group-hover:bg-[#2F8F3A] transition-colors">
             <ArrowLeft size={18} />
           </div>
           <span className="font-medium">Back to Library</span>
@@ -321,37 +320,37 @@ const LessonDetails = () => {
           {/* HEADER */}
           <div className="mb-8 space-y-4">
             <div className="flex items-center gap-4 flex-wrap text-sm font-bold tracking-wider uppercase">
-              <span className="text-[#4F6F52]">{lesson.category}</span>
-              <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
-              <div className="flex items-center gap-1 text-gray-500">
+              <span className="text-[#2F8F3A]">{lesson.category}</span>
+              <span className="w-1 h-1 bg-[#E5ECE2] rounded-full"></span>
+              <div className="flex items-center gap-1 text-[#6B7280]">
                 <Eye size={14} />
                 {isPrivate ? "Private" : "Public"}
               </div>
-              <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
-              <div className="flex items-center gap-1 text-gray-500">
+              <span className="w-1 h-1 bg-[#E5ECE2] rounded-full"></span>
+              <div className="flex items-center gap-1 text-[#6B7280]">
                 <Clock3 size={14} />
                 Last Updated: {lastUpdated.toDateString()}
               </div>
             </div>
 
             {/* TITLE */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl  line-clamp-1 font-bold text-[#1A2F23] leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl line-clamp-1 font-bold text-[#1F2937] leading-tight">
               {lesson.title}
             </h1>
 
             {/* AUTHOR SECTION */}
-            <div className="flex items-center justify-between border-b border-gray-200 pb-8 pt-4">
+            <div className="flex items-center justify-between border-b border-[#E5ECE2] pb-8 pt-4">
               <div className="flex items-center gap-3">
                 <img
                   src={lesson.authorImage}
                   alt={lesson.name}
-                  className="w-10 h-10 rounded-full object-cover border border-gray-200"
+                  className="w-10 h-10 rounded-full object-cover border border-[#E5ECE2]"
                 />
                 <div>
-                  <p className="text-sm font-bold text-[#1A2F23]">
+                  <p className="text-sm font-bold text-[#1F2937]">
                     {lesson.name}
                   </p>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-[#6B7280]">
                     {new Date(lesson.postedAt).toDateString()}
                   </p>
                 </div>
@@ -362,24 +361,24 @@ const LessonDetails = () => {
                 {isLiked ? (
                   <button
                     onClick={handleLikeDelete}
-                    className="cursor-pointer flex items-center gap-2 bg-white/10 hover:bg-[#4F6F52]/20 transition-colors rounded-full px-3 py-1 shadow-inner"
+                    className="cursor-pointer flex items-center gap-2 bg-white/10 hover:bg-[#2F8F3A]/20 transition-colors rounded-full px-3 py-1 shadow-inner"
                   >
                     {" "}
                     <BsFillHandThumbsUpFill
                       size={20}
-                      className="text-[#4F6F52]"
+                      className="text-[#2F8F3A]"
                     />
-                    <span className="text-sm text-[#4F6F52] font-semibold">
+                    <span className="text-sm text-[#2F8F3A] font-semibold">
                       {likes}
                     </span>
                   </button>
                 ) : (
                   <button
                     onClick={handleLikeAdd}
-                    className="cursor-pointer flex items-center gap-2 bg-white/10 hover:bg-[#4F6F52]/20 transition-colors rounded-full px-3 py-1 shadow-inner"
+                    className="cursor-pointer flex items-center gap-2 bg-white/10 hover:bg-[#2F8F3A]/20 transition-colors rounded-full px-3 py-1 shadow-inner"
                   >
-                    <BsHandThumbsUp size={20} className="text-[#4F6F52]" />
-                    <span className="text-sm text-[#4F6F52] font-semibold">
+                    <BsHandThumbsUp size={20} className="text-[#2F8F3A]" />
+                    <span className="text-sm text-[#2F8F3A] font-semibold">
                       {likes}
                     </span>
                   </button>
@@ -390,20 +389,20 @@ const LessonDetails = () => {
                 {isFavorite ? (
                   <button
                     onClick={handleFavoriteDelete}
-                    className="flex cursor-pointer items-center gap-2 bg-white/10 hover:bg-red-500/30 transition-colors rounded-full px-3 py-1 shadow-inner"
+                    className="flex cursor-pointer items-center gap-2 bg-white/10 hover:bg-[#D9534F]/30 transition-colors rounded-full px-3 py-1 shadow-inner"
                   >
-                    <FaHeart size={20} className="text-red-500" />
-                    <span className="text-sm text-red-500 font-semibold">
+                    <FaHeart size={20} className="text-[#D9534F]" />
+                    <span className="text-sm text-[#D9534F] font-semibold">
                       {favorites}
                     </span>
                   </button>
                 ) : (
                   <button
                     onClick={handleFavoriteAdd}
-                    className="flex cursor-pointer items-center gap-2 bg-white/10 hover:bg-red-500/30 transition-colors rounded-full px-3 py-1 shadow-inner"
+                    className="flex cursor-pointer items-center gap-2 bg-white/10 hover:bg-[#D9534F]/30 transition-colors rounded-full px-3 py-1 shadow-inner"
                   >
-                    <FaRegHeart size={20} className="text-red-500" />
-                    <span className="text-sm text-red-500 font-semibold">
+                    <FaRegHeart size={20} className="text-[#D9534F]" />
+                    <span className="text-sm text-[#D9534F] font-semibold">
                       {favorites}
                     </span>
                   </button>
@@ -415,9 +414,9 @@ const LessonDetails = () => {
                 </div>
                 <button
                   onClick={handleModalOpen}
-                  className="flex cursor-pointer items-center gap-2 bg-white/10 hover:bg-red-500/30 transition-colors rounded-full px-3 py-1 shadow-inner"
+                  className="flex cursor-pointer items-center gap-2 bg-white/10 hover:bg-[#D9534F]/30 transition-colors rounded-full px-3 py-1 shadow-inner"
                 >
-                  <FaFlag size={20} className="text-red-700" />
+                  <FaFlag size={20} className="text-[#D9534F]" />
                 </button>
                 {/* Open the modal using document.getElementById('ID').showModal() method */}
 
@@ -443,12 +442,12 @@ const LessonDetails = () => {
                     >
                       {/* Reason Dropdown */}
                       <div>
-                        <label className="font-semibold block mb-1">
+                        <label className="font-semibold block mb-1 text-[#1F2937]">
                           Reason
                         </label>
                         <select
                           name="reportReason"
-                          className="w-full border border-gray-300 rounded-lg p-2"
+                          className="w-full border border-[#E5ECE2] rounded-lg p-2 text-[#1F2937]"
                         >
                           <option value="">Select a reason</option>
                           <option value="Inappropriate Content">
@@ -472,18 +471,18 @@ const LessonDetails = () => {
 
                       {/* Additional Details */}
                       <div>
-                        <label className="font-semibold block mb-1">
+                        <label className="font-semibold block mb-1 text-[#1F2937]">
                           Additional Details (optional)
                         </label>
                         <textarea
                           name="reportDetails"
                           placeholder="Write more details here..."
-                          className="w-full border border-gray-300 rounded-lg p-2"
+                          className="w-full border border-[#E5ECE2] rounded-lg p-2 text-[#1F2937]"
                           rows="4"
                         ></textarea>
                       </div>
                       <div>
-                        <button className="bg-[#1a2f23] text-white px-4 rounded-lg py-2">
+                        <button className="bg-[#2F8F3A] hover:bg-[#1F4D2B] text-white px-4 rounded-lg py-2 transition-colors">
                           Submit Report
                         </button>
                       </div>
@@ -496,7 +495,7 @@ const LessonDetails = () => {
 
           {/* IMAGE */}
           {lesson.image && (
-            <div className="mb-10 rounded-2xl overflow-hidden shadow-xl shadow-[#1A2F23]/10">
+            <div className="mb-10 rounded-2xl overflow-hidden shadow-xl shadow-[#1F4D2B]/10">
               <img
                 src={lesson.image}
                 alt={lesson.title}
@@ -508,19 +507,19 @@ const LessonDetails = () => {
           {/* CONTENT */}
           <div className="relative">
             {/* TONE BOX */}
-            <div className="mb-10 p-6 bg-white border-l-4 border-[#D4C5A8] rounded-r-xl shadow-sm">
-              <div className="flex items-center gap-2 mb-2 text-[#D4C5A8]">
+            <div className="mb-10 p-6 bg-white border-l-4 border-[#D9A441] rounded-r-xl shadow-sm">
+              <div className="flex items-center gap-2 mb-2 text-[#D9A441]">
                 <Quote size={20} />
                 <span className="text-xs font-bold uppercase tracking-widest">
                   Lesson Tone
                 </span>
               </div>
-              <p className="text-xl  text-[#1A2F23] italic">{lesson.tone}</p>
+              <p className="text-xl text-[#1F2937] italic">{lesson.tone}</p>
             </div>
 
             {/* MAIN DESCRIPTION */}
             <div
-              className={`prose prose-lg max-w-none prose-headings:text-[#1A2F23] prose-p:text-gray-600 ${
+              className={`prose prose-lg max-w-none prose-headings:text-[#1F2937] prose-p:text-[#6B7280] ${
                 isLocked
                   ? "blur-md select-none opacity-50 h-[300px] overflow-hidden"
                   : ""
@@ -535,19 +534,19 @@ const LessonDetails = () => {
 
             {/* PREMIUM LOCK OVERLAY */}
             {isLocked && (
-              <div className="absolute inset-0 z-10 flex flex-col items-center pt-20 bg-gradient-to-b from-transparent via-[#F3F5F0]/80 to-[#F3F5F0]">
-                <div className="bg-white p-8 rounded-2xl shadow-2xl text-center max-w-md border border-[#D4C5A8]/30">
-                  <div className="w-16 h-16 bg-[#1A2F23] rounded-full flex items-center justify-center mx-auto mb-4 text-[#D4C5A8] shadow-lg">
+              <div className="absolute inset-0 z-10 flex flex-col items-center pt-20 bg-gradient-to-b from-transparent via-[#F8FAF6]/80 to-[#F8FAF6]">
+                <div className="bg-white p-8 rounded-2xl shadow-2xl text-center max-w-md border border-[#D9A441]/30">
+                  <div className="w-16 h-16 bg-[#1F4D2B] rounded-full flex items-center justify-center mx-auto mb-4 text-[#D9A441] shadow-lg">
                     <Lock size={32} />
                   </div>
-                  <h3 className="text-2xl  font-bold text-[#1A2F23] mb-2">
+                  <h3 className="text-2xl font-bold text-[#1F2937] mb-2">
                     Premium Content
                   </h3>
-                  <p className="text-gray-500 mb-6">
+                  <p className="text-[#6B7280] mb-6">
                     Unlock this premium wisdom by upgrading your membership.
                   </p>
                   <Link to="/payment">
-                    <button className="w-full cursor-pointer py-3 bg-[#D4C5A8] hover:bg-[#c3b290] text-[#1A2F23] font-bold rounded-xl transition-colors shadow-md">
+                    <button className="w-full cursor-pointer py-3 bg-[#D9A441] hover:bg-[#C49431] text-[#1F4D2B] font-bold rounded-xl transition-colors shadow-md">
                       Upgrade Membership
                     </button>
                   </Link>
@@ -560,7 +559,7 @@ const LessonDetails = () => {
             {similarLessonsByCategory &&
               similarLessonsByCategory.length > 0 && (
                 <div className="mt-16">
-                  <h2 className="text-3xl font-bold text-[#1A2F23] mb-6">
+                  <h2 className="text-3xl font-bold text-[#1F2937] mb-6">
                     More From This Category
                   </h2>
 
@@ -578,7 +577,7 @@ const LessonDetails = () => {
             {/* SIMILAR LESSONS BY TONE */}
             {similarLessonsByTone && similarLessonsByTone.length > 0 && (
               <div className="mt-20">
-                <h2 className="text-3xl font-bold text-[#1A2F23] mb-6">
+                <h2 className="text-3xl font-bold text-[#1F2937] mb-6">
                   More With This Tone
                 </h2>
 
@@ -598,30 +597,30 @@ const LessonDetails = () => {
         {/* SIDEBAR */}
         <aside className="block space-y-8">
           {/* AUTHOR CARD */}
-          <div className="bg-white p-8 rounded-[2rem] shadow-xl border border-gray-100">
+          <div className="bg-white p-8 rounded-[2rem] shadow-xl border border-[#E5ECE2]">
             <div className="flex flex-col items-center text-center">
-              <div className="w-24 h-24 rounded-full p-1 border-2 border-[#D4C5A8] mb-4">
+              <div className="w-24 h-24 rounded-full p-1 border-2 border-[#D9A441] mb-4">
                 <img
                   src={lesson.authorImage}
                   className="w-full h-full rounded-full object-cover"
                   alt=""
                 />
               </div>
-              <h3 className="text-xl  font-bold text-[#1A2F23]">
+              <h3 className="text-xl font-bold text-[#1F2937]">
                 {lesson.name}
               </h3>
-              <p className="text-xs text-[#4F6F52] font-bold uppercase tracking-widest mb-4">
+              <p className="text-xs text-[#2F8F3A] font-bold uppercase tracking-widest mb-4">
                 Lesson Author
               </p>
-              <p className="w-full py-3 border border-[#1A2F23] text-[#1A2F23] rounded-xl hover:bg-[#1A2F23] hover:text-white transition-all flex items-center justify-center gap-2 font-bold">
+              <p className="w-full py-3 border border-[#1F4D2B] text-[#1F4D2B] rounded-xl hover:bg-[#1F4D2B] hover:text-white transition-all flex items-center justify-center gap-2 font-bold">
                 Total Lessons : {lessons.length}
               </p>
             </div>
           </div>
 
           {/* COMMENTS SECTION */}
-          <div className="bg-[#1A2F23] p-6 rounded-[2rem] text-white text-center relative overflow-hidden">
-            <h4 className=" text-xl font-bold mb-4 flex items-center justify-center gap-2">
+          <div className="bg-[#1F4D2B] p-6 rounded-[2rem] text-white text-center relative overflow-hidden">
+            <h4 className="text-xl font-bold mb-4 flex items-center justify-center gap-2">
               <MessageCircle size={18} /> Comments ({comments.length})
             </h4>
 
@@ -633,13 +632,13 @@ const LessonDetails = () => {
                   <input
                     type="text"
                     placeholder="Write a comment..."
-                    className="flex-1 border border-white/50 rounded-xl px-4 py-2 focus:outline-none focus:ring focus:ring-[#D4C5A8] bg-white/10 text-white"
+                    className="flex-1 border border-white/50 rounded-xl px-4 py-2 focus:outline-none focus:ring focus:ring-[#D9A441] bg-white/10 text-white"
                     value={newComment}
                     onChange={(e) => setNewComment(e.target.value)}
                     onKeyDown={(e) => e.key === "Enter" && handlePostComment()}
                   />
                   <button
-                    className="px-4 py-2 bg-[#D4C5A8] text-[#1A2F23] font-bold rounded-xl hover:bg-[#c3b290] transition-colors"
+                    className="px-4 py-2 bg-[#D9A441] text-[#1F4D2B] font-bold rounded-xl hover:bg-[#C49431] transition-colors"
                     onClick={handlePostComment}
                   >
                     Post
@@ -649,7 +648,7 @@ const LessonDetails = () => {
             </div>
           </div>
           {/* COMMENTS LIST */}
-          <div className="space-y-4 max-h-80 custom-scrollbar mb-4 text-left bg-[#1A2F23] p-3 rounded-2xl">
+          <div className="space-y-4 max-h-80 custom-scrollbar mb-4 text-left bg-[#1F4D2B] p-3 rounded-2xl">
             {comments.length === 0 ? (
               <p className="text-white/70 italic text-center">
                 No comments yet. Be the first to share your thoughts!
@@ -670,7 +669,7 @@ const LessonDetails = () => {
                     <img
                       src={
                         c.commenterImage ||
-                        "https://i.ibb.co/4pDNDk1/avatar.png"
+                        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
                       }
                       alt={c.commenter}
                       className="w-10 h-10 rounded-full object-cover border border-white/30"

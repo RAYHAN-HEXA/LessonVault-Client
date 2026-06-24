@@ -24,21 +24,21 @@ const MostSaved = () => {
   return (
     <div className="py-8">
       <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-fuchsia-500/20 to-pink-500/20 border border-fuchsia-500/30">
-          <Heart size={16} className="text-fuchsia-400" />
-          <span className="text-sm font-semibold uppercase tracking-wider text-fuchsia-300">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#D9A441]/20 to-[#C49431]/20 border border-[#D9A441]/30">
+          <Heart size={16} className="text-[#D9A441]" />
+          <span className="text-sm font-semibold uppercase tracking-wider text-[#1F4D2B]">
             Community Favorites
           </span>
         </div>
 
-        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white">
+        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-[#1F2937]">
           Most Saved{" "}
-          <span className="bg-gradient-to-r from-fuchsia-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#D9A441] via-[#C49431] to-[#2F8F3A] bg-clip-text text-transparent">
             Life Lessons
           </span>
         </h2>
 
-        <p className="text-lg text-slate-400 max-w-xl mx-auto">
+        <p className="text-lg text-[#6B7280] max-w-xl mx-auto">
           Crown Jewels of Wisdom — treasured by our community
         </p>
       </div>
@@ -48,7 +48,7 @@ const MostSaved = () => {
         {loading ? (
           <div className="flex flex-col items-center justify-center py-20">
             <Loader />
-            <p className="mt-4 text-slate-400 font-serif italic">
+            <p className="mt-4 text-[#6B7280] font-serif italic">
               Retrieving archives...
             </p>
           </div>
@@ -81,13 +81,10 @@ const MostSaved = () => {
           </motion.div>
         ) : (
           <div className="text-center py-20">
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-fuchsia-500/20 to-pink-500/20 mb-6">
-              <Flame size={36} className="text-fuchsia-400" />
-            </div>
-            <h3 className="text-2xl font-serif text-white mb-2">
-              The pages are blank.
-            </h3>
-            <p className="text-slate-400">Be the first to share your wisdom.</p>
+            <Flame size={48} className="text-[#2F8F3A] mx-auto mb-4" />
+            <p className="text-[#6B7280] font-serif italic">
+              No lessons saved yet. Start building your wisdom collection!
+            </p>
           </div>
         )}
       </div>

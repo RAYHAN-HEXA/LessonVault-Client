@@ -33,7 +33,7 @@ const DashboardLayout = ({ children }) => {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#1a2f23",
+      confirmButtonColor: "#2F8F3A",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, sign out!",
     }).then((result) => {
@@ -44,7 +44,7 @@ const DashboardLayout = ({ children }) => {
               title: "Signed Out!",
               text: "Your have been signed out.",
               icon: "success",
-              confirmButtonColor: "#1a2f23",
+              confirmButtonColor: "#2F8F3A",
             });
           })
           .catch((err) => {
@@ -62,7 +62,6 @@ const DashboardLayout = ({ children }) => {
             path: "/dashboard/admin-home",
             icon: <Home size={20} />,
           },
-
           {
             name: "Manage Lessons",
             path: "/dashboard/approve-lessons",
@@ -117,11 +116,10 @@ const DashboardLayout = ({ children }) => {
         onClick={() => isMobile && setIsMobileOpen(false)}
         className={`flex items-center gap-4 px-6 py-4 rounded-2xl transition-all duration-300 group relative overflow-hidden ${
           isActive
-            ? "bg-[#D4C5A8] text-[#1A2F23] font-bold shadow-lg"
-            : "text-white/70 hover:bg-white/10 hover:text-white"
+            ? "bg-[#2F8F3A] text-white font-semibold shadow-sm"
+            : "text-[#1F2937]/70 hover:bg-[#EEF6EF] hover:text-[#2F8F3A]"
         }`}
       >
-        {/* Icon */}
         <span
           className={`relative z-10 transition-transform duration-300 ${
             isActive ? "scale-110" : "group-hover:scale-110"
@@ -130,29 +128,27 @@ const DashboardLayout = ({ children }) => {
           {item.icon}
         </span>
 
-        {/* Text */}
-        <span className="relative z-10 text-sm tracking-wide">{item.name}</span>
+        <span className="relative z-10 text-sm tracking-wide font-medium">{item.name}</span>
 
         {isActive && (
-          <div className="absolute inset-0 bg-white/20 blur-xl"></div>
+          <div className="absolute inset-0 bg-[#1F4D2B] blur-xl"></div>
         )}
       </Link>
     );
   };
 
   return (
-    <div className="min-h-screen w-full flex font-sans bg-[#F3F5F0]">
+    <div className="min-h-screen w-full flex font-sans bg-[#EEF6EF]">
       <aside
-        className="hidden lg:flex flex-col w-72 h-screen sticky top-0 p-6 z-50 shadow-2xl"
-        style={{ backgroundColor: COLORS.dark }}
+        className="hidden lg:flex flex-col w-72 h-screen sticky top-0 p-6 z-50 shadow-md border-r border-[#E5ECE2]"
+        style={{ backgroundColor: "#FFFFFF" }}
       >
-        {/* LOGO AREA */}
-        <div className="flex flex-col items-center justify-center py-8 mb-8 border-b border-white/10">
+        <div className="flex flex-col items-center justify-center py-8 mb-8 border-b border-[#E5ECE2]">
           <Logo />
-          <h1 className="text-xl font-serif font-bold text-white tracking-wide">
-            Book of Wisdom
+          <h1 className="text-lg font-semibold text-[#1F2937] tracking-tight mt-2">
+            Lessonly
           </h1>
-          <p className="text-[10px] text-[#D4C5A8] uppercase tracking-[0.2em] font-bold mt-1">
+          <p className="text-[10px] text-[#2F8F3A] uppercase tracking-[0.2em] font-bold mt-1">
             {role === "admin"
               ? "Admin Dashboard"
               : role === "user"
@@ -161,18 +157,16 @@ const DashboardLayout = ({ children }) => {
           </p>
         </div>
 
-        {/* NAVIGATION ITEMS */}
         <nav className="flex-1 space-y-2">
           {navItems.map((item) => (
             <NavLink key={item.name} item={item} />
           ))}
         </nav>
 
-        {/* BOTTOM USER AREA */}
-        <div className="pt-6 border-t border-white/10">
+        <div className="pt-6 border-t border-[#E5ECE2]">
           <button
             onClick={handleLogout}
-            className="w-full flex items-center gap-3 px-6 py-3 rounded-xl text-white/50 hover:text-[#D4C5A8] hover:bg-white/5 transition-all group cursor-pointer"
+            className="w-full flex items-center gap-3 px-6 py-3 rounded-xl text-[#6B7280] hover:text-[#2F8F3A] hover:bg-[#EEF6EF] transition-all group cursor-pointer"
           >
             <LogOut
               size={20}
@@ -182,32 +176,32 @@ const DashboardLayout = ({ children }) => {
           </button>
         </div>
 
-        <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-black/40 to-transparent pointer-events-none rounded-b-xl"></div>
+        <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-[#EEF6EF] to-transparent pointer-events-none rounded-b-xl"></div>
       </aside>
 
-      <div className="lg:hidden fixed top-0 w-full z-40 bg-[#1A2F23] text-white p-4 flex items-center justify-between shadow-md">
+      <div className="lg:hidden fixed top-0 w-full z-40 bg-white text-[#1F2937] p-4 flex items-center justify-between shadow-sm border-b border-[#E5ECE2]">
         <div className="flex items-center gap-2">
-          <Logo className="text-[#1A2F23]" />
+          <Logo className="text-[#1F2937]" />
 
-          <span className="font-serif font-bold">Book of Wisdom</span>
+          <span className="font-semibold text-[#1F2937]">Lessonly</span>
         </div>
-        <button onClick={() => setIsMobileOpen(!isMobileOpen)} className="p-2">
+        <button onClick={() => setIsMobileOpen(!isMobileOpen)} className="p-2 text-[#1F2937]">
           {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {isMobileOpen && (
-        <div className="fixed inset-0 z-30 lg:hidden bg-[#1A2F23] pt-32 px-6 animate-fade-in-right">
+        <div className="fixed inset-0 z-30 lg:hidden bg-white pt-32 px-6 animate-fade-in-right">
           <nav className="flex flex-col space-y-4">
             {navItems.map((item) => (
               <NavLink key={item.name} item={item} isMobile={true} />
             ))}
             <button
               onClick={handleLogout}
-              className="flex items-center gap-4 px-6 py-4 rounded-2xl text-white/50 hover:text-red-400 mt-8"
+              className="flex items-center gap-4 px-6 py-4 rounded-2xl text-[#6B7280] hover:text-[#2F8F3A] mt-8"
             >
               <LogOut size={20} />
-              <span className="text-sm font-bold">Sign Out</span>
+              <span className="text-sm font-semibold">Sign Out</span>
             </button>
           </nav>
         </div>

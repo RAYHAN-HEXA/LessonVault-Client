@@ -141,7 +141,7 @@ const MyLessons = () => {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#1a2f23",
+      confirmButtonColor: "#2F8F3A",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, remove!",
     }).then((result) => {
@@ -154,7 +154,7 @@ const MyLessons = () => {
               title: "Removed!",
               text: "Your post has been removed.",
               icon: "success",
-              confirmButtonColor: "#1a2f23",
+              confirmButtonColor: "#2F8F3A",
             });
           }
         });
@@ -166,8 +166,8 @@ const MyLessons = () => {
     <div
       className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${
         isPrivate
-          ? "bg-gray-100 text-gray-500 border-gray-200"
-          : "bg-[#1A2F23]/5 text-[#1A2F23] border-[#1A2F23]/10"
+          ? "bg-[#EEF6EF] text-[#6B7280] border-[#E5ECE2]"
+          : "bg-[#1F4D2B]/5 text-[#1F4D2B] border-[#1F4D2B]/10"
       }`}
     >
       {isPrivate ? <Lock size={10} /> : <Globe size={10} />}
@@ -176,7 +176,7 @@ const MyLessons = () => {
   );
 
   const PremiumBadge = () => (
-    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border bg-gradient-to-r from-[#D4C5A8]/20 to-[#F3E5C5]/20 text-[#8C7A5B] border-[#D4C5A8]/30">
+    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border bg-gradient-to-r from-[#C9D8C5]/20 to-[#F3E5C5]/20 text-[#6E9277] border-[#C9D8C5]/30">
       <Crown size={10} fill="currentColor" /> Premium
     </div>
   );
@@ -185,19 +185,19 @@ const MyLessons = () => {
     <div className="w-full font-sans min-h-[80vh] p-10">
       <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4 animate-fade-in-up">
         <div>
-          <h1 className="text-3xl md:text-4xl font-serif font-bold text-[#1A2F23] mb-2">
+          <h1 className="text-3xl md:text-4xl font-serif font-bold text-[#1F4D2B] mb-2">
             My Contributions
           </h1>
-          <p className="text-gray-500">
+          <p className="text-[#6B7280]">
             You have authored{" "}
-            <span className="font-bold text-[#4F6F52]">{totalCount}</span>{" "}
+            <span className="font-bold text-[#6E9277]">{totalCount}</span>{" "}
             lessons in the archive.
           </p>
         </div>
 
         <Link
           to="/dashboard/add-lessons"
-          className="flex items-center gap-2 px-6 py-3 bg-[#1A2F23] text-white rounded-xl font-bold shadow-lg hover:bg-[#4F6F52] hover:-translate-y-0.5 transition-all"
+          className="flex items-center gap-2 px-6 py-3 bg-[#1F4D2B] text-white rounded-xl font-bold shadow-lg hover:bg-[#6E9277] hover:-translate-y-0.5 transition-all"
         >
           <Plus size={20} />
           <span>Write New Lesson</span>
@@ -214,7 +214,7 @@ const MyLessons = () => {
             {[1, 2, 3, 4, 5].map((n) => (
               <div
                 key={n}
-                className="h-20 w-full bg-gray-50 rounded-xl animate-pulse"
+                className="h-20 w-full bg-[#F8FAF6] rounded-xl animate-pulse"
               ></div>
             ))}
           </div>
@@ -222,25 +222,25 @@ const MyLessons = () => {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse min-w-[900px]">
               <thead>
-                <tr className="border-b border-gray-100 bg-[#F9FAF8]">
-                  <th className="p-6 pl-10 text-xs font-bold text-gray-400 uppercase tracking-widest w-4/12">
+                <tr className="border-b border-[#E5ECE2] bg-[#F8FAF6]">
+                  <th className="p-6 pl-10 text-xs font-bold text-[#8A8F98] uppercase tracking-widest w-4/12">
                     Lesson Details
                   </th>
-                  <th className="p-6 text-xs font-bold text-gray-400 uppercase tracking-widest w-2/12">
+                  <th className="p-6 text-xs font-bold text-[#8A8F98] uppercase tracking-widest w-2/12">
                     Status
                   </th>
-                  <th className="p-6 text-xs font-bold text-gray-400 uppercase tracking-widest w-2/12">
+                  <th className="p-6 text-xs font-bold text-[#8A8F98] uppercase tracking-widest w-2/12">
                     Engagement
                   </th>
-                  <th className="p-6 text-xs font-bold text-gray-400 uppercase tracking-widest w-2/12">
+                  <th className="p-6 text-xs font-bold text-[#8A8F98] uppercase tracking-widest w-2/12">
                     Published
                   </th>
-                  <th className="p-6 pr-10 text-xs font-bold text-gray-400 uppercase tracking-widest w-2/12 text-right">
+                  <th className="p-6 pr-10 text-xs font-bold text-[#8A8F98] uppercase tracking-widest w-2/12 text-right">
                     Actions
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-50">
+              <tbody className="divide-y divide-[#EEF6EF]">
                 {lessons.map((lesson) => {
                   const isPrivate = lesson.isPrivate === "true";
                   lesson.isPremiumAccess === "true";
@@ -256,19 +256,19 @@ const MyLessons = () => {
                   return (
                     <tr
                       key={lesson._id}
-                      className="group hover:bg-[#F3F5F0]/50 transition-colors"
+                      className="group hover:bg-[#EEF6EF]/50 transition-colors"
                     >
                       {/* DETAILS */}
                       <td className="p-6 pl-10">
                         <div className="flex items-center gap-4">
-                          <div className="w-12 h-12 rounded-xl bg-[#F3F5F0] flex items-center justify-center text-[#1A2F23] group-hover:bg-[#1A2F23] group-hover:text-[#D4C5A8] transition-colors">
+                          <div className="w-12 h-12 rounded-xl bg-[#EEF6EF] flex items-center justify-center text-[#1F4D2B] group-hover:bg-[#1F4D2B] group-hover:text-[#C9D8C5] transition-colors">
                             <Feather size={20} />
                           </div>
                           <div>
-                            <h3 className="font-serif font-bold text-[#1A2F23] text-lg leading-tight mb-1 group-hover:text-[#4F6F52] transition-colors">
+                            <h3 className="font-serif font-bold text-[#1F4D2B] text-lg leading-tight mb-1 group-hover:text-[#6E9277] transition-colors">
                               {lesson.title}
                             </h3>
-                            <p className="text-xs text-gray-500 font-medium">
+                            <p className="text-xs text-[#6B7280] font-medium">
                               {lesson.category} •{" "}
                               <span className="italic font-normal">
                                 {lesson.tone}
@@ -290,7 +290,7 @@ const MyLessons = () => {
 
                       {/* ENGAGEMENT */}
                       <td className="p-6">
-                        <div className="flex items-center gap-4 text-gray-400">
+                        <div className="flex items-center gap-4 text-[#8A8F98]">
                           <div
                             className="flex items-center gap-1.5"
                             title="Likes"
@@ -321,8 +321,8 @@ const MyLessons = () => {
 
                       {/* DATE */}
                       <td className="p-6">
-                        <div className="text-sm text-gray-500 font-medium flex items-center gap-2">
-                          <Calendar size={14} className="text-[#D4C5A8]" />
+                        <div className="text-sm text-[#6B7280] font-medium flex items-center gap-2">
+                          <Calendar size={14} className="text-[#C9D8C5]" />
                           {date}
                         </div>
                       </td>
@@ -333,7 +333,7 @@ const MyLessons = () => {
                           {/* Edit */}
                           <button
                             onClick={() => handleOpenModal(lesson)}
-                            className="p-2 cursor-pointer rounded-full hover:bg-[#D4C5A8]/20 text-gray-400 hover:text-[#8C7A5B] transition-colors"
+                            className="p-2 cursor-pointer rounded-full hover:bg-[#C9D8C5]/20 text-[#8A8F98] hover:text-[#6E9277] transition-colors"
                             title="Edit Lesson"
                           >
                             <Edit2 size={16} />
@@ -342,7 +342,7 @@ const MyLessons = () => {
                           {/* Delete */}
                           <button
                             onClick={() => handleDelete(lesson._id)}
-                            className="p-2 cursor-pointer rounded-full hover:bg-red-50 text-gray-400 hover:text-red-500 transition-colors"
+                            className="p-2 cursor-pointer rounded-full hover:bg-red-50 text-[#8A8F98] hover:text-red-500 transition-colors"
                             title="Delete Lesson"
                           >
                             <Trash2 size={16} />
@@ -360,21 +360,21 @@ const MyLessons = () => {
                               {/* Title */}
                               <div className="space-y-6">
                                 <div>
-                                  <label className="block text-xs font-bold text-[#4F6F52] uppercase mb-2 text-left">
+                                  <label className="block text-xs font-bold text-[#6E9277] uppercase mb-2 text-left">
                                     The Headline
                                   </label>
                                   <input
                                     {...register("title", { required: true })}
                                     type="text"
                                     placeholder="e.g. The Quiet Power of Patience"
-                                    className="w-full bg-[#F3F5F0] border-2 border-transparent focus:bg-white focus:border-[#D4C5A8] rounded-2xl px-5 py-4 text-lg outline-none transition-all shadow-inner"
+                                    className="w-full bg-[#EEF6EF] border-2 border-transparent focus:bg-white focus:border-[#C9D8C5] rounded-2xl px-5 py-4 text-lg outline-none transition-all shadow-inner"
                                     defaultValue={lesson.title}
                                   />
                                 </div>
 
                                 {/* Description */}
                                 <div>
-                                  <label className="block text-xs font-bold text-[#4F6F52] uppercase mb-2 text-left">
+                                  <label className="block text-xs font-bold text-[#6E9277] uppercase mb-2 text-left">
                                     The Lesson
                                   </label>
                                   <textarea
@@ -383,19 +383,19 @@ const MyLessons = () => {
                                     })}
                                     rows="4"
                                     placeholder="What did experience teach you?"
-                                    className="w-full bg-[#F3F5F0] border-2 border-transparent focus:bg-white focus:border-[#D4C5A8] rounded-2xl px-5 py-4 text-base outline-none transition-all shadow-inner resize-none"
+                                    className="w-full bg-[#EEF6EF] border-2 border-transparent focus:bg-white focus:border-[#C9D8C5] rounded-2xl px-5 py-4 text-base outline-none transition-all shadow-inner resize-none"
                                     defaultValue={lesson.description}
                                   />
                                 </div>
                               </div>
 
-                              <div className="w-full h-[1px] bg-gray-100" />
+                              <div className="w-full h-[1px] bg-[#EEF6EF]" />
 
                               {/* CATEGORY + TONE */}
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 {/* Category */}
                                 <div>
-                                  <label className="block text-xs font-bold text-[#4F6F52] uppercase mb-3 text-left">
+                                  <label className="block text-xs font-bold text-[#6E9277] uppercase mb-3 text-left">
                                     Category
                                   </label>
                                   <div className="flex flex-wrap gap-2">
@@ -408,8 +408,8 @@ const MyLessons = () => {
                                         }
                                         className={`px-4 py-2 rounded-xl text-sm border ${
                                           watch("category") === cat
-                                            ? "bg-[#1A2F23] text-[#D4C5A8] border-[#1A2F23]"
-                                            : "bg-white text-gray-500 border-gray-200 hover:border-[#4F6F52] cursor-pointer"
+                                            ? "bg-[#1F4D2B] text-[#C9D8C5] border-[#1F4D2B]"
+                                            : "bg-white text-[#6B7280] border-[#E5ECE2] hover:border-[#6E9277] cursor-pointer"
                                         }`}
                                       >
                                         {cat}
@@ -427,7 +427,7 @@ const MyLessons = () => {
 
                                 {/* Tone */}
                                 <div>
-                                  <label className="block text-xs font-bold text-[#4F6F52] uppercase mb-3 text-left">
+                                  <label className="block text-xs font-bold text-[#6E9277] uppercase mb-3 text-left">
                                     Emotional Tone
                                   </label>
                                   <div className="grid grid-cols-2 gap-2">
@@ -440,8 +440,8 @@ const MyLessons = () => {
                                         }
                                         className={`px-3 py-2 rounded-xl text-sm border flex items-center gap-2 justify-center cursor-pointer ${
                                           watch("tone") === t.label
-                                            ? "bg-[#1A2F23] border-[#D4C5A8] text-[#D4C5A8] "
-                                            : "bg-white border-gray-200 text-gray-500 hover:bg-gray-50"
+                                            ? "bg-[#1F4D2B] border-[#C9D8C5] text-[#C9D8C5] "
+                                            : "bg-white border-[#E5ECE2] text-[#6B7280] hover:bg-[#F8FAF6]"
                                         }`}
                                       >
                                         {t.emoji} {t.label}
@@ -459,7 +459,7 @@ const MyLessons = () => {
 
                               {/* Visibility */}
                               <div>
-                                <label className="block text-xs font-bold text-[#4F6F52] uppercase mb-3 ml-1">
+                                <label className="block text-xs font-bold text-[#6E9277] uppercase mb-3 ml-1">
                                   Visibility
                                 </label>
 
@@ -474,7 +474,7 @@ const MyLessons = () => {
                                     const value = e.target.value;
                                     setValue("isPrivate", value === "private");
                                   }}
-                                  className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-700 focus:border-[#4F6F52] outline-none cursor-pointer"
+                                  className="w-full bg-white border border-[#E5ECE2] rounded-xl px-4 py-3 text-sm text-[#6B7280] focus:border-[#6E9277] outline-none cursor-pointer"
                                 >
                                   <option value="public">
                                     Public — Visible to everyone
@@ -487,7 +487,7 @@ const MyLessons = () => {
 
                               {/* Access Level */}
                               <div>
-                                <label className="block text-xs font-bold text-[#4F6F52] uppercase mb-3 ml-1">
+                                <label className="block text-xs font-bold text-[#6E9277] uppercase mb-3 ml-1">
                                   Access Level
                                 </label>
 
@@ -498,7 +498,7 @@ const MyLessons = () => {
                                     setValue("accessLevel", e.target.value)
                                   }
                                   disabled={!isPremium}
-                                  className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-700 focus:border-[#4F6F52] outline-none cursor-pointer"
+                                  className="w-full bg-white border border-[#E5ECE2] rounded-xl px-4 py-3 text-sm text-[#6B7280] focus:border-[#6E9277] outline-none cursor-pointer"
                                 >
                                   <option value="free">
                                     Free — Visible to all users
@@ -509,7 +509,7 @@ const MyLessons = () => {
                                 </select>
 
                                 {!isPremium && (
-                                  <p className="mt-1 text-xs text-blue-500">
+                                  <p className="mt-1 text-xs text-[#2F8F3A]">
                                     <Link to="/payment" className="underline">
                                       Become a Premium Member to access this
                                     </Link>
@@ -521,7 +521,7 @@ const MyLessons = () => {
                               <div className="pt-4">
                                 <button
                                   type="submit"
-                                  className="group relative w-full rounded-2xl bg-[#1A2F23] py-4 text-white shadow-xl transition-all hover:-translate-y-1"
+                                  className="group relative w-full rounded-2xl bg-[#1F4D2B] py-4 text-white shadow-xl transition-all hover:-translate-y-1"
                                 >
                                   <div className="relative z-10 flex justify-center gap-2 text-lg cursor-pointer items-center">
                                     Publish <Send size={18} />
@@ -551,19 +551,19 @@ const MyLessons = () => {
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center py-24 text-center">
-            <div className="w-20 h-20 rounded-full bg-[#F3F5F0] flex items-center justify-center mb-6 text-[#1A2F23]/30">
+            <div className="w-20 h-20 rounded-full bg-[#EEF6EF] flex items-center justify-center mb-6 text-[#1F4D2B]/30">
               <Feather size={32} />
             </div>
-            <h3 className="text-2xl font-serif font-bold text-[#1A2F23] mb-2">
+            <h3 className="text-2xl font-serif font-bold text-[#1F4D2B] mb-2">
               Your pages are blank
             </h3>
-            <p className="text-gray-500 max-w-sm mb-8">
+            <p className="text-[#6B7280] max-w-sm mb-8">
               Every master was once a beginner. Start your journey by
               documenting your first lesson learned.
             </p>
             <Link
               to="/dashboard/add-lessons"
-              className="px-8 py-3 bg-[#1A2F23] text-white rounded-xl font-bold hover:bg-[#4F6F52] transition-colors shadow-lg hover:shadow-xl"
+              className="px-8 py-3 bg-[#1F4D2B] text-white rounded-xl font-bold hover:bg-[#6E9277] transition-colors shadow-lg hover:shadow-xl"
             >
               Write First Lesson
             </Link>

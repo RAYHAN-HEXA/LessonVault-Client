@@ -46,59 +46,59 @@ const StatsSection = () => {
       value: stats.users,
       label: "Active Learners",
       suffix: "+",
-      gradient: "from-slate-500 to-slate-400",
-      bgColor: "bg-slate-500/10",
-      textColor: "text-slate-300",
+      gradient: "from-[#6E9277] to-[#C9D8C5]",
+      bgColor: "bg-[#6E9277]/10",
+      textColor: "text-[#6E9277]",
     },
     {
       icon: <BookOpen className="w-6 h-6" />,
       value: stats.lessons,
       label: "Lessons Shared",
       suffix: "+",
-      gradient: "from-slate-400 to-slate-300",
-      bgColor: "bg-slate-400/10",
-      textColor: "text-slate-300",
+      gradient: "from-[#C9D8C5] to-[#EEF6EF]",
+      bgColor: "bg-[#C9D8C5]/10",
+      textColor: "text-[#C9D8C5]",
     },
     {
       icon: <TrendingUp className="w-6 h-6" />,
       value: stats.categories,
       label: "Knowledge Areas",
       suffix: "+",
-      gradient: "from-slate-500 to-slate-400",
-      bgColor: "bg-slate-500/10",
-      textColor: "text-slate-300",
+      gradient: "from-[#6E9277] to-[#C9D8C5]",
+      bgColor: "bg-[#6E9277]/10",
+      textColor: "text-[#6E9277]",
     },
     {
       icon: <Heart className="w-6 h-6" />,
       value: stats.favorites,
       label: "Favorites Saved",
       suffix: "+",
-      gradient: "from-slate-400 to-slate-300",
-      bgColor: "bg-slate-400/10",
-      textColor: "text-slate-300",
+      gradient: "from-[#C9D8C5] to-[#EEF6EF]",
+      bgColor: "bg-[#C9D8C5]/10",
+      textColor: "text-[#C9D8C5]",
     },
   ];
 
   return (
-    <section className="py-20 relative overflow-hidden bg-slate-950">
+    <section className="py-20 relative overflow-hidden bg-[#F8FAF6]">
       {/* Background effects */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-600/10 rounded-full blur-[120px]"></div>
-        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[100px]"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(rgba(31,77,43,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(31,77,43,0.03)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#2F8F3A]/10 rounded-full blur-[120px]"></div>
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#6E9277]/10 rounded-full blur-[100px]"></div>
       </div>
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6">
-            <Award className="w-4 h-4 text-yellow-400" />
-            <span className="text-white/80 text-sm font-medium">Trusted by learners worldwide</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#2F8F3A]/10 border border-[#2F8F3A]/20 mb-6">
+            <Award className="w-4 h-4 text-[#D9A441]" />
+            <span className="text-[#6B7280] text-sm font-medium">Trusted by learners worldwide</span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Our Impact in <span className="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent">Numbers</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1F2937] mb-4">
+            Our Impact in <span className="bg-gradient-to-r from-[#2F8F3A] via-[#6E9277] to-[#C9D8C5] bg-clip-text text-transparent">Numbers</span>
           </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">
+          <p className="text-[#6B7280] max-w-2xl mx-auto">
             Join a thriving community of knowledge seekers and sharers making a difference every day.
           </p>
         </div>
@@ -108,7 +108,7 @@ const StatsSection = () => {
           {statItems.map((item, index) => (
             <div
               key={index}
-              className="group relative p-6 lg:p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-white/20 transition-all duration-500 hover:-translate-y-2 overflow-hidden"
+              className="group relative p-6 lg:p-8 rounded-3xl bg-white border border-[#E5ECE2] hover:border-[#2F8F3A]/30 transition-all duration-500 hover:-translate-y-2 overflow-hidden"
             >
               {/* Gradient background on hover */}
               <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
@@ -119,13 +119,13 @@ const StatsSection = () => {
               </div>
 
               {/* Value */}
-              <div className="relative text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 tabular-nums">
+              <div className="relative text-3xl md:text-4xl lg:text-5xl font-bold text-[#1F2937] mb-2 tabular-nums">
                 {item.value.toLocaleString()}
                 <span className={`${item.textColor}`}>{item.suffix}</span>
               </div>
 
               {/* Label */}
-              <div className="relative text-sm md:text-base text-slate-400 font-medium">
+              <div className="relative text-sm md:text-base text-[#6B7280] font-medium">
                 {item.label}
               </div>
 
@@ -137,17 +137,17 @@ const StatsSection = () => {
 
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-4 px-8 py-4 rounded-full bg-gradient-to-r from-violet-500/10 via-fuchsia-500/10 to-cyan-500/10 border border-white/10">
+          <div className="inline-flex items-center gap-4 px-8 py-4 rounded-full bg-gradient-to-r from-[#2F8F3A]/10 via-[#6E9277]/10 to-[#C9D8C5]/10 border border-[#E5ECE2]">
             <div className="flex -space-x-3">
               {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="w-10 h-10 rounded-full border-2 border-slate-950 overflow-hidden">
-                  <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="" className="w-full h-full object-cover" />
+                <div key={i} className="w-10 h-10 rounded-full border-2 border-white overflow-hidden">
+                  <img src={`https://images.unsplash.com/photo-${["1494790108377-be9c29b29330","1507003211169-0a1dd7228f2d","1438761681033-6461ffad8d80","1500648767791-00dcc994a43e"][i]}?w=100&h=100&fit=crop&crop=face`} alt="" className="w-full h-full object-cover" />
                 </div>
               ))}
             </div>
             <div className="text-left">
-              <div className="text-white font-semibold">Join 10,000+ learners</div>
-              <div className="text-slate-400 text-sm">Start your journey today</div>
+              <div className="text-[#1F2937] font-semibold">Join 10,000+ learners</div>
+              <div className="text-[#6B7280] text-sm">Start your journey today</div>
             </div>
           </div>
         </div>

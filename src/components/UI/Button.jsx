@@ -25,19 +25,19 @@ export const Button = React.forwardRef(
 
     const variants = {
       primary:
-        "bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500 shadow-md hover:shadow-lg",
+        "bg-[#2F8F3A] text-white hover:bg-[#23722D] focus:ring-[#2F8F3A] shadow-md hover:shadow-lg",
       secondary:
-        "bg-purple-600 text-white hover:bg-purple-700 focus:ring-purple-500 shadow-md hover:shadow-lg",
+        "bg-[#EEF6EF] text-[#2F8F3A] hover:bg-[#C9D8C5] focus:ring-[#2F8F3A] shadow-sm",
       accent:
-        "bg-pink-600 text-white hover:bg-pink-700 focus:ring-pink-500 shadow-md hover:shadow-lg",
+        "bg-[#C9D8C5] text-[#1F4D2B] hover:bg-[#6E9277] focus:ring-[#6E9277] shadow-sm",
       outline:
-        "border-2 border-blue-600 text-blue-600 hover:bg-blue-50 focus:ring-blue-500",
+        "border-2 border-[#2F8F3A] text-[#2F8F3A] hover:bg-[#EEF6EF] focus:ring-[#2F8F3A]",
       ghost:
-        "text-blue-600 hover:bg-blue-50 focus:ring-blue-500",
+        "text-[#2F8F3A] hover:bg-[#EEF6EF] focus:ring-[#2F8F3A]",
       danger:
-        "bg-red-600 text-white hover:bg-red-700 focus:ring-red-500",
+        "bg-[#D9534F] text-white hover:bg-[#c9433f] focus:ring-[#D9534F]",
       success:
-        "bg-green-600 text-white hover:bg-green-700 focus:ring-green-500",
+        "bg-[#2F8F3A] text-white hover:bg-[#23722D] focus:ring-[#2F8F3A]",
     };
 
     const sizes = {

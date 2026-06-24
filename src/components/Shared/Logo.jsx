@@ -1,11 +1,15 @@
 import React from "react";
-import logo from "../../assets/logo.png";
 import { Link } from "react-router";
-const Logo = () => {
+import { BookOpen } from "lucide-react";
+
+const Logo = ({ className = "" }) => {
   return (
-    <Link to="/" className="flex items-center gap-2 cursor-pointer group">
-      <div className={`p-2 rounded-lg transition-colors`}>
-        <img className="w-20 h-10" src={logo} alt="LessonVault Logo" />
+    <Link to="/" className={`flex items-center gap-2 cursor-pointer group ${className}`}>
+      <div className="flex items-center gap-2">
+        <BookOpen className="w-7 h-7 text-[#2F8F3A]" strokeWidth={2} />
+        <span className="text-xl font-semibold text-[#1F2937] tracking-tight">
+          Lessonly
+        </span>
       </div>
     </Link>
   );

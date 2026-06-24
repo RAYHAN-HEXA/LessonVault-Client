@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { ThemeContext } from "./ThemeContext";
 import DESIGN_SYSTEM from "../../../config/designSystem";
 
@@ -13,14 +13,6 @@ const getInitialTheme = () => {
 const ThemeProvider = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(getInitialTheme);
 
-  // Initialize dark mode preference from localStorage or system
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme-mode");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const initialMode = savedTheme ? savedTheme === "dark" : prefersDark;
-    setIsDarkMode(initialMode);
-  }, []);
-
   const toggleTheme = () => {
     const newMode = !isDarkMode;
     setIsDarkMode(newMode);
@@ -29,24 +21,35 @@ const ThemeProvider = ({ children }) => {
 
   const theme = isDarkMode ? DESIGN_SYSTEM.darkMode : DESIGN_SYSTEM.lightMode;
 
-  // Backward compatibility colors
+  // Lessonly color palette - White + Green
   const COLORS = {
-    // New professional colors
-    primary: DESIGN_SYSTEM.colors.primary,
-    secondary: DESIGN_SYSTEM.colors.secondary,
-    accent: DESIGN_SYSTEM.colors.accent,
+    // Primary colors
+    primary: DESIGN_SYSTEM.colors.primary,        // #2F8F3A
+    primaryHover: DESIGN_SYSTEM.colors.primaryHover, // #23722D
+    primaryLight: DESIGN_SYSTEM.colors.primaryLight, // #6E9277
+    secondary: DESIGN_SYSTEM.colors.secondary,    // #D9A441 Gold
+    accent: DESIGN_SYSTEM.colors.accent,          // #C9D8C5
+    darkForest: DESIGN_SYSTEM.colors.darkGreen,   // #1F4D2B
+
+    // Semantic colors
     success: DESIGN_SYSTEM.colors.success,
     warning: DESIGN_SYSTEM.colors.warning,
     error: DESIGN_SYSTEM.colors.error,
-    
-    // Backward compatibility
-    darkGreen: "#2563EB",
-    sage: "#8B5CF6",
-    mist: theme.surface,
-    gold: "#EC4899",
+    info: DESIGN_SYSTEM.colors.info,
+
+    // Neutral colors
     white: DESIGN_SYSTEM.colors.white,
-    dark: DESIGN_SYSTEM.colors.gray[900],
+    black: DESIGN_SYSTEM.colors.black,
+    dark: DESIGN_SYSTEM.colors.gray[700],
     light: theme.surface,
+
+    // Theme-specific colors
+    background: theme.background,
+    surface: theme.surface,
+    surfaceAlt: theme.surfaceAlt,
+    text: theme.text,
+    textSecondary: theme.textSecondary,
+    border: theme.border,
   };
 
   const themeInfo = {

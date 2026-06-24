@@ -57,8 +57,8 @@ const Help = () => {
       icon: Mail,
       title: "Email Support",
       description: "Send us your questions anytime",
-      contact: "support@digitallesson.com",
-      link: "mailto:support@digitallesson.com",
+      contact: "support@lessonly.app",
+      link: "mailto:support@lessonly.app",
     },
     {
       icon: MessageSquare,
@@ -71,21 +71,21 @@ const Help = () => {
       icon: Phone,
       title: "Phone Support",
       description: "Call us for urgent issues",
-      contact: "+1 (555) 123-4567",
-      link: "tel:+15551234567",
+      contact: "+880 1700-000000",
+      link: "tel:+8801700000000",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900 pt-24">
+    <div className="min-h-screen bg-white pt-24">
       {/* Hero */}
       <Section bgVariant="primary" padding="xl">
         <Container>
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
               Help & Support
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
+            <p className="text-xl text-gray-600 mb-8">
               Find answers to common questions or contact our support team
             </p>
           </div>
@@ -102,14 +102,14 @@ const Help = () => {
                 <a href={channel.link} key={channel.title}>
                   <Card hoverable className="h-full">
                     <CardBody className="text-center">
-                      <Icon className="w-12 h-12 text-blue-600 dark:text-blue-400 mx-auto mb-4" />
-                      <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                      <Icon className="w-12 h-12 text-[#2F8F3A] mx-auto mb-4" />
+                      <h3 className="text-lg font-bold text-gray-900 mb-2">
                         {channel.title}
                       </h3>
-                      <p className="text-gray-600 dark:text-gray-400 mb-3">
+                      <p className="text-gray-600 mb-3">
                         {channel.description}
                       </p>
-                      <p className="text-blue-600 dark:text-blue-400 font-semibold">
+                      <p className="text-[#2F8F3A] font-semibold">
                         {channel.contact}
                       </p>
                     </CardBody>
@@ -139,7 +139,7 @@ const Help = () => {
                 placeholder="Search FAQs..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-300 dark:border-slate-600 dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#2F8F3A] outline-none"
               />
             </div>
           </div>
@@ -152,14 +152,14 @@ const Help = () => {
                   onClick={() =>
                     setOpenFAQ(openFAQ === faq.id ? null : faq.id)
                   }
-                  className="w-full p-6 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
+                  className="w-full p-6 flex items-center justify-between hover:bg-gray-50 transition-colors"
                 >
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-left">
+                  <h3 className="text-lg font-semibold text-gray-900 text-left">
                     {faq.question}
                   </h3>
                   <ChevronDown
                     size={20}
-                    className={`text-gray-600 dark:text-gray-400 transition-transform ${
+                    className={`text-gray-600 transition-transform ${
                       openFAQ === faq.id ? "rotate-180" : ""
                     }`}
                   />
@@ -167,9 +167,9 @@ const Help = () => {
 
                 {openFAQ === faq.id && (
                   <>
-                    <div className="h-px bg-gray-200 dark:bg-slate-700"></div>
+                    <div className="h-px bg-gray-200"></div>
                     <CardBody>
-                      <p className="text-gray-600 dark:text-gray-400">
+                      <p className="text-gray-600">
                         {faq.answer}
                       </p>
                     </CardBody>
@@ -181,7 +181,7 @@ const Help = () => {
 
           {filteredFAQs.length === 0 && (
             <div className="text-center py-8">
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-600">
                 No FAQs found. Try a different search query.
               </p>
             </div>
@@ -193,13 +193,13 @@ const Help = () => {
       <Section padding="xl">
         <Container>
           <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Didn't find what you're looking for?
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
+            <p className="text-lg text-gray-600 mb-8">
               Our support team is here to help. Reach out to us anytime.
             </p>
-            <a href="mailto:support@digitallesson.com">
+            <a href="mailto:support@lessonly.app">
               <Button>Contact Support</Button>
             </a>
           </div>

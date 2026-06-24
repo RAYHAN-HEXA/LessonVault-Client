@@ -20,9 +20,9 @@ const categories = [
     id: "career",
     name: "Career & Professional",
     icon: <Briefcase className="w-6 h-6" />,
-    gradient: "from-blue-500 to-cyan-500",
-    bgColor: "bg-blue-500/10",
-    textColor: "text-blue-400",
+    gradient: "from-[#2F8F3A] to-[#1F4D2B]",
+    bgColor: "bg-[#2F8F3A]/10",
+    textColor: "text-[#2F8F3A]",
     count: 245,
     description: "Lessons about career growth and workplace wisdom",
   },
@@ -30,9 +30,9 @@ const categories = [
     id: "relationships",
     name: "Relationships",
     icon: <Heart className="w-6 h-6" />,
-    gradient: "from-pink-500 to-rose-500",
-    bgColor: "bg-pink-500/10",
-    textColor: "text-pink-400",
+    gradient: "from-[#D9A441] to-[#1F4D2B]",
+    bgColor: "bg-[#D9A441]/10",
+    textColor: "text-[#D9A441]",
     count: 189,
     description: "Insights on building meaningful connections",
   },
@@ -40,9 +40,9 @@ const categories = [
     id: "education",
     name: "Education & Learning",
     icon: <GraduationCap className="w-6 h-6" />,
-    gradient: "from-purple-500 to-violet-500",
-    bgColor: "bg-purple-500/10",
-    textColor: "text-purple-400",
+    gradient: "from-[#2F8F3A] to-[#6E9277]",
+    bgColor: "bg-[#2F8F3A]/10",
+    textColor: "text-[#2F8F3A]",
     count: 156,
     description: "Wisdom from academic journeys",
   },
@@ -50,9 +50,9 @@ const categories = [
     id: "personal-growth",
     name: "Personal Growth",
     icon: <Sparkles className="w-6 h-6" />,
-    gradient: "from-yellow-500 to-orange-500",
-    bgColor: "bg-yellow-500/10",
-    textColor: "text-yellow-400",
+    gradient: "from-[#D9A441] to-[#2F8F3A]",
+    bgColor: "bg-[#D9A441]/10",
+    textColor: "text-[#D9A441]",
     count: 312,
     description: "Self-improvement and development",
   },
@@ -60,9 +60,9 @@ const categories = [
     id: "life-lessons",
     name: "Life Lessons",
     icon: <Lightbulb className="w-6 h-6" />,
-    gradient: "from-orange-500 to-red-500",
-    bgColor: "bg-orange-500/10",
-    textColor: "text-orange-400",
+    gradient: "from-[#1F4D2B] to-[#2F8F3A]",
+    bgColor: "bg-[#1F4D2B]/10",
+    textColor: "text-[#1F4D2B]",
     count: 428,
     description: "Hard-earned wisdom from life experience",
   },
@@ -70,9 +70,9 @@ const categories = [
     id: "leadership",
     name: "Leadership",
     icon: <Users className="w-6 h-6" />,
-    gradient: "from-indigo-500 to-blue-500",
-    bgColor: "bg-indigo-500/10",
-    textColor: "text-indigo-400",
+    gradient: "from-[#2F8F3A] to-[#1F4D2B]",
+    bgColor: "bg-[#2F8F3A]/10",
+    textColor: "text-[#2F8F3A]",
     count: 98,
     description: "Lessons from leading teams and organizations",
   },
@@ -80,9 +80,9 @@ const categories = [
     id: "finance",
     name: "Finance & Money",
     icon: <TrendingUp className="w-6 h-6" />,
-    gradient: "from-emerald-500 to-teal-500",
-    bgColor: "bg-emerald-500/10",
-    textColor: "text-emerald-400",
+    gradient: "from-[#D9A441] to-[#1F4D2B]",
+    bgColor: "bg-[#D9A441]/10",
+    textColor: "text-[#D9A441]",
     count: 134,
     description: "Financial wisdom and money management",
   },
@@ -90,9 +90,9 @@ const categories = [
     id: "health",
     name: "Health & Wellness",
     icon: <Shield className="w-6 h-6" />,
-    gradient: "from-green-500 to-emerald-500",
-    bgColor: "bg-green-500/10",
-    textColor: "text-green-400",
+    gradient: "from-[#2F8F3A] to-[#6E9277]",
+    bgColor: "bg-[#2F8F3A]/10",
+    textColor: "text-[#2F8F3A]",
     count: 167,
     description: "Physical and mental wellbeing insights",
   },
@@ -100,72 +100,67 @@ const categories = [
 
 const CategoriesSection = () => {
   return (
-    <section className="py-20 relative overflow-hidden bg-slate-950">
-      {/* Background effects */}
-      <div className="absolute inset-0">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-r from-violet-600/10 to-fuchsia-600/10 rounded-full blur-[120px]"></div>
-      </div>
-
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section className="py-20 bg-[#F8FAF6]">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1F2937] mb-4">
             Explore by{" "}
-            <span className="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#2F8F3A] to-[#1F4D2B] bg-clip-text text-transparent">
               Category
             </span>
           </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto text-lg">
-            Find lessons that resonate with your journey. Browse through our
-            diverse categories to discover wisdom that matters to you.
+          <p className="text-[#6B7280] max-w-2xl mx-auto text-lg">
+            Browse lessons across different life domains and find wisdom that
+            resonates with your journey.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {/* Categories Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {categories.map((category) => (
             <Link
               key={category.id}
-              to={`/public-lessons?category=${encodeURIComponent(category.name)}`}
-              className="group relative bg-slate-900/50 backdrop-blur-xl rounded-3xl p-6 border border-white/10 hover:border-white/20 transition-all duration-500 hover:-translate-y-2 overflow-hidden"
+              to={`/public-lessons?category=${category.name}`}
+              className="group relative bg-white rounded-2xl p-6 border border-[#E5ECE2] hover:shadow-xl hover:shadow-[#2F8F3A]/10 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
             >
-              {/* Gradient background on hover */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
-
-              {/* Icon container */}
+              {/* Gradient overlay on hover */}
               <div
-                className={`relative w-14 h-14 rounded-2xl ${category.bgColor} ${category.textColor} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
-              >
-                {category.icon}
+                className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
+              ></div>
+
+              <div className="relative">
+                {/* Icon */}
+                <div
+                  className={`w-14 h-14 rounded-xl ${category.bgColor} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                >
+                  <div className={category.textColor}>{category.icon}</div>
+                </div>
+
+                {/* Category Name */}
+                <h3 className="font-bold text-[#1F2937] text-lg mb-2 group-hover:text-[#2F8F3A] transition-colors">
+                  {category.name}
+                </h3>
+
+                {/* Description */}
+                <p className="text-[#6B7280] text-sm mb-4 line-clamp-2">
+                  {category.description}
+                </p>
+
+                {/* Stats */}
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-1 text-[#6B7280] text-sm">
+                    <Star size={14} className="text-[#D9A441]" />
+                    <span>{category.count} lessons</span>
+                  </div>
+                  <ArrowRight
+                    size={16}
+                    className="text-[#2F8F3A] opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
+                  />
+                </div>
               </div>
-
-              {/* Content */}
-              <h3 className="relative font-semibold text-white text-base mb-1 group-hover:text-violet-300 transition-colors">
-                {category.name}
-              </h3>
-              <p className="relative text-xs text-slate-500 mb-3">
-                {category.count} lessons
-              </p>
-
-              {/* Arrow indicator */}
-              <div className="relative flex items-center gap-1 text-sm text-slate-500 group-hover:text-violet-400 transition-colors">
-                <span>Explore</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </div>
-
-              {/* Decorative corner */}
-              <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${category.gradient} opacity-20 blur-2xl rounded-full`}></div>
             </Link>
           ))}
-        </div>
-
-        {/* View All CTA */}
-        <div className="mt-12 text-center">
-          <Link
-            to="/public-lessons"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-semibold hover:shadow-lg hover:shadow-violet-500/25 transition-all duration-300 hover:scale-105"
-          >
-            View All Categories
-            <ArrowRight className="w-5 h-5" />
-          </Link>
         </div>
       </div>
     </section>

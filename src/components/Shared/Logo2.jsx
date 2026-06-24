@@ -1,10 +1,14 @@
 import React from "react";
-import logo from "../../assets/logo2.png";
-const Logo2 = () => {
+import { BookOpen } from "lucide-react";
+
+const Logo2 = ({ className = "" }) => {
   return (
-    <div className="flex items-center gap-2 cursor-pointer group">
-      <div className={`p-2 rounded-lg transition-colors`}>
-        <img className="w-20 h-10" src={logo} alt="LessonVault Logo" />
+    <div className={`flex items-center gap-2 cursor-pointer group ${className}`}>
+      <div className="flex items-center gap-2">
+        <BookOpen className="w-10 h-10 text-white" strokeWidth={2} />
+        <span className="text-2xl font-bold text-white tracking-tight">
+          Lessonly
+        </span>
       </div>
     </div>
   );

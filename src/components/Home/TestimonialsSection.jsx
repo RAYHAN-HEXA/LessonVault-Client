@@ -3,60 +3,60 @@ import { Quote, Star } from "lucide-react";
 const testimonials = [
   {
     id: 1,
-    name: "Sarah Johnson",
-    role: "Marketing Manager",
-    image: "https://i.pravatar.cc/150?img=1",
+    name: "Aisha Patel",
+    role: "UX Designer",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
     content:
-      "LessonVault has transformed how I reflect on my career journey. The wisdom shared here has helped me make better decisions.",
+      "Lessonly helped me document my design philosophy and career pivots. Looking back at my entries, I can see how far I've grown.",
     rating: 5,
   },
   {
     id: 2,
-    name: "Michael Chen",
-    role: "Software Engineer",
-    image: "https://i.pravatar.cc/150?img=3",
+    name: "James Okafor",
+    role: "Data Scientist",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
     content:
-      "Finding a community that values life lessons and personal growth is rare. This platform fills that gap perfectly.",
+      "I share lessons from my research failures and breakthroughs. The community feedback has shaped how I approach problems today.",
     rating: 5,
   },
   {
     id: 3,
-    name: "Emily Rodriguez",
-    role: "Entrepreneur",
-    image: "https://i.pravatar.cc/150?img=5",
+    name: "Sofia Reyes",
+    role: "High School Teacher",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
     content:
-      "The stories and insights from other users have been invaluable in my personal and professional development.",
+      "My students inspire me daily. Lessonly gives me a space to capture those teaching moments that textbooks never cover.",
     rating: 5,
   },
   {
     id: 4,
-    name: "David Kim",
-    role: "Teacher",
-    image: "https://i.pravatar.cc/150?img=8",
+    name: "Daniel Kim",
+    role: "Startup Founder",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
     content:
-      "I've been able to capture and share my teaching experiences in a meaningful way. Highly recommended!",
+      "Every failed pitch and late-night pivot taught me something. This platform helps me turn those lessons into guidance for others.",
     rating: 5,
   },
 ];
 
 const TestimonialsSection = () => {
   return (
-    <section className="py-20 relative overflow-hidden bg-slate-950">
+    <section className="py-20 relative overflow-hidden bg-[#EEF6EF]">
       {/* Background effects */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-violet-600/10 rounded-full blur-[120px]"></div>
-        <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-fuchsia-600/10 rounded-full blur-[100px]"></div>
+        <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-[#2F8F3A]/10 rounded-full blur-[120px]"></div>
+        <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-[#6E9277]/10 rounded-full blur-[100px]"></div>
       </div>
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1F2937] mb-4">
             What Our{" "}
-            <span className="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#6E9277] via-[#EEF6EF] to-[#2F8F3A] bg-clip-text text-transparent">
               Community Says
             </span>
           </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto text-lg">
+          <p className="text-[#6B7280] max-w-2xl mx-auto text-lg">
             Join thousands of learners who have found wisdom and inspiration on
             their personal growth journey.
           </p>
@@ -66,19 +66,19 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="group relative bg-slate-900/50 backdrop-blur-xl rounded-3xl p-6 border border-white/10 hover:border-white/20 transition-all duration-500 hover:-translate-y-2 overflow-hidden"
+              className="group relative bg-white backdrop-blur-xl rounded-3xl p-6 border border-[#E5ECE2] hover:border-[#2F8F3A]/30 transition-all duration-500 hover:-translate-y-2 overflow-hidden"
             >
               {/* Gradient background on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 to-fuchsia-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#2F8F3A]/10 to-[#6E9277]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-              <Quote className="relative w-10 h-10 text-violet-400/50 mb-4" />
+              <Quote className="relative w-10 h-10 text-[#6E9277]/50 mb-4" />
 
-              <p className="relative text-slate-300 text-sm mb-6 italic leading-relaxed">
+              <p className="relative text-[#1F2937] text-sm mb-6 italic leading-relaxed">
                 "{testimonial.content}"
               </p>
 
               <div className="relative flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-violet-500/30">
+                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#2F8F3A]/30">
                   <img
                     src={testimonial.image}
                     alt={testimonial.name}
@@ -86,10 +86,10 @@ const TestimonialsSection = () => {
                   />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white text-sm">
+                  <h4 className="font-semibold text-[#1F2937] text-sm">
                     {testimonial.name}
                   </h4>
-                  <p className="text-xs text-slate-500">
+                  <p className="text-xs text-[#6B7280]">
                     {testimonial.role}
                   </p>
                 </div>
@@ -99,7 +99,7 @@ const TestimonialsSection = () => {
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star
                     key={i}
-                    className="w-4 h-4 text-amber-400 fill-amber-400"
+                    className="w-4 h-4 text-[#D9A441] fill-[#D9A441]"
                     size={16}
                   />
                 ))}

@@ -23,6 +23,36 @@ import {
 import useAxios from "../../../../hooks/useAxios";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
+// AdminStatCard component - moved outside to avoid recreation on render
+const AdminStatCard = ({ title, value, icon, color, trend }) => (
+  <div className="bg-white rounded-[2rem] p-6 shadow-lg border border-transparent hover:border-[#E5ECE2] transition-all flex flex-col justify-between h-40 relative overflow-hidden group">
+    <div
+      className={`absolute -right-4 -bottom-4 opacity-10 group-hover:opacity-20 transition-opacity transform group-hover:scale-110 ${color}`}
+    >
+      {React.cloneElement(icon, { size: 80 })}
+    </div>
+
+    <div className="flex items-start justify-between relative z-10">
+      <div>
+        <p className="text-xs font-bold text-[#8A8F98] uppercase tracking-widest mb-2">
+          {title}
+        </p>
+        <h3 className="text-4xl font-serif font-bold text-[#1F4D2B]">
+          {value}
+        </h3>
+      </div>
+      <div className={`p-3 rounded-xl bg-[#EEF6EF] ${color}`}>{icon}</div>
+    </div>
+
+    {trend && (
+      <div className="flex items-center gap-1 text-xs font-bold text-[#6E9277] relative z-10 mt-auto">
+        <TrendingUp size={14} />
+        <span>{trend}</span>
+      </div>
+    )}
+  </div>
+);
+
 const AdminHome = () => {
   const axiosInstance = useAxios();
   const [loading, setLoading] = useState(true);
@@ -126,40 +156,11 @@ const AdminHome = () => {
     fetchAdminData();
   }, [axiosInstance, axiosSecure]);
 
-  const AdminStatCard = ({ title, value, icon, color, trend }) => (
-    <div className="bg-white rounded-[2rem] p-6 shadow-lg border border-transparent hover:border-gray-200 transition-all flex flex-col justify-between h-40 relative overflow-hidden group">
-      <div
-        className={`absolute -right-4 -bottom-4 opacity-10 group-hover:opacity-20 transition-opacity transform group-hover:scale-110 ${color}`}
-      >
-        {React.cloneElement(icon, { size: 80 })}
-      </div>
-
-      <div className="flex items-start justify-between relative z-10">
-        <div>
-          <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">
-            {title}
-          </p>
-          <h3 className="text-4xl font-serif font-bold text-[#1A2F23]">
-            {value}
-          </h3>
-        </div>
-        <div className={`p-3 rounded-xl bg-[#F3F5F0] ${color}`}>{icon}</div>
-      </div>
-
-      {trend && (
-        <div className="flex items-center gap-1 text-xs font-bold text-[#4F6F52] relative z-10 mt-auto">
-          <TrendingUp size={14} />
-          <span>{trend}</span>
-        </div>
-      )}
-    </div>
-  );
-
   if (loading) {
     return (
       <div className="w-full h-[80vh] flex flex-col items-center justify-center space-y-4">
-        <div className="w-16 h-16 border-4 border-[#D4C5A8] border-t-[#1A2F23] rounded-full animate-spin"></div>
-        <p className="text-[#1A2F23] font-serif animate-pulse">
+        <div className="w-16 h-16 border-4 border-[#C9D8C5] border-t-[#1F4D2B] rounded-full animate-spin"></div>
+        <p className="text-[#1F4D2B] font-serif animate-pulse">
           Consulting the Archives...
         </p>
       </div>
@@ -171,14 +172,14 @@ const AdminHome = () => {
       {/* HEADER */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 animate-fade-in-up">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A2F23]/5 text-[#1A2F23] text-[10px] font-bold uppercase tracking-wider mb-2 border border-[#1A2F23]/10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1F4D2B]/5 text-[#1F4D2B] text-[10px] font-bold uppercase tracking-wider mb-2 border border-[#1F4D2B]/10">
             <ShieldAlert size={12} /> Admin Access
           </div>
-          <h1 className="text-3xl md:text-4xl font-serif font-bold text-[#1A2F23]">
+          <h1 className="text-3xl md:text-4xl font-serif font-bold text-[#1F4D2B]">
             Dashboard Overview
           </h1>
         </div>
-        <p className="text-sm font-bold text-gray-400 flex items-center gap-2 bg-white px-4 py-2 rounded-xl shadow-sm">
+        <p className="text-sm font-bold text-[#8A8F98] flex items-center gap-2 bg-white px-4 py-2 rounded-xl shadow-sm">
           <Calendar size={14} />{" "}
           {new Date().toLocaleDateString("en-US", {
             weekday: "long",
@@ -197,21 +198,21 @@ const AdminHome = () => {
           title="Total Users"
           value={stats.totalUsers}
           icon={<Users size={24} />}
-          color="text-blue-600"
+          color="text-[#2F8F3A]"
           trend="Community Growing"
         />
         <AdminStatCard
           title="Active Lessons"
           value={stats.totalPublicLessons}
           icon={<BookOpen size={24} />}
-          color="text-[#4F6F52]"
+          color="text-[#6E9277]"
           trend="+Daily Knowledge"
         />
         <AdminStatCard
           title="New Today"
           value={stats.lessonsToday}
           icon={<Activity size={24} />}
-          color="text-[#D4C5A8]"
+          color="text-[#C9D8C5]"
           trend="Fresh Insights"
         />
         <AdminStatCard
@@ -231,10 +232,10 @@ const AdminHome = () => {
         {/* User Growth */}
         <div className="bg-white rounded-[2rem] p-8 shadow-xl border border-white">
           <div className="flex items-center justify-between mb-8">
-            <h3 className="text-xl font-serif font-bold text-[#1A2F23] flex items-center gap-2">
-              <Users size={20} className="text-[#4F6F52]" /> User Growth
+            <h3 className="text-xl font-serif font-bold text-[#1F4D2B] flex items-center gap-2">
+              <Users size={20} className="text-[#6E9277]" /> User Growth
             </h3>
-            <span className="text-xs font-bold text-gray-400 uppercase">
+            <span className="text-xs font-bold text-[#8A8F98] uppercase">
               Last 7 Days
             </span>
           </div>
@@ -243,40 +244,40 @@ const AdminHome = () => {
               <AreaChart data={chartData.userGrowth}>
                 <defs>
                   <linearGradient id="colorUsers" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#1A2F23" stopOpacity={0.1} />
-                    <stop offset="95%" stopColor="#1A2F23" stopOpacity={0} />
+                    <stop offset="5%" stopColor="#1F4D2B" stopOpacity={0.1} />
+                    <stop offset="95%" stopColor="#1F4D2B" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <CartesianGrid
                   strokeDasharray="3 3"
                   vertical={false}
-                  stroke="#f0f0f0"
+                  stroke="#E5ECE2"
                 />
                 <XAxis
                   dataKey="date"
                   axisLine={false}
                   tickLine={false}
-                  tick={{ fill: "#9CA3AF", fontSize: 11 }}
+                  tick={{ fill: "#8A8F98", fontSize: 11 }}
                   dy={10}
                 />
                 <YAxis
                   axisLine={false}
                   tickLine={false}
-                  tick={{ fill: "#9CA3AF", fontSize: 11 }}
+                  tick={{ fill: "#8A8F98", fontSize: 11 }}
                 />
                 <Tooltip
                   contentStyle={{
-                    backgroundColor: "#1A2F23",
+                    backgroundColor: "#1F4D2B",
                     borderRadius: "12px",
                     border: "none",
                     color: "#fff",
                   }}
-                  itemStyle={{ color: "#D4C5A8" }}
+                  itemStyle={{ color: "#C9D8C5" }}
                 />
                 <Area
                   type="monotone"
                   dataKey="count"
-                  stroke="#1A2F23"
+                  stroke="#1F4D2B"
                   strokeWidth={3}
                   fillOpacity={1}
                   fill="url(#colorUsers)"
@@ -289,10 +290,10 @@ const AdminHome = () => {
         {/* Lesson Velocity */}
         <div className="bg-white rounded-[2rem] p-8 shadow-xl border border-white">
           <div className="flex items-center justify-between mb-8">
-            <h3 className="text-xl font-serif font-bold text-[#1A2F23] flex items-center gap-2">
-              <BookOpen size={20} className="text-[#D4C5A8]" /> Lesson Output
+            <h3 className="text-xl font-serif font-bold text-[#1F4D2B] flex items-center gap-2">
+              <BookOpen size={20} className="text-[#C9D8C5]" /> Lesson Output
             </h3>
-            <span className="text-xs font-bold text-gray-400 uppercase">
+            <span className="text-xs font-bold text-[#8A8F98] uppercase">
               Last 7 Days
             </span>
           </div>
@@ -302,32 +303,32 @@ const AdminHome = () => {
                 <CartesianGrid
                   strokeDasharray="3 3"
                   vertical={false}
-                  stroke="#f0f0f0"
+                  stroke="#E5ECE2"
                 />
                 <XAxis
                   dataKey="date"
                   axisLine={false}
                   tickLine={false}
-                  tick={{ fill: "#9CA3AF", fontSize: 11 }}
+                  tick={{ fill: "#8A8F98", fontSize: 11 }}
                   dy={10}
                 />
                 <YAxis
                   axisLine={false}
                   tickLine={false}
-                  tick={{ fill: "#9CA3AF", fontSize: 11 }}
+                  tick={{ fill: "#8A8F98", fontSize: 11 }}
                 />
                 <Tooltip
-                  cursor={{ fill: "#F3F5F0" }}
+                  cursor={{ fill: "#EEF6EF" }}
                   contentStyle={{
                     backgroundColor: "#fff",
                     borderRadius: "12px",
-                    border: "1px solid #e5e5e5",
-                    color: "#1A2F23",
+                    border: "1px solid #E5ECE2",
+                    color: "#1F4D2B",
                   }}
                 />
                 <Bar
                   dataKey="count"
-                  fill="#D4C5A8"
+                  fill="#C9D8C5"
                   radius={[4, 4, 0, 0]}
                   barSize={40}
                 />
@@ -339,17 +340,17 @@ const AdminHome = () => {
 
       {/* TOP CONTRIBUTORS */}
       <div
-        className="bg-[#1A2F23] rounded-[2.5rem] p-8 md:p-10 text-white relative overflow-hidden animate-fade-in-up"
+        className="bg-[#1F4D2B] rounded-[2.5rem] p-8 md:p-10 text-white relative overflow-hidden animate-fade-in-up"
         style={{ animationDelay: "0.3s" }}
       >
         {/* Decor */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-[#4F6F52] rounded-full blur-[100px] opacity-30 pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-64 h-64 bg-[#6E9277] rounded-full blur-[100px] opacity-30 pointer-events-none"></div>
 
         <div className="flex items-center justify-between mb-8 relative z-10">
           <h3 className="text-2xl font-serif font-bold flex items-center gap-3">
-            <Crown size={24} className="text-[#D4C5A8]" /> Top Contributors
+            <Crown size={24} className="text-[#C9D8C5]" /> Top Contributors
           </h3>
-          <span className="text-xs font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/10 text-[#D4C5A8]">
+          <span className="text-xs font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/10 text-[#C9D8C5]">
             This Week
           </span>
         </div>
@@ -364,14 +365,14 @@ const AdminHome = () => {
                 <img
                   src={contributor.authorImage}
                   alt={contributor.name}
-                  className="w-12 h-12 rounded-full object-cover border-2 border-[#D4C5A8]"
+                  className="w-12 h-12 rounded-full object-cover border-2 border-[#C9D8C5]"
                 />
-                <div className="absolute -top-1 -right-1 w-5 h-5 bg-[#D4C5A8] rounded-full flex items-center justify-center text-[#1A2F23] text-xs font-bold shadow-sm">
+                <div className="absolute -top-1 -right-1 w-5 h-5 bg-[#C9D8C5] rounded-full flex items-center justify-center text-[#1F4D2B] text-xs font-bold shadow-sm">
                   {index + 1}
                 </div>
               </div>
               <div>
-                <h4 className="font-bold text-sm text-[#F3F5F0] line-clamp-1">
+                <h4 className="font-bold text-sm text-[#EEF6EF] line-clamp-1">
                   {contributor.name}
                 </h4>
                 <p className="text-xs text-white/50">

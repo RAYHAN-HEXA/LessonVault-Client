@@ -6,30 +6,30 @@ const Forbidden = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen w-full relative flex items-center justify-center font-sans p-6 overflow-hidden">
-      <div className="absolute inset-0 bg-radial-gradient from-transparent to-[#1A2F23]/10 pointer-events-none"></div>
+    <div className="min-h-screen w-full relative flex items-center justify-center font-sans p-6 overflow-hidden bg-[#F8FAF6]">
+      <div className="absolute inset-0 bg-radial-gradient from-transparent to-[#1F4D2B]/10 pointer-events-none"></div>
 
-      <div className="relative z-10 w-full max-w-lg bg-white rounded-[2.5rem] shadow-2xl p-10 md:p-14 text-center animate-fade-in-up border-4 border-double border-[#D4C5A8]/50">
+      <div className="relative z-10 w-full max-w-lg bg-white rounded-[2.5rem] shadow-2xl p-10 md:p-14 text-center animate-fade-in-up border-4 border-double border-[#D9A441]/50">
         <div className="relative mb-10 mx-auto w-32 h-32 flex items-center justify-center">
-          <div className="absolute inset-0 rounded-full bg-[#1A2F23]/5 animate-ping opacity-75"></div>
-          <div className="absolute inset-4 rounded-full bg-[#1A2F23]/10"></div>
+          <div className="absolute inset-0 rounded-full bg-[#2F8F3A]/5 animate-ping opacity-75"></div>
+          <div className="absolute inset-4 rounded-full bg-[#2F8F3A]/10"></div>
 
-          <div className="relative z-10 bg-[#1A2F23] p-6 rounded-full text-[#D4C5A8] shadow-xl">
+          <div className="relative z-10 bg-[#1F4D2B] p-6 rounded-full text-[#D9A441] shadow-xl">
             <LockKeyhole size={48} strokeWidth={2.5} />
           </div>
 
-          <div className="absolute -top-2 -right-2 bg-red-500 text-white p-2 rounded-full border-4 border-white shadow-md animate-bounce-slight">
+          <div className="absolute -top-2 -right-2 bg-[#D9534F] text-white p-2 rounded-full border-4 border-white shadow-md animate-bounce-slight">
             <ShieldBan size={20} />
           </div>
         </div>
 
-        <h2 className="text-3xl font-serif font-bold text-[#1A2F23] mb-4 -mt-8 relative z-20">
+        <h2 className="text-3xl font-serif font-bold text-[#1F2937] mb-4 -mt-8 relative z-20">
           Forbidden Access
         </h2>
 
-        <div className="w-16 h-1 bg-[#D4C5A8] mx-auto rounded-full mb-6"></div>
+        <div className="w-16 h-1 bg-[#2F8F3A] mx-auto rounded-full mb-6"></div>
 
-        <p className="text-gray-500 text-lg leading-relaxed mb-10">
+        <p className="text-[#6B7280] text-lg leading-relaxed mb-10">
           This chapter of the archive is sealed. You do not have the necessary
           clearance or credentials to view this wisdom.
         </p>
@@ -37,7 +37,7 @@ const Forbidden = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
             onClick={() => navigate(-1)}
-            className="flex-1 px-6 py-4 rounded-xl border-2 border-[#1A2F23]/10 text-[#1A2F23] font-bold hover:bg-[#F3F5F0] hover:border-[#1A2F23]/30 transition-all flex items-center justify-center gap-2 group"
+            className="flex-1 px-6 py-4 rounded-xl border-2 border-[#E5ECE2] text-[#1F2937] font-bold hover:bg-[#F8FAF6] hover:border-[#2F8F3A]/30 transition-all flex items-center justify-center gap-2 group"
           >
             <ArrowLeft
               size={18}
@@ -48,7 +48,7 @@ const Forbidden = () => {
 
           <Link
             to="/dashboard"
-            className="flex-1 px-6 py-4 rounded-xl bg-[#1A2F23] text-white font-bold hover:bg-[#4F6F52] shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all flex items-center justify-center gap-2"
+            className="flex-1 px-6 py-4 rounded-xl bg-gradient-to-r from-[#2F8F3A] to-[#1F4D2B] text-white font-bold hover:from-[#1F4D2B] hover:to-[#2F8F3A] shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all flex items-center justify-center gap-2"
           >
             <Home size={18} />
             Dashboard
@@ -86,7 +86,7 @@ const Forbidden = () => {
           background: radial-gradient(
             circle,
             transparent 60%,
-            rgba(26, 47, 35, 0.05) 100%
+            rgba(47, 79, 62, 0.05) 100%
           );
         }
       `}</style>

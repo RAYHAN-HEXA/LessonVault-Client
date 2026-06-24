@@ -33,7 +33,7 @@ const SocialLogin = () => {
     <button
       onClick={handleGoogleLogin}
       type="button"
-      className="w-full cursor-pointer mt-3 flex items-center justify-center gap-2 bg-white border border-gray-300 text-gray-700 py-3.5 rounded-full shadow-sm hover:shadow-md transition-all"
+      className="w-full cursor-pointer mt-3 flex items-center justify-center gap-2 bg-white border border-[#E5ECE2] text-[#6B7280] py-3.5 rounded-full shadow-sm hover:shadow-md transition-all"
     >
       <FcGoogle />
       Continue with Google

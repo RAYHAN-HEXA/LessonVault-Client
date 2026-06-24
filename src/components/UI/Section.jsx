@@ -12,10 +12,10 @@ export const Section = ({
   padding = "lg",
 }) => {
   const bgVariants = {
-    light: "bg-white dark:bg-slate-800",
-    gray: "bg-gray-50 dark:bg-slate-900",
-    primary: "bg-blue-50 dark:bg-blue-900/10",
-    secondary: "bg-purple-50 dark:bg-purple-900/10",
+    light: "bg-white",
+    gray: "bg-[#F8FAF6]",
+    primary: "bg-[#EEF6EF]",
+    secondary: "bg-[#EEF6EF]",
   };
 
   const paddingClass = {
@@ -49,17 +49,17 @@ export const SectionHeader = ({
   return (
     <div className={`${center ? "text-center" : ""} mb-12 ${className}`}>
       {subtitle && (
-        <p className="text-blue-600 dark:text-blue-400 font-semibold uppercase tracking-widest mb-2">
+        <p className="text-[#2F8F3A] font-semibold uppercase tracking-widest mb-2">
           {subtitle}
         </p>
       )}
       {title && (
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
+        <h2 className="text-4xl md:text-5xl font-bold text-[#1F2937] mb-4 leading-tight">
           {title}
         </h2>
       )}
       {description && (
-        <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+        <p className="text-lg text-[#6B7280] max-w-2xl mx-auto">
           {description}
         </p>
       )}
@@ -123,7 +123,7 @@ export const Container = ({ children, size = "lg", className = "" }) => {
  * Divider Component
  */
 export const Divider = ({ className = "" }) => (
-  <div className={`h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent ${className}`} />
+  <div className={`h-px bg-gradient-to-r from-transparent via-[#E5ECE2] to-transparent ${className}`} />
 );
 
 /**

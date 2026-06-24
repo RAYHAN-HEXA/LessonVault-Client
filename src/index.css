@@ -2,8 +2,31 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-body {
-  font-family: "PT Serif", serif;
+@theme {
+  --color-primary: #2F8F3A;
+  --color-primary-hover: #23722D;
+  --color-primary-light: #6E9277;
+  --color-sage: #6E9277;
+  --color-sage-light: #C9D8C5;
+  --color-forest: #1F4D2B;
+  --color-gold: #D9A441;
+  --color-bg-main: #FFFFFF;
+  --color-bg-section: #F8FAF6;
+  --color-bg-soft: #EEF6EF;
+  --color-bg-card: #FFFFFF;
+  --color-text-main: #1F2937;
+  --color-text-secondary: #6B7280;
+  --color-text-muted: #8A8F98;
+  --color-border: #E5ECE2;
+  --color-border-soft: #DDE8DA;
+  --color-error: #D9534F;
+}
+
+@layer base {
+  body {
+    @apply bg-[#FFFFFF] text-[#1F2937];
+    font-family: "Inter", sans-serif;
+  }
 }
 
 .custom-scrollbar {
@@ -16,19 +39,19 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #f3f5f0;
+  background: #F8FAF6;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #4f6f52;
+  background-color: #2F8F3A;
   border-radius: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: #1a2f23;
+  background-color: #23722D;
 }
 
 .custom-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: #4f6f52 #f3f5f0;
+  scrollbar-color: #2F8F3A #F8FAF6;
 }

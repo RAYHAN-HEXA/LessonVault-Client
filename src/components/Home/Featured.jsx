@@ -26,18 +26,18 @@ const Featured = () => {
   return (
     <div>
       <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-500/10 border border-slate-500/30">
-          <Sparkles size={16} className="text-slate-300" />
-          <span className="text-sm font-semibold uppercase tracking-wider text-slate-300">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#2F8F3A]/10 border border-[#2F8F3A]/30">
+          <Sparkles size={16} className="text-[#2F8F3A]" />
+          <span className="text-sm font-semibold uppercase tracking-wider text-[#2F8F3A]">
             Best Lessons
           </span>
         </div>
 
-        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white">
+        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-[#1F2937]">
           Featured Life Lessons
         </h2>
 
-        <p className="text-lg text-slate-400 max-w-xl mx-auto">
+        <p className="text-lg text-[#6B7280] max-w-xl mx-auto">
           A curated treasury of exceptional wisdom from our community
         </p>
       </div>
@@ -47,7 +47,7 @@ const Featured = () => {
         {loading ? (
           <div className="flex flex-col items-center justify-center py-20">
             <Loader />
-            <p className="mt-4 text-slate-400 font-serif italic">
+            <p className="mt-4 text-[#6B7280] font-serif italic">
               Retrieving archives...
             </p>
           </div>
@@ -80,13 +80,10 @@ const Featured = () => {
           </motion.div>
         ) : (
           <div className="text-center py-20">
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-slate-500/10 mb-6">
-              <Flame size={36} className="text-slate-400" />
-            </div>
-            <h3 className="text-2xl font-serif text-white mb-2">
-              The pages are blank.
-            </h3>
-            <p className="text-slate-400">Be the first to share your wisdom.</p>
+            <Flame size={48} className="text-[#2F8F3A] mx-auto mb-4" />
+            <p className="text-[#6B7280] font-serif italic">
+              No featured lessons yet. Be the first to share your wisdom!
+            </p>
           </div>
         )}
       </div>

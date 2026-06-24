@@ -118,7 +118,7 @@ const UserProfile = () => {
 
   if (loading)
     return (
-      <div className="w-full h-screen flex items-center justify-center bg-[#F3F5F0]">
+      <div className="w-full h-screen flex items-center justify-center bg-[#EEF6EF]">
         <div className="animate-pulse flex flex-col items-center">
           <div className="w-24 h-24 bg-gray-300 rounded-full mb-4"></div>
           <div className="h-6 w-48 bg-gray-300 rounded"></div>
@@ -132,9 +132,9 @@ const UserProfile = () => {
       style={{ backgroundColor: COLORS.light }}
     >
       {/* ---  HEADER BANNER --- */}
-      <div className="h-64 w-full relative overflow-hidden bg-[#1A2F23] rounded-3xl">
+      <div className="h-64 w-full relative overflow-hidden bg-[#1F4D2B] rounded-3xl">
         <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')]"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#4F6F52] rounded-full blur-[150px] opacity-30"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#6E9277] rounded-full blur-[150px] opacity-30"></div>
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 -mt-32">
@@ -148,9 +148,9 @@ const UserProfile = () => {
                   isEditing ? editFormData.photoURL : UserProfileData?.photoURL
                 }
                 alt="UserProfile"
-                className="w-full h-full rounded-full object-cover border border-gray-200"
+                className="w-full h-full rounded-full object-cover border border-[#E5ECE2]"
                 onError={(e) => {
-                  e.target.src = "https://i.pravatar.cc/150?u=default";
+                  e.target.src = "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face";
                 }}
               />
             </div>
@@ -158,7 +158,7 @@ const UserProfile = () => {
             {/* Premium Badge Indicator */}
             {isPremium && (
               <div
-                className="absolute bottom-2 right-2 z-20 bg-[#1A2F23] text-[#D4C5A8] p-2 rounded-full border-4 border-white shadow-lg"
+                className="absolute bottom-2 right-2 z-20 bg-[#1F4D2B] text-[#C9D8C5] p-2 rounded-full border-4 border-white shadow-lg"
                 title="Premium Scholar"
               >
                 <Crown size={20} fill="currentColor" />
@@ -177,7 +177,7 @@ const UserProfile = () => {
             {/*  Name & Edit Button */}
             <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-4 mb-6">
               <div className="space-y-2 w-full">
-                <label className="text-xs font-bold text-[#D4C5A8] uppercase tracking-widest block">
+                <label className="text-xs font-bold text-[#C9D8C5] uppercase tracking-widest block">
                   The Author
                 </label>
 
@@ -187,17 +187,17 @@ const UserProfile = () => {
                     name="displayName"
                     value={editFormData.displayName}
                     onChange={handleInputChange}
-                    className="text-3xl md:text-4xl font-serif font-bold text-[#1A2F23] bg-[#F3F5F0] border-b-2 border-[#4F6F52] outline-none w-full max-w-md px-2 py-1 rounded-t-lg"
+                    className="text-3xl md:text-4xl font-serif font-bold text-[#1F4D2B] bg-[#EEF6EF] border-b-2 border-[#6E9277] outline-none w-full max-w-md px-2 py-1 rounded-t-lg"
                     placeholder="Your Name"
                   />
                 ) : (
-                  <h1 className="text-3xl md:text-4xl font-serif font-bold text-[#1A2F23]">
+                  <h1 className="text-3xl md:text-4xl font-serif font-bold text-[#1F4D2B]">
                     {UserProfileData?.displayName}
                   </h1>
                 )}
 
                 {/* Email  */}
-                <div className="flex items-center justify-center md:justify-start gap-2 text-gray-400 text-sm">
+                <div className="flex items-center justify-center md:justify-start gap-2 text-[#8A8F98] text-sm">
                   <Mail size={14} />
                   <span>{UserProfileData?.email}</span>
                   <Lock
@@ -209,7 +209,7 @@ const UserProfile = () => {
 
                 {isEditing && (
                   <div className="mt-4">
-                    <label className="text-xs font-bold text-gray-400 uppercase block mb-1">
+                    <label className="text-xs font-bold text-[#8A8F98] uppercase block mb-1">
                       Photo URL
                     </label>
                     <input
@@ -217,7 +217,7 @@ const UserProfile = () => {
                       name="photoURL"
                       value={editFormData.photoURL}
                       onChange={handleInputChange}
-                      className="w-full text-sm bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 outline-none focus:border-[#4F6F52]"
+                      className="w-full text-sm bg-[#F8FAF6] border border-[#E5ECE2] rounded-lg px-3 py-2 outline-none focus:border-[#6E9277]"
                       placeholder="https://..."
                     />
                   </div>
@@ -236,7 +236,7 @@ const UserProfile = () => {
                     </button>
                     <button
                       onClick={handleSaveUserProfile}
-                      className="p-3 rounded-full bg-[#1A2F23] text-[#D4C5A8] hover:bg-[#4F6F52] transition-colors shadow-lg"
+                      className="p-3 rounded-full bg-[#1F4D2B] text-[#C9D8C5] hover:bg-[#6E9277] transition-colors shadow-lg"
                     >
                       <Check size={20} />
                     </button>
@@ -244,7 +244,7 @@ const UserProfile = () => {
                 ) : (
                   <button
                     onClick={handleEditToggle}
-                    className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-200 text-gray-500 hover:text-[#1A2F23] hover:border-[#1A2F23] transition-all text-sm font-bold cursor-pointer"
+                    className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#E5ECE2] text-[#6B7280] hover:text-[#1F4D2B] hover:border-[#1F4D2B] transition-all text-sm font-bold cursor-pointer"
                   >
                     <Edit3 size={16} /> Edit Profile
                   </button>
@@ -253,32 +253,32 @@ const UserProfile = () => {
             </div>
 
             {/* Stats Row */}
-            <div className="flex items-center justify-center md:justify-start gap-8 border-t border-gray-100 pt-6 mt-2">
+            <div className="flex items-center justify-center md:justify-start gap-8 border-t border-[#E5ECE2] pt-6 mt-2">
               <div className="text-center md:text-left">
-                <p className="text-2xl font-serif font-bold text-[#1A2F23]">
+                <p className="text-2xl font-serif font-bold text-[#1F4D2B]">
                   {stats.created}
                 </p>
-                <p className="text-xs font-bold uppercase tracking-wider text-gray-400">
+                <p className="text-xs font-bold uppercase tracking-wider text-[#8A8F98]">
                   Lessons Created
                 </p>
               </div>
-              <div className="w-px h-10 bg-gray-200"></div>
+              <div className="w-px h-10 bg-[#E5ECE2]"></div>
               <div className="text-center md:text-left">
-                <p className="text-2xl font-serif font-bold text-[#1A2F23]">
+                <p className="text-2xl font-serif font-bold text-[#1F4D2B]">
                   {stats.saved}
                 </p>
-                <p className="text-xs font-bold uppercase tracking-wider text-gray-400">
+                <p className="text-xs font-bold uppercase tracking-wider text-[#8A8F98]">
                   Wisdom Saved
                 </p>
               </div>
               {isPremium && (
                 <>
-                  <div className="w-px h-10 bg-gray-200"></div>
+                  <div className="w-px h-10 bg-[#E5ECE2]"></div>
                   <div className="text-center md:text-left">
-                    <p className="text-2xl font-serif font-bold text-[#D4C5A8] flex items-center gap-1 justify-center md:justify-start">
+                    <p className="text-2xl font-serif font-bold text-[#C9D8C5] flex items-center gap-1 justify-center md:justify-start">
                       <Crown size={24} fill="currentColor" />
                     </p>
-                    <p className="text-xs font-bold uppercase tracking-wider text-[#D4C5A8]">
+                    <p className="text-xs font-bold uppercase tracking-wider text-[#C9D8C5]">
                       Premium Member
                     </p>
                   </div>
@@ -290,10 +290,10 @@ const UserProfile = () => {
 
         <div className="mt-20">
           <div className="flex items-center gap-3 mb-8">
-            <div className="p-2 bg-[#1A2F23] rounded-lg text-white">
+            <div className="p-2 bg-[#1F4D2B] rounded-lg text-white">
               <Feather size={20} />
             </div>
-            <h2 className="text-2xl md:text-3xl font-serif font-bold text-[#1A2F23]">
+            <h2 className="text-2xl md:text-3xl font-serif font-bold text-[#1F4D2B]">
               Published Works
             </h2>
           </div>
@@ -312,9 +312,9 @@ const UserProfile = () => {
               ))}
             </div>
           ) : (
-            <div className="w-full py-16 bg-white/50 border border-dashed border-gray-300 rounded-[2rem] flex flex-col items-center justify-center text-center">
-              <BookOpen size={40} className="text-gray-300 mb-4" />
-              <p className="text-gray-500 font-medium">
+            <div className="w-full py-16 bg-white/50 border border-dashed border-[#C9D8C5] rounded-[2rem] flex flex-col items-center justify-center text-center">
+              <BookOpen size={40} className="text-[#C9D8C5] mb-4" />
+              <p className="text-[#6B7280] font-medium">
                 No lessons published yet.
               </p>
             </div>

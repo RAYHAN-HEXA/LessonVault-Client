@@ -5,7 +5,7 @@ import Loader from "../../components/Shared/Loader";
 import Forbidden from "../../components/Shared/Forbidden";
 
 const AdminRoute = ({ children }) => {
-  const { user, loading } = useAuth();
+  const { loading } = useAuth();
   const role = useRole();
   if (loading) {
     return <Loader />;

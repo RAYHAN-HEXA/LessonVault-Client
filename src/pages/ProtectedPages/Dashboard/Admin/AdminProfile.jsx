@@ -100,8 +100,8 @@ const AdminProfile = () => {
     return (
       <div className="w-full h-[80vh] flex items-center justify-center">
         <div className="flex flex-col items-center gap-4 animate-pulse">
-          <div className="w-24 h-24 bg-gray-200 rounded-full"></div>
-          <div className="h-4 w-32 bg-gray-200 rounded"></div>
+          <div className="w-24 h-24 bg-[#E5ECE2] rounded-full"></div>
+          <div className="h-4 w-32 bg-[#E5ECE2] rounded"></div>
         </div>
       </div>
     );
@@ -109,15 +109,15 @@ const AdminProfile = () => {
   return (
     <div className="min-h-screen w-full font-sans pb-20 relative">
       {/* --- 1. HEADER BANNER --- */}
-      <div className="h-64 w-full relative overflow-hidden bg-[#1A2F23]">
+      <div className="h-64 w-full relative overflow-hidden bg-[#1F4D2B]">
         <div
           className="absolute inset-0 opacity-10"
           style={{
-            backgroundImage: "radial-gradient(#4F6F52 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(#6E9277 1px, transparent 1px)",
             backgroundSize: "20px 20px",
           }}
         ></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#4F6F52] rounded-full blur-[120px] opacity-20 translate-y-1/2 translate-x-1/4"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#6E9277] rounded-full blur-[120px] opacity-20 translate-y-1/2 translate-x-1/4"></div>
       </div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 -mt-32">
@@ -129,16 +129,16 @@ const AdminProfile = () => {
               <img
                 src={isEditing ? editFormData.photoURL : profileData?.photoURL}
                 alt="Admin"
-                className="w-full h-full rounded-full object-cover border-2 border-[#1A2F23]/10"
+                className="w-full h-full rounded-full object-cover border-2 border-[#1F4D2B]/10"
                 onError={(e) => {
-                  e.target.src = "https://i.pravatar.cc/150?u=admin";
+                  e.target.src = "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face";
                 }}
               />
             </div>
 
             {/* Admin Badge */}
             <div
-              className="absolute bottom-2 right-2 z-20 bg-[#1A2F23] text-[#D4C5A8] p-2.5 rounded-full border-4 border-white shadow-lg"
+              className="absolute bottom-2 right-2 z-20 bg-[#1F4D2B] text-[#C9D8C5] p-2.5 rounded-full border-4 border-white shadow-lg"
               title="Administrator"
             >
               <ShieldCheck size={20} fill="currentColor" />
@@ -156,14 +156,14 @@ const AdminProfile = () => {
           <div className="flex-1 w-full">
             <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-4 mb-8">
               <div className="space-y-3 w-full text-center md:text-left">
-                <span className="inline-block px-3 py-1 rounded-full bg-[#1A2F23]/10 text-[#1A2F23] text-[10px] font-bold uppercase tracking-widest">
+                <span className="inline-block px-3 py-1 rounded-full bg-[#1F4D2B]/10 text-[#1F4D2B] text-[10px] font-bold uppercase tracking-widest">
                   System Administrator
                 </span>
 
                 {isEditing ? (
                   <div className="space-y-4 max-w-md mx-auto md:mx-0">
                     <div>
-                      <label className="text-xs font-bold text-gray-400 uppercase block mb-1">
+                      <label className="text-xs font-bold text-[#8A8F98] uppercase block mb-1">
                         Display Name
                       </label>
                       <input
@@ -171,12 +171,12 @@ const AdminProfile = () => {
                         name="displayName"
                         value={editFormData.displayName}
                         onChange={handleInputChange}
-                        className="text-2xl md:text-3xl font-serif font-bold text-[#1A2F23] bg-[#F3F5F0] border-b-2 border-[#4F6F52] outline-none w-full px-3 py-2 rounded-t-lg transition-colors focus:bg-white"
+                        className="text-2xl md:text-3xl font-serif font-bold text-[#1F4D2B] bg-[#EEF6EF] border-b-2 border-[#6E9277] outline-none w-full px-3 py-2 rounded-t-lg transition-colors focus:bg-white"
                         placeholder="Admin Name"
                       />
                     </div>
                     <div>
-                      <label className="text-xs font-bold text-gray-400 uppercase block mb-1">
+                      <label className="text-xs font-bold text-[#8A8F98] uppercase block mb-1">
                         Avatar URL
                       </label>
                       <input
@@ -184,19 +184,19 @@ const AdminProfile = () => {
                         name="photoURL"
                         value={editFormData.photoURL}
                         onChange={handleInputChange}
-                        className="w-full text-sm bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 outline-none focus:border-[#4F6F52] font-mono text-gray-600"
+                        className="w-full text-sm bg-[#F8FAF6] border border-[#E5ECE2] rounded-lg px-3 py-2 outline-none focus:border-[#6E9277] font-mono text-[#6B7280]"
                         placeholder="https://..."
                       />
                     </div>
                   </div>
                 ) : (
-                  <h1 className="text-3xl md:text-4xl font-serif font-bold text-[#1A2F23]">
+                  <h1 className="text-3xl md:text-4xl font-serif font-bold text-[#1F4D2B]">
                     {profileData?.displayName}
                   </h1>
                 )}
 
                 {/* Email (Read Only) */}
-                <div className="flex items-center justify-center md:justify-start gap-2 text-gray-500 font-medium">
+                <div className="flex items-center justify-center md:justify-start gap-2 text-[#6B7280] font-medium">
                   <Mail size={16} />
                   <span>{profileData?.email}</span>
                   <Lock
@@ -213,14 +213,14 @@ const AdminProfile = () => {
                   <div className="flex gap-3">
                     <button
                       onClick={handleEditToggle}
-                      className="p-3 rounded-xl bg-gray-100 text-gray-500 hover:bg-red-50 hover:text-red-500 transition-colors"
+                      className="p-3 rounded-xl bg-[#EEF6EF] text-[#6B7280] hover:bg-red-50 hover:text-red-500 transition-colors"
                       title="Cancel"
                     >
                       <X size={20} />
                     </button>
                     <button
                       onClick={handleSaveProfile}
-                      className="p-3 rounded-xl bg-[#1A2F23] text-[#D4C5A8] hover:bg-[#4F6F52] transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+                      className="p-3 rounded-xl bg-[#1F4D2B] text-[#C9D8C5] hover:bg-[#6E9277] transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5"
                       title="Save Changes"
                     >
                       <Check size={20} />
@@ -229,7 +229,7 @@ const AdminProfile = () => {
                 ) : (
                   <button
                     onClick={handleEditToggle}
-                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-gray-200 text-gray-600 hover:text-[#1A2F23] hover:border-[#1A2F23] hover:bg-gray-50 transition-all text-sm font-bold shadow-sm"
+                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-[#E5ECE2] text-[#6B7280] hover:text-[#1F4D2B] hover:border-[#1F4D2B] hover:bg-[#F8FAF6] transition-all text-sm font-bold shadow-sm"
                   >
                     <Edit3 size={16} /> Edit Profile
                   </button>
@@ -238,29 +238,29 @@ const AdminProfile = () => {
             </div>
 
             {/* Admin Metadata Grid */}
-            <div className="grid grid-cols-2 gap-4 mt-8 pt-8 border-t border-gray-100">
-              <div className="p-4 bg-[#F9FAF8] rounded-2xl border border-gray-100 flex items-center gap-4">
-                <div className="p-2 bg-white rounded-lg text-[#4F6F52] shadow-sm">
+            <div className="grid grid-cols-2 gap-4 mt-8 pt-8 border-t border-[#E5ECE2]">
+              <div className="p-4 bg-[#F8FAF6] rounded-2xl border border-[#E5ECE2] flex items-center gap-4">
+                <div className="p-2 bg-white rounded-lg text-[#6E9277] shadow-sm">
                   <Server size={20} />
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400">
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-[#8A8F98]">
                     Role
                   </p>
-                  <p className="font-serif font-bold text-[#1A2F23]">
+                  <p className="font-serif font-bold text-[#1F4D2B]">
                     Administrator
                   </p>
                 </div>
               </div>
-              <div className="p-4 bg-[#F9FAF8] rounded-2xl border border-gray-100 flex items-center gap-4">
-                <div className="p-2 bg-white rounded-lg text-[#4F6F52] shadow-sm">
+              <div className="p-4 bg-[#F8FAF6] rounded-2xl border border-[#E5ECE2] flex items-center gap-4">
+                <div className="p-2 bg-white rounded-lg text-[#6E9277] shadow-sm">
                   <Database size={20} />
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400">
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-[#8A8F98]">
                     Database ID
                   </p>
-                  <p className="font-mono text-xs font-bold text-[#1A2F23] truncate max-w-[100px] sm:max-w-full">
+                  <p className="font-mono text-xs font-bold text-[#1F4D2B] truncate max-w-[100px] sm:max-w-full">
                     {profileData?._id}
                   </p>
                 </div>
@@ -274,11 +274,11 @@ const AdminProfile = () => {
           className="mt-12 text-center animate-fade-in-up"
           style={{ animationDelay: "0.1s" }}
         >
-          <div className="inline-flex flex-col items-center gap-2 text-gray-400">
+          <div className="inline-flex flex-col items-center gap-2 text-[#8A8F98]">
             <Feather size={24} className="opacity-50" />
             <p className="text-sm max-w-md mx-auto">
               "With great power comes great responsibility." <br />
-              As an admin, ensure the integrity of the Book of Wisdom.
+              As an admin, ensure the integrity of the Lessonly.
             </p>
             <div className="flex items-center gap-2 text-xs font-mono mt-2 opacity-60">
               <Calendar size={12} />

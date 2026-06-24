@@ -13,11 +13,10 @@ import CTASection from "../components/Home/CTASection";
 
 const Home = () => {
   return (
-    <div className="bg-slate-950 min-h-screen">
+    <div className="bg-white min-h-screen">
       <Hero />
       <StatsSection />
       <div className="relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/30 to-slate-950"></div>
         <div className="relative z-10">
           <Featured />
           <LearningFromLifeSection />
