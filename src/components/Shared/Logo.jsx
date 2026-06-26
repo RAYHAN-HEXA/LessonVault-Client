@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router";
 import { BookOpen } from "lucide-react";
 
-const Logo = ({ className = "" }) => {
+const Logo = ({ className = "", showSubtitle = true }) => {
   return (
     <Link to="/" className={`flex items-center gap-2.5 cursor-pointer group ${className}`}>
       <div className="relative flex items-center gap-2.5">
@@ -18,9 +18,11 @@ const Logo = ({ className = "" }) => {
           <span className="text-2xl font-bold tracking-tight bg-gradient-to-r from-[#1F4D2B] via-[#2F8F3A] to-[#6E9277] bg-clip-text text-transparent">
             Lessonly
           </span>
-          <span className="text-[10px] font-medium text-[#6E9277]/70 tracking-[0.2em] uppercase -mt-1">
-            Life Lessons
-          </span>
+          {showSubtitle && (
+            <span className="text-[10px] font-medium text-[#6E9277]/70 tracking-[0.2em] uppercase -mt-1">
+              Life Lessons
+            </span>
+          )}
         </div>
       </div>
     </Link>
