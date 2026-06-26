@@ -68,9 +68,6 @@ const Footer = () => {
           <div className="col-span-2 md:col-span-2 space-y-4 pr-8">
             <div className="flex items-center gap-3">
               <Logo />
-              <span className="text-xl font-semibold text-[#1F2937]">
-                Lessonly
-              </span>
             </div>
 
             <p className="text-[#6B7280] text-sm max-w-sm font-light leading-relaxed">
