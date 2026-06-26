@@ -28,7 +28,7 @@ const Blog = () => {
       author: "Nadia Karim",
       date: "Mar 28, 2025",
       category: "education",
-      image: "https://images.unsplash.com/photo-1515879218367-8466d910auj2?w=600&h=400&fit=crop",
+      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop",
       readTime: "8 min read",
     },
     {
