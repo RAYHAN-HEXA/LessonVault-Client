@@ -145,10 +145,7 @@ const DashboardLayout = ({ children }) => {
       >
         <div className="flex flex-col items-center justify-center py-8 mb-8 border-b border-[#E5ECE2]">
           <Logo />
-          <h1 className="text-lg font-semibold text-[#1F2937] tracking-tight mt-2">
-            Lessonly
-          </h1>
-          <p className="text-[10px] text-[#2F8F3A] uppercase tracking-[0.2em] font-bold mt-1">
+          <p className="text-[10px] text-[#2F8F3A] uppercase tracking-[0.2em] font-bold mt-2">
             {role === "admin"
               ? "Admin Dashboard"
               : role === "user"
@@ -181,9 +178,7 @@ const DashboardLayout = ({ children }) => {
 
       <div className="lg:hidden fixed top-0 w-full z-40 bg-white text-[#1F2937] p-4 flex items-center justify-between shadow-sm border-b border-[#E5ECE2]">
         <div className="flex items-center gap-2">
-          <Logo className="text-[#1F2937]" />
-
-          <span className="font-semibold text-[#1F2937]">Lessonly</span>
+          <Logo showSubtitle={false} />
         </div>
         <button onClick={() => setIsMobileOpen(!isMobileOpen)} className="p-2 text-[#1F2937]">
           {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
