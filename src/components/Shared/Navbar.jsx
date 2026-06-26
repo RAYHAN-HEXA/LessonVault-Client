@@ -12,6 +12,7 @@ import {
   Lock,
 } from "lucide-react";
 import { NavLink, Link } from "react-router";
+import Logo from "./Logo";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
@@ -252,9 +253,7 @@ const Navbar = () => {
       <div className="max-w-[1440px] mx-auto px-6 lg:px-0">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="text-xl font-semibold text-[#1F2937] hidden sm:block">
-              Lessonly
-            </span>
+            <Logo />
           </div>
 
           {/* Desktop Links */}
