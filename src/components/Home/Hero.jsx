@@ -163,7 +163,12 @@ const Hero = () => {
                           <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                         </span>
                       </Link>
-                      <button className="px-6 py-4 rounded-full border border-[#E5ECE2] text-[#1F2937] font-medium hover:bg-[#F8FAF6] transition-all hover:border-[#2F8F3A]">
+                      <button
+                        onClick={() => {
+                          document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' });
+                        }}
+                        className="px-6 py-4 rounded-full border border-[#E5ECE2] text-[#1F2937] font-medium hover:bg-[#F8FAF6] transition-all hover:border-[#2F8F3A]"
+                      >
                         How it works
                       </button>
                     </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import Hero from "../components/Home/Hero";
+import HowItWorksSection from "../components/Home/HowItWorksSection";
 import LearningFromLifeSection from "../components/Home/LearningFromLifeSection";
 import Featured from "../components/Home/Featured";
 import TopContributors from "../components/Home/TopContributors";
@@ -15,6 +16,7 @@ const Home = () => {
   return (
     <div className="bg-white min-h-screen">
       <Hero />
+      <HowItWorksSection />
       <StatsSection />
       <div className="relative">
         <div className="relative z-10">
